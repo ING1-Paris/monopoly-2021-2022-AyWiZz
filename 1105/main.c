@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+// ici ca bz
+
 int remplitTab(char tab[10])
 {
     printf("Veuillez entrer 10 caractères \n");
