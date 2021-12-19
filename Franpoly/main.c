@@ -2,7 +2,9 @@
 #include <stdlib.h>
 
 #include <windows.h>
-//////////////////// CETTE FONCTION VIENT DE LA SECTION PROJET INFORMATIQUE///////////////////////
+
+#define tailleCarre 6
+
 void gotoligcol( int lig, int col )
 {
 
@@ -18,13 +20,6 @@ void gotoligcol( int lig, int col )
 
 }
 
-void Color(int couleurDuTexte,int couleurDeFond) // fonction d'affichage de couleurs
-{
-    HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
-}
-///////////////////////////////////////////////////////////////////////////////
-///////////// CES FONCTIONS VIENNENT DU TUTORAT////////////////////////////////
 void setConsoleSize(short width, short height)
 {
     HANDLE hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -33,6 +28,12 @@ void setConsoleSize(short width, short height)
 
     SetConsoleScreenBufferSize(hStdout, coord);
     SetConsoleWindowInfo(hStdout, 1, &rect);
+}
+
+void Color(int couleurDuTexte,int couleurDeFond) // fonction d'affichage de couleurs
+{
+    HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
 }
 
 void setConsoleFullscreen()
@@ -44,164 +45,247 @@ void setConsoleFullscreen()
     SetConsoleScreenBufferSize(hStdout, maxi);
     SetConsoleWindowInfo(hStdout, 1, &rect);
 }
-////////////////////////////////////////////////////////////////////////////
-int main()
+
+void creationPlateau()
 {
-    Color(9,0);
-    setConsoleFullscreen();
+    /////////////////// Initialisation des variables //////////////////////
     int i = 0;
     int j = 0;
-    int k = 1;
-    int l = 1;
-    int m = 1;
-    int n = 5;
-    int o = 1;
-    int p;
-    int q = 1;
-    int r = 5;
-    int s = 42;
-    int t;
-    //////////////////////TRACE LA LIGNE HORIZONTAL EN HAUT//////////////////////
-    gotoligcol(0,55);
-    for(i = 0; i<93; i++)
-    {
-        printf("%c",0xC4);
-    }
-    ///////////////////////////////////////////////////////////////////////////
-    //////////////////////// L'ANGLE EN HAUT A GAUCHE/////////////////////
-    gotoligcol(0,55);
+    int k = 0; //compteur des petites lignes horizontales à gauches (place)
+    int l = 0;
+    int m = 2;
+    int n = 37;
+    int p = 9;
+    int q = 9;
+    int r = 51;
+    int s = 37;
+    int t = 15;
+    int u = 15;
+    Color(9, 0);
+    ///////////////////////////////////////////////////////////////////////
+    ////////////////////// 1ère Ligne Horizontale /////////////////////////
+    gotoligcol(1,15);
     printf("%c", 0xDA);
-    //////////////////////////////////////////////////////////////////////////
-    //////////////////////// LA LIGNE VERTICALE A GAUCHE/////////////////
-    gotoligcol(1,55);
-    for(j = 0; j<45; j++)
+    for(i = 0; i < tailleCarre; i++)
     {
-        printf("%c\n",0xB3);
-        gotoligcol(k,55);
-        k += 1;
-
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+        printf("%c", 0xC2);
     }
-    ////////////////////////////////////////////////////////////////////////
-    ///////////////////////ANGLE EN BAS A GAUCHE/////////////////////
-    gotoligcol(54,55);
-    printf("%c", 0XC0);
-    //////////////////////////////////////////////////////////////////////
-    /////////////////////////// LIGNE HORIZONTALE DU BAS//////////////////
-    for(i = 0; i<92; i++)
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c", 0xBF);
+    /////////////////////////////////////////////////////////////////////
+
+    /////////////////////// 1ère Ligne Verticale ///////////////////////
+    for(j = 0; j <7; j++)
     {
-        printf("%c",0xC4);
+        for(i = 0; i < tailleCarre; i++)
+        {
+            gotoligcol((2+k),15);
+            printf("%c", 0xB3);
+            k = k+1;
+        }
+        gotoligcol((2+k),15);
+        printf("%c", 0xC3);
+        k = k + 1;
+    }
+
+    for(i = 0; i < tailleCarre; i++)
+    {
+        gotoligcol((2+k),15);
+        printf("%c", 0xB3);
+        k = k+1;
+    }
+    gotoligcol((2+k),15);
+    printf("%c", 0xC0);
+    k = k + 1;
+
+    ///////////////////////////////////////////////////////////////////
+    ////////////////////////// Ligne verticale à Droite //////////////
+    for(j = 0; j <7; j++)
+    {
+        for(i = 0; i < tailleCarre; i++)
+        {
+            gotoligcol((2+l),169);
+            printf("%c", 0xB3);
+            l = l+1;
+        }
+        gotoligcol((2+l),169);
+        printf("%c", 0xB4);
+        l = l + 1;
+    }
+    for(i = 0; i < tailleCarre; i++)
+    {
+        gotoligcol((2+l),169);
+        printf("%c", 0xB3);
+        l = l+1;
+    }
+    gotoligcol((2+l),169);
+    printf("%c", 0xD9);
+    l = l + 1;
+    ///////////////////////////////////////////////////////////////////////
+    /////////////////////////// 2ème Ligne/////////////////////////////////
+
+    gotoligcol(8,16);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c", 0xC5);
+    for(i = 0; i < (tailleCarre-2); i++)
+    {
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+        printf("%c", 0xC1);
+    }
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c", 0xC5);
+
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c", 0xB4);
+//////////////////////////////////////////////////////////////////////////
+////////////////////// Barre du Bas //////////////////////////////////////
+    gotoligcol(57,16);
+    for(i = 0; i < tailleCarre; i++)
+    {
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+        printf("%c", 0xC1);
+    }
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+////////////////////// Jonction entre la première ligne et la deuxième////
+    gotoligcol(2,37);
+    for(i = 0; i < 7; i++){
+       for(j = 0; j < 6; j++){
+            printf("%c", 0xB3);
+            gotoligcol(m, n);
+            m += 1;
+        }
+        n += 22;
+        m = 2;
+    }
+/////////////////////////////////////////////////////////////////////////
+/////////////////////// On trace la grande barre intérieur gauche //////
+    //gotoligcol(9, 37);
+
+    for(j = 0; j <5; j++)
+    {
+        for(i = 0; i < tailleCarre; i++)
+        {
+            gotoligcol(p,37);
+            printf("%c", 0xB3);
+            p = p+1;
+        }
+        gotoligcol(p,37);
+        printf("%c", 0xB4);
+        p = p + 1;
+    }
+    for(i = 0; i < tailleCarre; i++)
+    {
+        gotoligcol(p,37);
+        printf("%c", 0xB3);
+        p = p+1;
+    }
+    gotoligcol(p,37);
+    printf("%c", 0xD9);
+    p = p + 1;
+////////////////////////////////////////////////////////////////////////
+/////////////////////// On trace la grande barre intérieur droite //////
+    //gotoligcol(9, 147);
+    for(j = 0; j <5; j++)
+    {
+        for(i = 0; i < tailleCarre; i++)
+        {
+            gotoligcol(q,147);
+            printf("%c", 0xB3);
+            q = q+1;
+        }
+        gotoligcol(q,147);
+        printf("%c", 0xC3);
+        q = q + 1;
+    }
+
+    for(i = 0; i < tailleCarre; i++)
+    {
+        gotoligcol(q,147);
+        printf("%c", 0xB3);
+        q = q+1;
+    }
+    gotoligcol(q,147);
+    printf("%c", 0xC0);
+    q = q + 1;
+////////////////////////////////////////////////////////////////////////
+//////////////////// On trace l'avant dernière ligne du plateau////////
+    gotoligcol(50, 16);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c", 0xC5);
+    for(i = 0; i < (tailleCarre-2); i++)
+    {
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+        printf("%c", 0xC2);
+    }
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c", 0xC5);
+
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    /////////////////////////////////////////////////////////////////////
+    ////////////////////// Jonction entre les deux dernières lignes//////
+    gotoligcol(51,37);
+    for(i = 0; i < 7; i++){
+       for(j = 0; j < 6; j++){
+            printf("%c", 0xB3);
+            gotoligcol(r, s);
+            r += 1;
+        }
+        s += 22;
+        r = 51;
     }
     /////////////////////////////////////////////////////////////////////
-    //////////////////////ANGLE EN BAS A DROITE/////////////////////////
-    gotoligcol(54, 148);
-    printf("%c", 0XD9);
-    ///////////////////////////////////////////////////////////////////
-    ////////////////////LIGNE VERTICALE A DROITE///////////////////////
-    gotoligcol(1, 148);
-    for(j = 0; j<45; j++)
-    {
-        printf("%c\n",0xB3);
-        gotoligcol(l,148);
-        l += 1;
-
-    }
-    ///////////////////////////////////////////////////////////////////
-    ////////////////////ANGLE EN HAUT A DROITE/////////////////////////
-    gotoligcol(0,148);
-    printf("%c", 0XBF);
-    //////////////////////////////////////////////////////////////////
-    ///////////////////LIGNE INTERIEUR GAUCHE/////////////////////////
-    gotoligcol(1,65);
-    for(j = 0; j<45; j++)
-    {
-        printf("%c\n",0xB3);
-        gotoligcol(m,65);
-        m += 1;
-
-    }
-    ////////////////////////////////////////////////////////////////
-    /////////////////////// CASES A GAUCHE//////////////////////////
-    for(i = 0; i < 8; i++)
-    {
-        for(j = 0; j<9; j++)
-        {
+    /////////////// On trace les minis barres horizontales à gauche ////
+    gotoligcol(15,16);
+    for(i = 0; i < 5; i++){
+        for(j = 0; j < 21; j++){
             printf("%c", 0xC4);
         }
-        printf("\n");
-        gotoligcol(n, 56);
-        n += 6;
+        t += 7;
+        gotoligcol(t, 16);
     }
-    //////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////
-    gotoligcol(5, 56);
-    for(i = 0; i<92; i++)
-    {
-        printf("%c",0xC4);
-    }
-    gotoligcol(41, 56);
-    for(i = 0; i<92; i++)
-    {
-        printf("%c",0xC4);
-    }
-    ////////////////////////////////////////////////////////////
-    ///////////////////AFFICHE LES CASES DU HAUT////////////////
-    gotoligcol(1, 77);
-    p = 77;
-    for(i = 0; i < 6; i++) //SI NOUS METTONS J = 7 CELA DEPASSE
-    {
-        for(j = 0; j < 5; j++)
-        {
-        printf("%c\n",0xB3);
-        gotoligcol(o,p);
-        o += 1;
-        }
-        p += 12;
-        gotoligcol(1, p);
-        o = 1;
-    }
-    ///////////////////////////////////////////////////////////
-    //////////////////LIGNE INTERIEUR DROITE //////////////////
-    gotoligcol(1,137);
-    for(j = 0; j<45; j++)
-    {
-        printf("%c\n",0xB3);
-        gotoligcol(q,137);
-        q += 1;
-
-    }
-    //////////////////////////////////////////////////////////
-    ////////////////////////CASES A DROITE////////////////////
-    for(i = 0; i < 8; i++)
-    {
-        for(j = 0; j<10; j++)
-        {
+    ///////////////////////////////////////////////////////////////////
+    ///////////// On trace les minis barres horizontales à droite /////
+    gotoligcol(15,148);
+    for(i = 0; i < 5; i++){
+        for(j = 0; j < 21; j++){
             printf("%c", 0xC4);
         }
-        printf("\n");
-        gotoligcol(r, 138);
-        r += 6;
-    }
-    /////////////////////////////////////////////////////////
-    /////////////////////CASES EN BAS////////////////////////
-    gotoligcol(42,77);
-    t = 77;
-    for(i = 0; i < 6; i++) //SI NOUS METTONS J = 7 CELA DEPASSE
-    {
-        for(j = 0; j < 4; j++)
-        {
-        printf("%c\n",0xB3);
-        gotoligcol(s,t);
-        s += 1;
-        }
-        t += 12;
-        gotoligcol(42, t);
-        s = 42;
+        u += 7;
+        gotoligcol(u, 148);
     }
 
+}
 
 
-
-
-
+int main()
+{
+    creationPlateau();
+    gotoligcol(57,0);//Pour décaler le message d'erreur
+    printf("\n");
     return 0;
 }
