@@ -1,6 +1,32 @@
 #ifndef HEADER_H_INCLUDED
 #define HEADER_H_INCLUDED
 #define tailleCarre 6
+#define taille 20
+#define nbJoueurs 3
+
+typedef struct Joueur
+{
+    char nom[taille];
+    int argent;
+    int position;
+    char terrain1[taille];
+    char terrain2[taille];
+    char terrain3[taille];
+    char terrain4[taille];
+    char terrain5[taille];
+}Joueur;
+Joueur j[6];
+
+void remplissageJoueurDebut(Joueur *j)
+{
+
+    for(int i=0; i<nbJoueurs; i++)
+    {
+        j[i].argent = 1500;
+        j[i].position = 0;
+    }
+}
+
 
 void gotoligcol( int lig, int col )
 {

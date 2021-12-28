@@ -5,7 +5,7 @@
 
 int main()
 {
-
+    setConsoleFullscreen();
     int curseur = 1;
     int sauvegarde = 0;
     curseur = positionCurseur();
@@ -17,8 +17,6 @@ int main()
     clearScreen();
     creationPlateau();
     gotoligcol(57,0);
-
-    creationPlateau();
     affichPion();
 
 
