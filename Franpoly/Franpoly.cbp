@@ -44,6 +44,9 @@
 		<Unit filename="menuDemarage.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="remplirJoueur.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

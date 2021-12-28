@@ -17,15 +17,6 @@ typedef struct Joueur
 }Joueur;
 Joueur j[6];
 
-void remplissageJoueurDebut(Joueur *j)
-{
-
-    for(int i=0; i<nbJoueurs; i++)
-    {
-        j[i].argent = 1500;
-        j[i].position = 0;
-    }
-}
 
 
 void gotoligcol( int lig, int col )
@@ -82,5 +73,6 @@ void creationPlateau();
 int positionCurseur();
 int checkPartie();
 void affichPion();
+void remplissageJoueurDebut(Joueur *j);
 
 #endif // HEADER_H_INCLUDED
