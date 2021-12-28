@@ -4,7 +4,6 @@
 #define taille 20
 
 int nbJoueurs;
-
 typedef struct Joueur
 {
     char nom[taille];
@@ -17,8 +16,6 @@ typedef struct Joueur
     char terrain5[taille];
 }Joueur;
 Joueur j[6];
-
-
 void remplissageJoueurDebut(Joueur *j)
 {
 

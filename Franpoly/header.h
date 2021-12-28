@@ -3,7 +3,6 @@
 #define tailleCarre 6
 #define taille 20
 #define nbJoueurs 3
-
 typedef struct Joueur
 {
     char nom[taille];
@@ -17,7 +16,9 @@ typedef struct Joueur
 }Joueur;
 Joueur j[6];
 
-
+typedef struct Chance{
+    char nom[100];
+}CarteChance;
 
 void gotoligcol( int lig, int col )
 {
@@ -74,5 +75,12 @@ int positionCurseur();
 int checkPartie();
 void affichPion();
 void remplissageJoueurDebut(Joueur *j);
+
+
+void creationCartesChance(CarteChance tabCartes[]);
+void creationContourCarte();
+void affichageCarteChance(int aleatoire, CarteChance tabCartes[]);
+int generationAleatoire();
+
 
 #endif // HEADER_H_INCLUDED
