@@ -1,8 +1,15 @@
-#define tailleCarre 6
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
-
+#define tailleCarre 7
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#define longd 191
+#define longda 169
+#define longdb 37
+#define dplusk 2+k
+#define six 6
 void creationPlateau()
 {
     /////////////////// Initialisation des variables //////////////////////
@@ -39,24 +46,24 @@ void creationPlateau()
     /////////////////////// 1ère Ligne Verticale ///////////////////////
     for(j = 0; j <7; j++)
     {
-        for(i = 0; i < tailleCarre; i++)
+        for(i = 0; i < six; i++)
         {
-            gotoligcol((2+k),15);
+            gotoligcol((dplusk),15);
             printf("%c", 0xB3);
             k = k+1;
         }
-        gotoligcol((2+k),15);
+        gotoligcol((dplusk),15);
         printf("%c", 0xC3);
         k = k + 1;
     }
 
-    for(i = 0; i < tailleCarre; i++)
+    for(i = 0; i < six; i++)
     {
-        gotoligcol((2+k),15);
+        gotoligcol((dplusk),15);
         printf("%c", 0xB3);
         k = k+1;
     }
-    gotoligcol((2+k),15);
+    gotoligcol((dplusk),15);
     printf("%c", 0xC0);
     k = k + 1;
 
@@ -64,23 +71,23 @@ void creationPlateau()
     ////////////////////////// Ligne verticale à Droite //////////////
     for(j = 0; j <7; j++)
     {
-        for(i = 0; i < tailleCarre; i++)
+        for(i = 0; i < six; i++)
         {
-            gotoligcol((2+l),169);
+            gotoligcol((2+l),longd);
             printf("%c", 0xB3);
             l = l+1;
         }
-        gotoligcol((2+l),169);
+        gotoligcol((2+l),longd);
         printf("%c", 0xB4);
         l = l + 1;
     }
-    for(i = 0; i < tailleCarre; i++)
+    for(i = 0; i < six; i++)
     {
-        gotoligcol((2+l),169);
+        gotoligcol((2+l),longd);
         printf("%c", 0xB3);
         l = l+1;
     }
-    gotoligcol((2+l),169);
+    gotoligcol((2+l),longd);
     printf("%c", 0xD9);
     l = l + 1;
     ///////////////////////////////////////////////////////////////////////
@@ -122,8 +129,10 @@ void creationPlateau()
     printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
 ////////////////////// Jonction entre la première ligne et la deuxième////
     gotoligcol(2,37);
-    for(i = 0; i < 7; i++){
-       for(j = 0; j < 6; j++){
+    for(i = 0; i < 7; i++)
+    {
+        for(j = 0; j < 6; j++)
+        {
             printf("%c", 0xB3);
             gotoligcol(m, n);
             m += 1;
@@ -137,50 +146,57 @@ void creationPlateau()
 
     for(j = 0; j <5; j++)
     {
-        for(i = 0; i < tailleCarre; i++)
+        for(i = 0; i < six; i++)
         {
-            gotoligcol(p,37);
+            gotoligcol(p,longdb);
             printf("%c", 0xB3);
             p = p+1;
         }
-        gotoligcol(p,37);
+        gotoligcol(p,longdb);
         printf("%c", 0xB4);
         p = p + 1;
     }
-    for(i = 0; i < tailleCarre; i++)
+    for(i = 0; i < six; i++)
     {
-        gotoligcol(p,37);
+        gotoligcol(p,longdb);
         printf("%c", 0xB3);
         p = p+1;
     }
-    gotoligcol(p,37);
+    gotoligcol(p,longdb);
     printf("%c", 0xD9);
     p = p + 1;
 ////////////////////////////////////////////////////////////////////////
 /////////////////////// On trace la grande barre intérieur droite //////
     //gotoligcol(9, 147);
-    for(j = 0; j <5; j++)
+    for(j = 0; j < 5; j++)
     {
-        for(i = 0; i < tailleCarre; i++)
+        for(i = 0; i < six; i++)
         {
-            gotoligcol(q,147);
+            gotoligcol(q,longda);
             printf("%c", 0xB3);
             q = q+1;
         }
-        gotoligcol(q,147);
+        gotoligcol(q,longda);
         printf("%c", 0xC3);
         q = q + 1;
     }
 
-    for(i = 0; i < tailleCarre; i++)
+    for(i = 0; i < six; i++)
     {
-        gotoligcol(q,147);
+        gotoligcol(q,longda);
         printf("%c", 0xB3);
         q = q+1;
     }
-    gotoligcol(q,147);
+    gotoligcol(q,longda);
     printf("%c", 0xC0);
     q = q + 1;
+/////////////////////////////// OBLIGE DE METTRE CA SINON BUG/////////////////
+    gotoligcol(7, longda);
+    printf("%c", 0XB3);
+
+    gotoligcol(56, longda);
+    printf("%c", 0XB3);
+////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 //////////////////// On trace l'avant dernière ligne du plateau////////
     gotoligcol(50, 16);
@@ -206,8 +222,10 @@ void creationPlateau()
     /////////////////////////////////////////////////////////////////////
     ////////////////////// Jonction entre les deux dernières lignes//////
     gotoligcol(51,37);
-    for(i = 0; i < 7; i++){
-       for(j = 0; j < 6; j++){
+    for(i = 0; i < 7; i++)
+    {
+        for(j = 0; j < 6; j++)
+        {
             printf("%c", 0xB3);
             gotoligcol(r, s);
             r += 1;
@@ -218,8 +236,10 @@ void creationPlateau()
     /////////////////////////////////////////////////////////////////////
     /////////////// On trace les minis barres horizontales à gauche ////
     gotoligcol(15,16);
-    for(i = 0; i < 5; i++){
-        for(j = 0; j < 21; j++){
+    for(i = 0; i < 5; i++)
+    {
+        for(j = 0; j < 21; j++)
+        {
             printf("%c", 0xC4);
         }
         t += 7;
@@ -227,13 +247,15 @@ void creationPlateau()
     }
     ///////////////////////////////////////////////////////////////////
     ///////////// On trace les minis barres horizontales à droite /////
-    gotoligcol(15,148);
-    for(i = 0; i < 5; i++){
-        for(j = 0; j < 21; j++){
+    gotoligcol(15,longda+1);
+    for(i = 0; i < 5; i++)
+    {
+        for(j = 0; j < 21; j++)
+        {
             printf("%c", 0xC4);
         }
         u += 7;
-        gotoligcol(u, 148);
+        gotoligcol(u, longda+1);
     }
 
 }
