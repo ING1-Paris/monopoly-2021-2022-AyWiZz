@@ -29,8 +29,8 @@ void des (int nbDe,int *pnbDe)
     }
 
     *pnbDe=nbDe;
-
 }
+
 
 void affichPion(){
     int nbDe = 0;

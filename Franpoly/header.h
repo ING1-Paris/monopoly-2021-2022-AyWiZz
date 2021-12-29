@@ -71,6 +71,8 @@ void clearScreen()
 
 void creationPlateau();
 
+void des (int nbDe,int *pnbDe);
+
 int positionCurseur();
 int checkPartie();
 void affichPion();
