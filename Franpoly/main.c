@@ -10,6 +10,7 @@ int main()
 
     int curseur = 1;
     int sauvegarde = 0;
+
     curseur = positionCurseur();
     if(curseur == 2)
     {
