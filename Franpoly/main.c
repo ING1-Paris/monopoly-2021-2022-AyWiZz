@@ -6,6 +6,7 @@
 int main()
 {
     setConsoleFullscreen();
+    int aleatoire = generationAleatoire();
 
     int curseur = 1;
     int sauvegarde = 0;
@@ -17,6 +18,13 @@ int main()
 
     clearScreen();
     creationPlateau();
+
+    gotoligcol(100, 50);
+    CarteChance tabCartes[16];
+    creationCartesChance(tabCartes);
+    creationContourCarte();
+    affichageCarteChance(aleatoire, tabCartes);
+
     gotoligcol(57,0);
     affichPion();
 

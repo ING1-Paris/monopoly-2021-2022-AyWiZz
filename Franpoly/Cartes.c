@@ -48,25 +48,31 @@ void creationCartesChance(CarteChance tabCartes[])
 
 void creationContourCarte()
 {
+    gotoligcol(39, 65);
+    printf("%c", 0xB3);
+
+    gotoligcol(39, 145);
+    printf("%c", 0xB3);
+
     int i = 0;
     int j = 0;
-    int k = 0;
-    int l = 0;
+    int k = 9;
+    int l = 9;
     int m = 24;
-    gotoligcol(1,65);
+    gotoligcol(10,65);
     for(i = 0; i < 80; i++)
     {
         printf("%c", 0xC4);
     }
-    gotoligcol(1,65);
+    gotoligcol(10,65);
     printf("%c", 0xDA);
-    gotoligcol(1,145);
+    gotoligcol(10,145);
     printf("%c", 0xBF);
-    gotoligcol(2,65);
+    gotoligcol(20,65);
 
     for(j = 0; j <4; j++)
     {
-        for(i = 0; i < tailleCarre; i++)
+        for(i = 0; i < 7; i++)
         {
             gotoligcol((2+k),65);
             printf("%c", 0xB3);
@@ -81,16 +87,16 @@ void creationContourCarte()
         m = m+1;
     }
 
-    gotoligcol(30, 65);
+    gotoligcol(40, 65);
     printf("%c", 0xC0);
     for(i = 0; i < 80; i++)
     {
         printf("%c", 0xC4);
     }
-    gotoligcol(30, 145);
+    gotoligcol(40, 145);
     printf("%c", 0xD9);
 
-    gotoligcol(1, 145);
+    gotoligcol(11, 145);
     for(j = 0; j < 4; j++)
     {
         for(i = 0; i < tailleCarre; i++)
@@ -118,19 +124,19 @@ void creationContourCarte()
 void affichageCarteChance(int aleatoire, CarteChance tabCartes[])
 {
     Color(9,0);
-    gotoligcol(2,100);
+    gotoligcol(12,100);
     printf("CARTE CHANCE");
     if(aleatoire == 6 || aleatoire == 7 || aleatoire == 8 || aleatoire == 9 || aleatoire == 10 || aleatoire == 11){
-        gotoligcol(14, 75);
+        gotoligcol(24, 75);
     }
     else if(aleatoire == 4 || aleatoire == 5  || aleatoire == 14 || aleatoire == 15){
-        gotoligcol(14, 95);
+        gotoligcol(24, 95);
     }
     else{
-        gotoligcol(14,85);
+        gotoligcol(24,85);
     }
     printf("%s", tabCartes[aleatoire]);
-    gotoligcol(29, 103);
+    gotoligcol(37, 103);
     printf("%d/16", aleatoire);
 }
 
