@@ -14,7 +14,7 @@ typedef struct Joueur
     char terrain3[taille];
     char terrain4[taille];
     char terrain5[taille];
-}Joueur;
+} Joueur;
 Joueur j[6];
 void remplissageJoueurDebut(Joueur *j)
 {

@@ -2,9 +2,10 @@
 #define tailleCarre 6
 #include <time.h>
 
-typedef struct Chance{
+typedef struct Chance
+{
     char nom[100];
-}CarteChance;
+} CarteChance;
 
 void creationCartesChance(CarteChance tabCartes[])
 {
@@ -126,13 +127,16 @@ void affichageCarteChance(int aleatoire, CarteChance tabCartes[])
     Color(9,0);
     gotoligcol(12,100);
     printf("CARTE CHANCE");
-    if(aleatoire == 6 || aleatoire == 7 || aleatoire == 8 || aleatoire == 9 || aleatoire == 10 || aleatoire == 11){
+    if(aleatoire == 6 || aleatoire == 7 || aleatoire == 8 || aleatoire == 9 || aleatoire == 10 || aleatoire == 11)
+    {
         gotoligcol(24, 75);
     }
-    else if(aleatoire == 4 || aleatoire == 5  || aleatoire == 14 || aleatoire == 15){
+    else if(aleatoire == 4 || aleatoire == 5  || aleatoire == 14 || aleatoire == 15)
+    {
         gotoligcol(24, 95);
     }
-    else{
+    else
+    {
         gotoligcol(24,85);
     }
     printf("%s", tabCartes[aleatoire]);
@@ -141,11 +145,87 @@ void affichageCarteChance(int aleatoire, CarteChance tabCartes[])
 }
 
 
+void creationCartesCommunautes(CarteChance tabCartes[])
+{
+
+    char com1[] = "Allez en prison sans passer par la case de départ.";
+    strcpy(tabCartes[16].nom, com1);
+
+    char com2[] = "Payer une amende de 30 euros ou tirer une carte chance.";
+    strcpy(tabCartes[17].nom, com2);
+
+    char com3[] = "Payer 40 euros par maison et 115 euros par hotel.";
+    strcpy(tabCartes[18].nom, com3);
+
+    char com4[] = "Rendez vous a ...";
+    strcpy(tabCartes[19].nom, com4);
+
+    char com5[] = "C'est votre anniversaire chaque joueur vous doit 10 euros.";
+    strcpy(tabCartes[20].nom, com5);
+
+    char com6[] = "Rendez vous a ...";
+    strcpy(tabCartes[21].nom, com6);
+
+    char com7[] = "Vous avez oublie de payer vos impots. Payez 100 euros.";
+    strcpy(tabCartes[22].nom, com7);
+
+    char com8[] = "Votre vaisseau est en maintenance, veuillez payer 300 euros.";
+    strcpy(tabCartes[23].nom, com8);
+
+    char com9[] = "Un signe de vie a ete decouvert sur Venus. Veuillez vous y rendre.";
+    strcpy(tabCartes[24].nom, com9);
+
+    char com10[] = "Veuillez vous rendre a la case depart.";
+    strcpy(tabCartes[25].nom, com10);
+
+    char com11[] = "Reculer de cinq cases.";
+    strcpy(tabCartes[26].nom, com11);
+
+    char com12[] = "Vous etes elu astronaute de l'annee. Vous recevez 50 euros.";
+    strcpy(tabCartes[27].nom, com12);
+
+    char com13[] = "Allez en prison sans passer par la case de départ";
+    strcpy(tabCartes[28].nom, com13);
+
+    char com14[] = "Vous avez ete capture. Payez 150 euros de rancon.";
+    strcpy(tabCartes[29].nom, com14);
+
+    char com15[] = "Sortie de Prison.";
+    strcpy(tabCartes[30].nom, com15);
+
+    char com16[] = "Vous donnez 30 euros a tout les joueurs.";
+    strcpy(tabCartes[31].nom, com16);
+
+}
+
+void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[])
+{
+    Color(9,0);
+    gotoligcol(12,100);
+    printf("CARTE COMMUNAUTES");
+    if(aleatoire == 21 || aleatoire == 25)
+    {
+        gotoligcol(24, 70);
+    }
+    else if(aleatoire == 31)
+    {
+        gotoligcol(24, 95);
+    }
+    else
+    {
+        gotoligcol(24,75);
+    }
+    printf("%s", tabCartes[aleatoire].nom);
+    gotoligcol(39, 103);
+    printf("%d/16", aleatoire);
+}
 
 
 
 
-int generationAleatoire(){
+
+int generationAleatoire()
+{
     srand(time(NULL));
     int aleatoire = 0;
     aleatoire = rand() % 16;

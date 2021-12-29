@@ -76,8 +76,11 @@ int checkPartie();
 void affichPion();
 void remplissageJoueurDebut(Joueur *j);
 
+void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[]);
 
 void creationCartesChance(CarteChance tabCartes[]);
+void creationCartesCommunautes(CarteChance tabCartes[]);
+
 void creationContourCarte();
 void affichageCarteChance(int aleatoire, CarteChance tabCartes[]);
 int generationAleatoire();
