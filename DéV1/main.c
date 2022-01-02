@@ -1,8 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
 #include <time.h>
 #include "header.h"
+#include <windows.h>
+
+void gotoligcol( int lig, int col )
+{
+    COORD mycoord;
+    mycoord.X = col;
+    mycoord.Y = lig;
+    SetConsoleCursorPosition( GetStdHandle( STD_OUTPUT_HANDLE ), mycoord );
+}
 
 void des(int x,int *px)
 {
@@ -10,15 +18,13 @@ void des(int x,int *px)
     int nbr = 0, a = 1;
     const int max = 6, min = 1;
     srand(time(NULL));
-    for (int i=0; i<2; i++)
-    {
+    for (int i=0; i<2; i++){
 
-        nbr = (rand() % (max - min)) + min;
+        nbr = (rand() % (max - min + 1)) + min;
         x+=nbr;
         gotoligcol(a,1);
         printf("%c", 0xDA);
-        for (int j=0; j<7; j++)
-        {
+        for (int j=0; j<7; j++){
             printf("%c", 0xC4);
         }
         printf("%c", 0xBF);
@@ -34,8 +40,7 @@ void des(int x,int *px)
         a+=1;
         gotoligcol(a, 1);
         printf("%c", 0xC0);
-        for (int j=0; j<7; j++)
-        {
+        for (int j=0; j<7; j++){
             printf("%c", 0xC4);
         }
         printf("%c\n", 0xD9);
@@ -47,26 +52,13 @@ void des(int x,int *px)
 }
 
 
-void affichPion(Joueur j[], int joueurJ)
+
+
+int main ()
 {
-    gotoligcol(4,195);
-    int caze[29][2]= {{0,0},{4,26},{4,48},{4,70},{4,92},{4,114},{4,136},{4,158},{4,180},
-        {11,180},{18,180},{25,180},{32,180},{39,180},{46,180},{53,180},
-        {53,158},{53,136},{53,114},{53,92},{53,70},{53,48},{53,26},
-        {46,26},{39,26},{32,26},{25,26},{18,26},{11,26}
-    };
-
-    int v=0;
-    int nbDe = 0;
-    int *pnbDe = &nbDe;
-    int pos = 0;
-
-    des(nbDe,pnbDe);
-
-    pos = j[joueurJ].position;
-    pos = pos + *pnbDe;
-    gotoligcol(caze[pos][0],caze[pos][1]);
-    printf("%c", 0xDB);
+    int x = 0;
+    int *px = &x;
+    des(x,px);
+    printf("%d", *px);
 }
-
 

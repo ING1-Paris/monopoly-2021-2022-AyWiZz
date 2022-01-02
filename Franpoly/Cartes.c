@@ -141,7 +141,7 @@ void affichageCarteChance(int aleatoire, CarteChance tabCartes[])
     }
     printf("%s", tabCartes[aleatoire]);
     gotoligcol(37, 103);
-    printf("%d/16", aleatoire);
+    printf("%d/16", aleatoire+1);
 }
 
 
