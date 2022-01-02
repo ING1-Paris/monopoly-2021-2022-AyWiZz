@@ -275,20 +275,3 @@ int checkPartie()
     gotoligcol(57,0);
     return sauvegarde;
 }
-/*
-int main()
-{
-    int curseur = 1;
-    int sauvegarde = 0;
-    curseur = positionCurseur();
-    if(curseur == 2)
-    {
-        sauvegarde = checkPartie();
-    }
-
-    printf("\n%d", curseur);
-
-    gotoligcol(57,0);
-    return 0;
-}
-*/

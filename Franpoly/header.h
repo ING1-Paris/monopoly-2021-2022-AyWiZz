@@ -3,6 +3,7 @@
 #define tailleCarre 6
 #define taille 20
 #define nbJoueurs 3
+
 typedef struct Joueur
 {
     char nom[taille];
@@ -14,58 +15,20 @@ typedef struct Joueur
     char terrain4[taille];
     char terrain5[taille];
 }Joueur;
-Joueur j[6];
 
 typedef struct Chance{
     char nom[100];
 }CarteChance;
 
-void gotoligcol( int lig, int col )
-{
+void gotoligcol( int lig, int col );
 
-// ressources
+void setConsoleSize(short width, short height);
 
-    COORD mycoord;
+void Color(int couleurDuTexte,int couleurDeFond);
 
-    mycoord.X = col;
+void setConsoleFullscreen();
 
-    mycoord.Y = lig;
-
-    SetConsoleCursorPosition( GetStdHandle( STD_OUTPUT_HANDLE ), mycoord );
-
-}
-
-void setConsoleSize(short width, short height)
-{
-    HANDLE hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
-    COORD coord = {.X=width, .Y=height};
-    SMALL_RECT rect = {.Left=0, .Top=0, .Right=width-1, .Bottom=height-1};
-
-    SetConsoleScreenBufferSize(hStdout, coord);
-    SetConsoleWindowInfo(hStdout, 1, &rect);
-}
-
-void Color(int couleurDuTexte,int couleurDeFond) // fonction d'affichage de couleurs
-{
-    HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
-}
-
-void setConsoleFullscreen()
-{
-    HANDLE hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
-    COORD maxi = GetLargestConsoleWindowSize(hStdout);
-    SMALL_RECT rect = {.Left=0, .Top=0, .Right=maxi.X-1, .Bottom=maxi.Y-1};
-
-    SetConsoleScreenBufferSize(hStdout, maxi);
-    SetConsoleWindowInfo(hStdout, 1, &rect);
-}
-
-void clearScreen()
-{
-    const char *CLEAR_SCREEN_ANSI = "\e[1;1H\e[2J";
-    write(STDOUT_FILENO, CLEAR_SCREEN_ANSI, 12);
-}
+void clearScreen();
 
 
 
@@ -75,8 +38,9 @@ void des (int nbDe,int *pnbDe);
 
 int positionCurseur();
 int checkPartie();
-void affichPion();
-void remplissageJoueurDebut(Joueur *j);
+void affichPion(Joueur j[],int joueurJ);
+int choixDepart();
+void remplir(Joueur j[]);
 
 void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[]);
 

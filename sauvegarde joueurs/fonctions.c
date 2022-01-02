@@ -17,7 +17,7 @@ void remplissageJoueurDebut(Joueur *j){
 
     for(int i=0; i<nbJoueurs; i++)
     {
-        j[i].argent = 1500;
+        j[i->.argent = 1500;
         j[i].position = 0;
     }
 }
