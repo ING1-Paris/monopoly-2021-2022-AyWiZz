@@ -65,8 +65,14 @@ void affichPion(Joueur j[], int joueurJ)
 
     pos = j[joueurJ].position;
     pos = pos + *pnbDe;
+
+    Color(5, 0);
     gotoligcol(caze[pos][0],caze[pos][1]);
-    printf("%c", 0xDB);
+    printf("%c%c%c", 0xC9, 0xCD, 0xBB);
+    gotoligcol(caze[pos][0]+1,caze[pos][1]);
+    printf("%c%c%c", 0xC8, 0xCD, 0xBC);
+
 }
+
 
 
