@@ -62,7 +62,7 @@ void creationPlateau()
     /////////////////// Initialisation des variables //////////////////////
     int i = 0;
     int j = 0;
-    int k = 0; //compteur des petites lignes horizontales à gauches (place)
+    int k = 0; //compteur des petites lignes horizontales Ã  gauches (place)
     int l = 0;
     int m = 2;
     int n = 37;
@@ -74,7 +74,7 @@ void creationPlateau()
     int u = 15;
     Color(9, 0);
     ///////////////////////////////////////////////////////////////////////
-    ////////////////////// 1ère Ligne Horizontale /////////////////////////
+    ////////////////////// 1Ã¨re Ligne Horizontale /////////////////////////
     gotoligcol(1,15);
     printf("%c", 0xDA);
     for(i = 0; i < tailleCarre; i++)
@@ -90,7 +90,7 @@ void creationPlateau()
     printf("%c", 0xBF);
     /////////////////////////////////////////////////////////////////////
 
-    /////////////////////// 1ère Ligne Verticale ///////////////////////
+    /////////////////////// 1Ã¨re Ligne Verticale ///////////////////////
     for(j = 0; j <7; j++)
     {
         for(i = 0; i < six; i++)
@@ -115,7 +115,7 @@ void creationPlateau()
     k = k + 1;
 
     ///////////////////////////////////////////////////////////////////
-    ////////////////////////// Ligne verticale à Droite //////////////
+    ////////////////////////// Ligne verticale Ã  Droite //////////////
     for(j = 0; j <7; j++)
     {
         for(i = 0; i < six; i++)
@@ -138,7 +138,7 @@ void creationPlateau()
     printf("%c", 0xD9);
     l = l + 1;
     ///////////////////////////////////////////////////////////////////////
-    /////////////////////////// 2ème Ligne/////////////////////////////////
+    /////////////////////////// 2Ã¨me Ligne/////////////////////////////////
 
     gotoligcol(8,16);
     printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
@@ -174,7 +174,7 @@ void creationPlateau()
     printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
     printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
     printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-////////////////////// Jonction entre la première ligne et la deuxième////
+////////////////////// Jonction entre la premiÃ¨re ligne et la deuxiÃ¨me////
     gotoligcol(2,37);
     for(i = 0; i < 7; i++)
     {
@@ -188,7 +188,7 @@ void creationPlateau()
         m = 2;
     }
 /////////////////////////////////////////////////////////////////////////
-/////////////////////// On trace la grande barre intérieur gauche //////
+/////////////////////// On trace la grande barre intÃ©rieur gauche //////
     //gotoligcol(9, 37);
 
     for(j = 0; j <5; j++)
@@ -213,7 +213,7 @@ void creationPlateau()
     printf("%c", 0xD9);
     p = p + 1;
 ////////////////////////////////////////////////////////////////////////
-/////////////////////// On trace la grande barre intérieur droite //////
+/////////////////////// On trace la grande barre intÃ©rieur droite //////
     //gotoligcol(9, 147);
     for(j = 0; j < 5; j++)
     {
@@ -245,7 +245,7 @@ void creationPlateau()
     printf("%c", 0XB3);
 ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-//////////////////// On trace l'avant dernière ligne du plateau////////
+//////////////////// On trace l'avant derniÃ¨re ligne du plateau////////
     gotoligcol(50, 16);
     printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
     printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
@@ -267,7 +267,7 @@ void creationPlateau()
     printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
     printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
     /////////////////////////////////////////////////////////////////////
-    ////////////////////// Jonction entre les deux dernières lignes//////
+    ////////////////////// Jonction entre les deux derniÃ¨res lignes//////
     gotoligcol(51,37);
     for(i = 0; i < 7; i++)
     {
@@ -281,7 +281,7 @@ void creationPlateau()
         r = 51;
     }
     /////////////////////////////////////////////////////////////////////
-    /////////////// On trace les minis barres horizontales à gauche ////
+    /////////////// On trace les minis barres horizontales Ã  gauche ////
     gotoligcol(15,16);
     for(i = 0; i < 5; i++)
     {
@@ -293,7 +293,7 @@ void creationPlateau()
         gotoligcol(t, 16);
     }
     ///////////////////////////////////////////////////////////////////
-    ///////////// On trace les minis barres horizontales à droite /////
+    ///////////// On trace les minis barres horizontales Ã  droite /////
     gotoligcol(15,longda+1);
     for(i = 0; i < 5; i++)
     {
@@ -316,8 +316,8 @@ void couleursPlateau()
 
     int j = 0;
 
-/////////////////// CASES BLEU FLUO /////////////////////////////
-    Color(9,0);
+/////////////////// CASES BLEU FONCE /////////////////////////////
+    Color(1,0);
 
     for(j = 0; j < 4; j++)
     {
@@ -334,26 +334,26 @@ void couleursPlateau()
     }
 ///////////////////////////////////////////////////////////////
 
-/////////////////// CASES Turquoises /////////////////////////////
-    Color(11,0);
+/////////////////// CASES Bleu Fonce /////////////////////////////
+    Color(1,0);
 
     for(j = 0; j < 4; j++)
     {
         /*gotoligcol(8,(37-j));
         printf("%c", 0xDB);*/
 
-        gotoligcol(37,(37-j));
+        gotoligcol(44,(37-j));
 
-        for(i = 0; i < 14; i++)
+        for(i = 0; i < 7; i++)
         {
             printf("%c", 0xDB);
-            gotoligcol((trentesept+i),(37-j));
+            gotoligcol((44+i),(37-j));
         }
     }
 ///////////////////////////////////////////////////////////////
 
-/////////////////// CASES JAUNES /////////////////////////////
-    Color(14,0);
+/////////////////// CASES ROUGE FONCE V2 /////////////////////////////
+    Color(4,0);
 
     for(j = 0; j < 4; j++)
     {
@@ -370,8 +370,8 @@ void couleursPlateau()
     }
 ///////////////////////////////////////////////////////////////
 
-/////////////////// CASES Turquoises /////////////////////////////
-    Color(10,0);
+/////////////////// CASES ROUGE FLUO V2 /////////////////////////////
+    Color(12,0);
 
     for(j = 0; j < 4; j++)
     {
@@ -388,9 +388,9 @@ void couleursPlateau()
     }
 ///////////////////////////////////////////////////////////////
 
-/////////////////// CASES ROUGE FONCE ////////////////////////////
+/////////////////// CASES TURQUOISE ////////////////////////////
 
-    Color(4,0);
+    Color(11,0);
 
     for(j = 0; j < 2; j++)
     {
@@ -407,9 +407,9 @@ void couleursPlateau()
     }
 //////////////////////////////////////////////////////////////
 
-/////////////////// CASES ROUGE FLUO ////////////////////////////
+/////////////////// CASES BLEU CLAIR V2 ////////////////////////////
 
-    Color(12,0);
+    Color(9,0);
 
     for(j = 0; j < 2; j++)
     {
@@ -426,9 +426,9 @@ void couleursPlateau()
     }
 //////////////////////////////////////////////////////////////
 
-/////////////////// CASES BLEU FONCE ////////////////////////////
+/////////////////// CASES JAUNES ET VERTES ////////////////////////////
 
-    Color(1,0);
+    Color(14,0);
 
     for(j = 0; j < 2; j++)
     {
@@ -444,6 +444,7 @@ void couleursPlateau()
         }
     }
 
+    Color(10,0);
     for(j = 0; j < 2; j++)
     {
         /*gotoligcol(8,(37-j));
@@ -451,10 +452,10 @@ void couleursPlateau()
 
         gotoligcol((50+j),125);
 
-        for(i = 0; i < 23; i++)
+        for(i = 0; i < 45; i++)
         {
             printf("%c", 0xDB);
-            gotoligcol((50+j), (148+i));
+            gotoligcol((50+j), (125+i));
         }
     }
 //////////////////////////////////////////////////////////////
