@@ -30,22 +30,27 @@ void remplir(Joueur j[])
 void remplissageJoueur(Joueur j[])
 {
     int jDepart = 0;
-    jDepart = choixDepart();
+    int nbJoueurs = 0;
+    int ligne = 3;
     gotoligcol(2,2);
     printf("Bienvenue sur le SPACE MONOPOLY !");
     gotoligcol(3,2);
+    do{
     printf("Combien de joueurs pour cette partie ? ");
-    gotoligcol(4,2);
+    //gotoligcol(4,2);
+    ligne+=1;
     scanf("%d", &nbJoueurs);
+    }while(nbJoueurs<1 || nbJoueurs>6);
+    jDepart = choixDepart(nbJoueurs);
     for(int i=1; i<nbJoueurs+1; i++)
     {
-        gotoligcol(4+i,2);
+        gotoligcol(ligne+i,2);
         printf("Quel est le nom du joueur %d ?", i);
-        gotoligcol(5+i,2);
+        gotoligcol(ligne+1+i,2);
         fflush(stdin);
         gets(j[i].nom);
     }
     //gotoligcol(2,8);
-    //printf("C'est %s qui commence !", j[2].nom);
+    printf("C'est %s qui commence !", j[jDepart].nom);
 
 }

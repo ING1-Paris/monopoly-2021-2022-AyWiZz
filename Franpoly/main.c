@@ -20,11 +20,11 @@ int main()
     {
         sauvegarde = checkPartie();
     }
-    clearScreen();
+    system("cls");
     remplissageJoueur(player);
 
 
-    clearScreen();
+    //system("cls");
     couleursPlateau();
 
     creationPlateau();
