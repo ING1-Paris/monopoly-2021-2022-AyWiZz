@@ -31,14 +31,14 @@ int positionCurseur()
 
     do
     {
-        toucheUtilisateur = _getch();//récupère la touche tapé par l'utilisateur
+        toucheUtilisateur = _getch();//rÃ©cupÃ¨re la touche tapÃ© par l'utilisateur
         if(toucheUtilisateur == 0x48) //Si c'est la fleche du haut
         {
-            curseur -= 1;//Va à la proposition au dessus
+            curseur -= 1;//Va Ã  la proposition au dessus
         }
         if(toucheUtilisateur == 0x50) //Si la touche est la fleche du bas
         {
-            curseur += 1;//Va à la proposition en dessous
+            curseur += 1;//Va Ã  la proposition en dessous
         }
         if(curseur == -1 || curseur == 0) //Si le curseur est trop en haut
         {
@@ -48,7 +48,7 @@ int positionCurseur()
         {
             curseur = 1;//Retourner en haut
         }
-        //pas top car si on fait ça il faudra remettre à chaque fois le curseur au bon endroit
+        //pas top car si on fait Ã§a il faudra remettre Ã  chaque fois le curseur au bon endroit
         if(curseur == 1)
         {
             //Il faut clear la console !
@@ -101,26 +101,50 @@ int positionCurseur()
 
 
     }
-    while(toucheUtilisateur != 0x0D); //Tant que l'utilisateur n'a pas appuyé sur entrer
+    while(toucheUtilisateur != 0x0D); //Tant que l'utilisateur n'a pas appuyÃ© sur entrer
     return curseur;
 }
 
 int checkPartie()
 {
-    int curseur = 2;
+   system("cls");
+    printf("SPACE FRANPOLY SAUVEGARDES:\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    Color(9,0);
+    //gotoligcol(5, COLONNE);
+    printf("%c Sauvegarde 1",0x08);//rang 2
+    printf("\n");//rang 3
+    printf("\n");
+    Color(15,0);
+    //gotoligcol(7,COLONNE);
+    printf("%c Sauvegarde 2",0x08);//rang 4
+    printf("\n");//rang 5
+    printf("\n");
+    printf("%c Sauvegarde 3",0x08);//rang 4
+    printf("\n");//rang 5
+    printf("\n");
+    printf("%c Sauvegarde 4",0x08);//rang 4
+    printf("\n");//rang 5
+    printf("\n");
+
+    int curseur = 1;
     int sauvegarde = 0;
     int toucheUtilisateur = _getch();
+    gotoligcol(0, COLONNE);
 
     do
     {
-        toucheUtilisateur = _getch();//récupère la touche tapé par l'utilisateur
+        toucheUtilisateur = _getch();//rÃ©cupÃ¨re la touche tapÃ© par l'utilisateur
         if(toucheUtilisateur == 0x48) //Si c'est la fleche du haut
         {
-            curseur -= 1;//Va à la proposition au dessus
+            curseur -= 1;//Va Ã  la proposition au dessus
         }
         if(toucheUtilisateur == 0x50) //Si la touche est la fleche du bas
         {
-            curseur += 1;//Va à la proposition en dessous
+            curseur += 1;//Va Ã  la proposition en dessous
         }
         if(curseur == 0) //Si le curseur est trop en haut
         {
