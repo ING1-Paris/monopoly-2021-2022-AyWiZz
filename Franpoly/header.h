@@ -41,7 +41,7 @@ int checkPartie();
 void affichPion(Joueur j[],int joueurJ);
 int choixDepart();
 void remplir(Joueur j[]);
-
+void remplissageJoueur(Joueur j[]);
 void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[]);
 
 void creationCartesChance(CarteChance tabCartes[]);

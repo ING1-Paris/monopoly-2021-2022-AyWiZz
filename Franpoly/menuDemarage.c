@@ -12,7 +12,7 @@ int positionCurseur()
     //rang 0
     //printf("\n");//rang 1
     //gotoligcol(0,COLONNE);
-    printf("SPACE FRANPOLY:\n");
+    printf("SPACE MONOPOLY:\n");
     printf("\n");
     printf("\n");
     printf("\n");

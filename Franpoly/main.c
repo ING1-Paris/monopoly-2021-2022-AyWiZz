@@ -10,6 +10,7 @@ int main()
     setConsoleFullscreen();
 
     int joueurJ = 0;
+
     int aleatoire = generationAleatoire();
     int curseur = 1;
     int sauvegarde = 0;
@@ -20,12 +21,17 @@ int main()
         sauvegarde = checkPartie();
     }
     clearScreen();
+    remplissageJoueur(player);
+
+
+    clearScreen();
     couleursPlateau();
 
     creationPlateau();
 
 
     remplir(player);
+
     gotoligcol(100, 50);
 
     CarteChance tabCartes[16];
@@ -33,7 +39,8 @@ int main()
     creationContourCarte();
     affichageCarteChance(aleatoire, tabCartes);
 
-//    affichPion(player, joueurJ);
+    //affichPion(player, joueurJ);
+
 
     gotoligcol(58,0);
 
