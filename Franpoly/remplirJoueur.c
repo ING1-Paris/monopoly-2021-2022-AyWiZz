@@ -24,6 +24,10 @@ void remplir(Joueur j[])
     for (int i=1;i<nbJoueurs+1;i++){
     j[i].argent = 1500;
     j[i].position =0;
-
 }
+}
+void remplissageJoueur(Joueur j[]){
+
+printf("")
+
 }

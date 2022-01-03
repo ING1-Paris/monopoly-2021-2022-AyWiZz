@@ -5,7 +5,7 @@
 
 int main()
 {
-    /*
+
     Joueur player[6];
     setConsoleFullscreen();
 
@@ -19,10 +19,12 @@ int main()
     {
         sauvegarde = checkPartie();
     }
-
-
     clearScreen();
+    couleursPlateau();
+
     creationPlateau();
+
+
     remplir(player);
     gotoligcol(100, 50);
 
@@ -30,28 +32,8 @@ int main()
     creationCartesChance(tabCartes);
     creationContourCarte();
     affichageCarteChance(aleatoire, tabCartes);
-    gotoligcol(10,0);
-    printf("A qui le tour ? ");
-    scanf("%d", &joueurJ);
-    for(int i=0;i<6;i++){
-    if(joueurJ == i){
-        joueurJ = i;
-    }}
-    printf("Le joueur %d joue ", joueurJ);
-    affichPion(player, joueurJ);
 
-
-
-    gotoligcol(57,0);
-    */
-
-    setConsoleFullscreen();
-
-    couleursPlateau();
-
-    creationPlateau();
-
-    //couleursPlateau();
+//    affichPion(player, joueurJ);
 
     gotoligcol(58,0);
 
