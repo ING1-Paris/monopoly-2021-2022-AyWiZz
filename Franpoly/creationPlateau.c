@@ -2,16 +2,16 @@
 #include <stdlib.h>
 #include <windows.h>
 #define tailleCarre 7
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
 #define longd 191
 #define longda 169
 #define longdb 37
 #define dplusk 2+k
 #define six 6
+#define neuf 9
+#define trentesept 37
 
-void gotoligcol( int lig, int col ){
+void gotoligcol( int lig, int col )
+{
 
 // ressources
 
@@ -304,5 +304,159 @@ void creationPlateau()
         u += 7;
         gotoligcol(u, longda+1);
     }
+
+}
+
+
+
+void couleursPlateau()
+{
+
+    int i = 0;
+
+    int j = 0;
+
+/////////////////// CASES BLEU FLUO /////////////////////////////
+    Color(9,0);
+
+    for(j = 0; j < 4; j++)
+    {
+        /*gotoligcol(8,(37-j));
+        printf("%c", 0xDB);*/
+
+        gotoligcol(9,(37-j));
+
+        for(i = 0; i < 14; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((neuf+i),(37-j));
+        }
+    }
+///////////////////////////////////////////////////////////////
+
+/////////////////// CASES Turquoises /////////////////////////////
+    Color(11,0);
+
+    for(j = 0; j < 4; j++)
+    {
+        /*gotoligcol(8,(37-j));
+        printf("%c", 0xDB);*/
+
+        gotoligcol(37,(37-j));
+
+        for(i = 0; i < 14; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((trentesept+i),(37-j));
+        }
+    }
+///////////////////////////////////////////////////////////////
+
+/////////////////// CASES JAUNES /////////////////////////////
+    Color(14,0);
+
+    for(j = 0; j < 4; j++)
+    {
+        /*gotoligcol(8,(37-j));
+        printf("%c", 0xDB);*/
+
+        gotoligcol(9,(172-j));
+
+        for(i = 0; i < 14; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((neuf+i),(172-j));
+        }
+    }
+///////////////////////////////////////////////////////////////
+
+/////////////////// CASES Turquoises /////////////////////////////
+    Color(10,0);
+
+    for(j = 0; j < 4; j++)
+    {
+        /*gotoligcol(8,(37-j));
+        printf("%c", 0xDB);*/
+
+        gotoligcol(37,(172-j));
+
+        for(i = 0; i < 14; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((trentesept+i),(172-j));
+        }
+    }
+///////////////////////////////////////////////////////////////
+
+/////////////////// CASES ROUGE FONCE ////////////////////////////
+
+    Color(4,0);
+
+    for(j = 0; j < 2; j++)
+    {
+        /*gotoligcol(8,(37-j));
+        printf("%c", 0xDB);*/
+
+        gotoligcol((8-j),37);
+
+        for(i = 0; i < 45; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((8-j), (trentesept+i));
+        }
+    }
+//////////////////////////////////////////////////////////////
+
+/////////////////// CASES ROUGE FLUO ////////////////////////////
+
+    Color(12,0);
+
+    for(j = 0; j < 2; j++)
+    {
+        /*gotoligcol(8,(37-j));
+        printf("%c", 0xDB);*/
+
+        gotoligcol((8-j),125);
+
+        for(i = 0; i < 45; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((8-j), (125+i));
+        }
+    }
+//////////////////////////////////////////////////////////////
+
+/////////////////// CASES BLEU FONCE ////////////////////////////
+
+    Color(1,0);
+
+    for(j = 0; j < 2; j++)
+    {
+        /*gotoligcol(8,(37-j));
+        printf("%c", 0xDB);*/
+
+        gotoligcol((50+j),37);
+
+        for(i = 0; i < 45; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((50+j), (trentesept+i));
+        }
+    }
+
+    for(j = 0; j < 2; j++)
+    {
+        /*gotoligcol(8,(37-j));
+        printf("%c", 0xDB);*/
+
+        gotoligcol((50+j),125);
+
+        for(i = 0; i < 23; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((50+j), (148+i));
+        }
+    }
+//////////////////////////////////////////////////////////////
 
 }

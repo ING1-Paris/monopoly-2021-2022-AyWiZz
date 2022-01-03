@@ -5,7 +5,7 @@
 
 int main()
 {
-
+    /*
     Joueur player[6];
     setConsoleFullscreen();
 
@@ -43,6 +43,18 @@ int main()
 
 
     gotoligcol(57,0);
+    */
+
+    setConsoleFullscreen();
+
+    couleursPlateau();
+
+    creationPlateau();
+
+    //couleursPlateau();
+
+    gotoligcol(58,0);
+
     return 0;
 
 }
