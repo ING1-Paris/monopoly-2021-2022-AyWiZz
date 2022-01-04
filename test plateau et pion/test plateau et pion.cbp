@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Franpoly" />
+		<Option title="test plateau et pion" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Franpoly" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/test plateau et pion" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Franpoly" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/test plateau et pion" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -31,26 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Cartes.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="choixJoueurDépart.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="creationPlateau.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="deplacementPlateau.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="header.h" />
 		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="menuDemarage.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="remplirJoueur.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
