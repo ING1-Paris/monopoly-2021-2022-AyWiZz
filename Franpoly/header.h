@@ -2,13 +2,14 @@
 #define HEADER_H_INCLUDED
 #define tailleCarre 6
 #define taille 20
-#define nbJoueurs 3
 
 typedef struct Joueur
 {
     char nom[taille];
     int argent;
     int position;
+    int choix;
+    int haveToPlay;
     char terrain1[taille];
     char terrain2[taille];
     char terrain3[taille];
@@ -34,14 +35,14 @@ void clearScreen();
 
 void creationPlateau();
 
-void des (int nbDe,int *pnbDe);
+void des(int nbDe,int *pnbDe);
 
 int positionCurseur();
 int checkPartie();
 void affichPion(Joueur j[],int joueurJ);
 int choixDepart();
 void remplir(Joueur j[]);
-void remplissageJoueur(Joueur j[]);
+int remplissageJoueur(Joueur j[]);
 void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[]);
 
 void creationCartesChance(CarteChance tabCartes[]);

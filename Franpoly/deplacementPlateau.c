@@ -61,10 +61,12 @@ void affichPion(Joueur j[], int joueurJ)
     int *pnbDe = &nbDe;
     int pos = 0;
 
-    des(nbDe,pnbDe);
+    // des(nbDe,pnbDe);
 
     pos = j[joueurJ].position;
     pos = pos + *pnbDe;
+
+
 
     Color(5, 0);
     gotoligcol(caze[pos][0],caze[pos][1]);
@@ -72,6 +74,10 @@ void affichPion(Joueur j[], int joueurJ)
     gotoligcol(caze[pos][0]+1,caze[pos][1]);
     printf("%c%c%c", 0xC8, 0xCD, 0xBC);
 
+    if(j[joueurJ].position > 28)
+    {
+        j[joueurJ].position = 0;
+    }
 }
 
 

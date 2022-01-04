@@ -24,12 +24,11 @@ void remplir(Joueur j[])
     for (int i=1; i<7; i++)
     {
         j[i].argent = 1500;
-        j[i].position =0;
+        j[i].position = 0;
     }
 }
-void remplissageJoueur(Joueur j[])
+int remplissageJoueur(Joueur j[])
 {
-    int jDepart = 0;
     int nbJoueurs = 0;
     int ligne = 3;
     gotoligcol(2,2);
@@ -37,11 +36,11 @@ void remplissageJoueur(Joueur j[])
     gotoligcol(3,2);
     do{
     printf("Combien de joueurs pour cette partie ? ");
-    //gotoligcol(4,2);
+    gotoligcol(4,2);
     ligne+=1;
+    fflush(stdin);
     scanf("%d", &nbJoueurs);
     }while(nbJoueurs<1 || nbJoueurs>6);
-    jDepart = choixDepart(nbJoueurs);
     for(int i=1; i<nbJoueurs+1; i++)
     {
         gotoligcol(ligne+i,2);
@@ -50,7 +49,8 @@ void remplissageJoueur(Joueur j[])
         fflush(stdin);
         gets(j[i].nom);
     }
-    //gotoligcol(2,8);
-    printf("C'est %s qui commence !", j[jDepart].nom);
+    system("cls");
+
+    return nbJoueurs;
 
 }
