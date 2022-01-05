@@ -53,20 +53,15 @@ void affichPion(Joueur j[], int joueurJ)
     int caze[29][2]= {{0,0},{4,26},{4,48},{4,70},{4,92},{4,114},{4,136},{4,158},{4,180},
         {11,180},{18,180},{25,180},{32,180},{39,180},{46,180},{53,180},
         {53,158},{53,136},{53,114},{53,92},{53,70},{53,48},{53,26},
-        {46,26},{39,26},{32,26},{25,26},{18,26},{11,26}
-    };
+        {46,26},{39,26},{32,26},{25,26},{18,26},{11,26}};
 
     int v=0;
     int nbDe = 0;
     int *pnbDe = &nbDe;
     int pos = 0;
 
-    // des(nbDe,pnbDe);
-
     pos = j[joueurJ].position;
-    pos = pos + *pnbDe;
-
-
+    pos = 1+pos + *pnbDe;
 
     Color(5, 0);
     gotoligcol(caze[pos][0],caze[pos][1]);
@@ -76,7 +71,7 @@ void affichPion(Joueur j[], int joueurJ)
 
     if(j[joueurJ].position > 28)
     {
-        j[joueurJ].position = 0;
+        j[joueurJ].position = 1;
     }
 }
 

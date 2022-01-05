@@ -4,7 +4,7 @@
 #include "header.h"
 
 
-int cartes()
+void cartes()
 {
     int aleatoire = generationAleatoire();
     gotoligcol(100, 50);
@@ -24,7 +24,7 @@ int main()
     int joueurJ = 0;
 
     int joueurPlaying = 0;
-
+    int ligne = 0;
     int curseur = 1;
     int sauvegarde = 0;
     int nbJoueurs = 0;
@@ -50,19 +50,19 @@ int main()
     couleursPlateau();
     creationPlateau();
 
-
-
-
+    gotoligcol(1, 195);
+    printf("C'est %s qui commence la partie", player[joueurPlaying].nom);
+    while(joueurPlaying<nbJoueurs){
     do
     {
         gotoligcol(2, 195);
 
-        printf("C'est %s qui commence", player[joueurPlaying].nom);
+        printf("C'est %s qui joue", player[joueurPlaying].nom);
         player[joueurPlaying].haveToPlay = 1;
 
         gotoligcol(3, 195);
 
-        printf("1) tirer les dees \n");
+        printf("Entrez 1 pour tirer les dees. \n");
         gotoligcol(4, 195);
 
         scanf("%d", &player[joueurPlaying].choix);
@@ -70,62 +70,61 @@ int main()
 
         if(player[joueurPlaying].choix == 1)
         {
-            gotoligcol(4, 195);
+            gotoligcol(5, 195);
             printf("Daccord");
             player[joueurPlaying].choix = 0;
 
             des(nbDe,pnbDe);
             player[joueurPlaying].position = nbDe;
-            gotoligcol(5, 195);
-            printf("Tu fais un pas vers l'avant de %d cases ! ", player[joueurPlaying].position);
+            gotoligcol(6, 195);
+            printf("Tu va vers l'avant de %d cases ! ", player[joueurPlaying].position);
             affichPion(player, joueurPlaying);
         }
-
-
 
         switch(player[joueurPlaying].position)
         {
         case 1:
-            gotoligcol(6, 195);
+
+            gotoligcol(7, 195);
             printf("Good ca marche");
 
             break;
         case 2:
-            gotoligcol(6, 195);
+            gotoligcol(7, 195);
             printf("Good ca marche");
 
             break;
         case 3:
-            gotoligcol(6, 195);
+            gotoligcol(7, 195);
             printf("Good ca marche");
 
             break;
         case 4:
-            gotoligcol(6, 195);
+            gotoligcol(7, 195);
             printf("Good ca marche");
             cartes();
 
             break;
         case 5:
-            gotoligcol(6, 195);
-            printf("Good ca marche");
+            gotoligcol(7, 195);
+            printf("Good  la carte chance marche");
             cartes();
 
 
             break;
         case 6:
-            gotoligcol(6, 195);
+            gotoligcol(7, 195);
             printf("Good ca marche");
             cartes();
 
             break;
         case 7:
-            gotoligcol(6, 195);
+            gotoligcol(7, 195);
             printf("Good ca marche");
 
             break;
         case 8:
-            gotoligcol(6, 195);
+            gotoligcol(7, 195);
             printf("Good ca marche");
 
             break;
@@ -193,10 +192,12 @@ int main()
             player[joueurPlaying].position = 0;
             break;
         }
-
+    joueurPlaying+=1;
+    printf("joueurplaying  = %d",joueurPlaying);
 
     }
     while(player[joueurPlaying].haveToPlay == 1);
+    }
 
 
 

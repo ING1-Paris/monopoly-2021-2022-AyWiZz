@@ -8,6 +8,7 @@ typedef struct Joueur
     char nom[taille];
     int argent;
     int position;
+    int couleur[2];
     int choix;
     int haveToPlay;
     char terrain1[taille];
@@ -16,6 +17,9 @@ typedef struct Joueur
     char terrain4[taille];
     char terrain5[taille];
 }Joueur;
+
+
+
 
 typedef struct Chance{
     char nom[100];

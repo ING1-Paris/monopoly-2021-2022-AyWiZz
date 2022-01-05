@@ -3,21 +3,22 @@
 #include <windows.h>
 #define taille 20
 
-int nbJoueurs = 6;
+//int nbJoueurs = 6;
 
 typedef struct Joueur
 {
     char nom[taille];
-    int couleur[2];
     int argent;
+    int couleur[2];
     int position;
+    int choix;
+    int haveToPlay;
     char terrain1[taille];
     char terrain2[taille];
     char terrain3[taille];
     char terrain4[taille];
     char terrain5[taille];
-} Joueur ;
-
+}Joueur;
 
 
 void remplir(Joueur j[])
@@ -26,7 +27,8 @@ void remplir(Joueur j[])
     for (int i=1; i<7; i++)
     {
         j[i].argent = 1500;
-        j[i].position = 0;
+        j[i].position = 1;
+        //j[i].haveToPlay = 0;
     }
     for (int i=1; i<7; i++)
     {

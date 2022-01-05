@@ -221,9 +221,6 @@ void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[])
 }
 
 
-
-
-
 int generationAleatoire()
 {
     srand(time(NULL));
