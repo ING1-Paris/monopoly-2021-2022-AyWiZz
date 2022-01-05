@@ -8,6 +8,7 @@ int nbJoueurs = 6;
 typedef struct Joueur
 {
     char nom[taille];
+    char couleur[taille];
     int argent;
     int position;
     char terrain1[taille];
@@ -48,6 +49,12 @@ int remplissageJoueur(Joueur j[])
         gotoligcol(ligne+1+i,2);
         fflush(stdin);
         gets(j[i].nom);
+        gotoligcol(ligne+2+i,2);
+        printf("Veuillez choisir la couleur de votre pion : (rouge, vert, jaune, violet, turquoise ou blanc) : ");
+        gets(j[i].couleur);
+        gotoligcol(ligne+3+i,2);
+        fflush(stdin);
+        ligne+=3;
     }
     system("cls");
 
