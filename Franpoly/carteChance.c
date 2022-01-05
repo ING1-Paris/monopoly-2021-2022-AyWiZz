@@ -128,7 +128,7 @@ void affichageCartesVilles(int aleatoire, CartePlanete tabCartesPlanetes[])
     }
 
     else if(strcmp(tabCartesPlanetes[aleatoire].couleur,bleuFonce) == 0){
-        Color(11,0);
+        Color(1,0);
     }
 
     //Color(9,0);
@@ -179,7 +179,7 @@ void affichageCartesVilles(int aleatoire, CartePlanete tabCartesPlanetes[])
     }
 
     else if(strcmp(tabCartesPlanetes[aleatoire].couleur,bleuFonce) == 0){
-        Color(0,11);
+        Color(0,1);
     }
 
     //Color(0,9);

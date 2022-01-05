@@ -67,10 +67,14 @@ void affichPion(Joueur j[], int joueurJ)
     {
         pos = pos-28;
     }
-    pos = 1+pos + *pnbDe;
+    pos = 1+ pos + *pnbDe;
+
 
     if(joueurJ == 1)
     {
+        system("cls");
+        couleursPlateau();
+        creationPlateau();
         Color(5, 0);
         gotoligcol(caze[pos][0],caze[pos][1]);
         printf("%c%c%c", 0xC9, 0xCD, 0xBB);
@@ -80,7 +84,10 @@ void affichPion(Joueur j[], int joueurJ)
     }
     if(joueurJ == 2)
     {
-        Color(5, 0);
+        system("cls");
+        couleursPlateau();
+        creationPlateau();
+        Color(6, 0);
         gotoligcol(caze[pos][0],caze[pos][1]);
         printf("%c%c%c", 0xC9, 0xCD, 0xBB);
         gotoligcol(caze[pos][0]+1,caze[pos][1]);
@@ -89,15 +96,34 @@ void affichPion(Joueur j[], int joueurJ)
     }
     if(joueurJ == 3)
     {
-        Color(5, 0);
+        system("cls");
+        couleursPlateau();
+        creationPlateau();
+        Color(7, 0);
         gotoligcol(caze[pos][0],caze[pos][1]);
         printf("%c%c%c", 0xC9, 0xCD, 0xBB);
         gotoligcol(caze[pos][0]+1,caze[pos][1]);
         printf("%c%c%c", 0xC8, 0xCD, 0xBC);
         Color(9, 0);
-    }if(joueurJ == 5)
+    }
+    if(joueurJ == 5)
     {
-        Color(5, 0);
+        system("cls");
+        couleursPlateau();
+        creationPlateau();
+        Color(8, 0);
+        gotoligcol(caze[pos][0],caze[pos][1]);
+        printf("%c%c%c", 0xC9, 0xCD, 0xBB);
+        gotoligcol(caze[pos][0]+1,caze[pos][1]);
+        printf("%c%c%c", 0xC8, 0xCD, 0xBC);
+        Color(9, 0);
+    }
+    if(joueurJ == 5)
+    {
+        system("cls");
+        couleursPlateau();
+        creationPlateau();
+        Color(10, 0);
         gotoligcol(caze[pos][0],caze[pos][1]);
         printf("%c%c%c", 0xC9, 0xCD, 0xBB);
         gotoligcol(caze[pos][0]+1,caze[pos][1]);
