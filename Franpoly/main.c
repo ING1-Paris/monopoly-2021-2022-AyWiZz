@@ -186,13 +186,16 @@ int main()
 
             break;
         case 28:
+            player[joueurPlaying].position = 1;
+            break;
 
             break;
         case 29:
             player[joueurPlaying].position = 0;
             break;
         }
-    joueurPlaying+=1;
+    //joueurPlaying+=1;
+    gotoligcol(8,195);
     printf("joueurplaying  = %d",joueurPlaying);
 
     }while(player[joueurPlaying].haveToPlay == 1);

@@ -61,6 +61,10 @@ void affichPion(Joueur j[], int joueurJ)
     int pos = 0;
 
     pos = j[joueurJ].position;
+
+    if(pos>27){
+        pos = pos-28;
+    }
     pos = 1+pos + *pnbDe;
 
     Color(5, 0);
@@ -70,10 +74,7 @@ void affichPion(Joueur j[], int joueurJ)
     printf("%c%c%c", 0xC8, 0xCD, 0xBC);
     Color(9, 0);
 
-    if(j[joueurJ].position > 28)
-    {
-        j[joueurJ].position = 1;
-    }
+
 }
 
 

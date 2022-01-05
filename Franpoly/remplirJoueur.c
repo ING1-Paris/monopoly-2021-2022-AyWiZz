@@ -65,3 +65,7 @@ int remplissageJoueur(Joueur j[])
     return nbJoueurs;
 
 }
+int returnNbJ(int nbJoueurs){
+int z=nbJoueurs;
+return z;
+}
