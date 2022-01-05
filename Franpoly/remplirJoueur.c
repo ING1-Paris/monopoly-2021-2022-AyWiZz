@@ -9,7 +9,7 @@ typedef struct Joueur
 {
     char nom[taille];
     int argent;
-    int couleur[2];
+    int couleur;
     int position;
     int choix;
     int haveToPlay;
@@ -27,13 +27,12 @@ void remplir(Joueur j[])
     for (int i=1; i<7; i++)
     {
         j[i].argent = 1500;
-        j[i].position = 1;
+        j[i].position = 0;
         //j[i].haveToPlay = 0;
     }
     for (int i=1; i<7; i++)
     {
-        j[i].couleur[0] = couleurPion;
-        j[i].couleur[1] = 0;
+        j[i].couleur = couleurPion;
         couleurPion += 1;
     }
 

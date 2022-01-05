@@ -8,7 +8,7 @@ typedef struct Joueur
     char nom[taille];
     int argent;
     int position;
-    int couleur[2];
+    int couleur;
     int choix;
     int haveToPlay;
     char terrain1[taille];

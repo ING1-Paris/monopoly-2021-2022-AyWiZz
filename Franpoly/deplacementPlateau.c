@@ -68,6 +68,7 @@ void affichPion(Joueur j[], int joueurJ)
     printf("%c%c%c", 0xC9, 0xCD, 0xBB);
     gotoligcol(caze[pos][0]+1,caze[pos][1]);
     printf("%c%c%c", 0xC8, 0xCD, 0xBC);
+    Color(9, 0);
 
     if(j[joueurJ].position > 28)
     {
