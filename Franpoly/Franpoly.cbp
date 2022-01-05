@@ -34,6 +34,9 @@
 		<Unit filename="Cartes.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="carteChance.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="choixJoueurDépart.c">
 			<Option compilerVar="CC" />
 		</Unit>

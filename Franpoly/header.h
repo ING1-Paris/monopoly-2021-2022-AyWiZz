@@ -18,6 +18,32 @@ typedef struct Joueur
     char terrain5[taille];
 }Joueur;
 
+typedef struct
+{
+    char nom[30];
+
+    char couleur[15];
+
+    int loyer;
+
+    int loyer1;
+
+    int loyer2;
+
+    int loyer3;
+
+    int loyer4;
+
+    int loyer5;
+
+    int hypo;
+
+} CartePlanete;
+
+void affichageCartesVilles(int aleatoire, CartePlanete tabCartesPlanetes[]);
+
+void creationCartesPlanetes(CartePlanete tabCartesPlanetes[]);
+void creationContourCarteVille();
 
 
 

@@ -428,7 +428,7 @@ void couleursPlateau()
 
 /////////////////// CASES JAUNES ET VERTES ////////////////////////////
 
-    Color(14,0);
+    Color(10,0);
 
     for(j = 0; j < 2; j++)
     {
@@ -444,7 +444,7 @@ void couleursPlateau()
         }
     }
 
-    Color(10,0);
+    Color(14,0);
     for(j = 0; j < 2; j++)
     {
         /*gotoligcol(8,(37-j));

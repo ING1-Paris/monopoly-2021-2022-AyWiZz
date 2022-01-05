@@ -47,7 +47,7 @@ void creationCartesChance(CarteChance tabCartes[])
 
 
 
-void creationContourCarte()
+void creationContourCarteChanceCommunaute()
 {
     gotoligcol(39, 65);
     printf("%c", 0xB3);
@@ -221,7 +221,7 @@ void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[])
 }
 
 
-int generationAleatoire()
+int generationAleatoireChanceEtCommu()
 {
     srand(time(NULL));
     int aleatoire = 0;
