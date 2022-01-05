@@ -7,6 +7,7 @@ typedef struct Joueur
 {
     char nom[taille];
     int argent;
+    int lastposition;
     int position;
     int couleur;
     int choix;
@@ -80,7 +81,8 @@ void creationCartesCommunautes(CarteChance tabCartes[]);
 
 void creationContourCarte();
 void affichageCarteChance(int aleatoire, CarteChance tabCartes[]);
-int generationAleatoire();
+int generationAleatoireChance();
+int generationAleatoireCommu();
 
 
 #endif // HEADER_H_INCLUDED

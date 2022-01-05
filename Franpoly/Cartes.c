@@ -221,10 +221,18 @@ void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[])
 }
 
 
-int generationAleatoireChanceEtCommu()
+int generationAleatoireChance()
 {
     srand(time(NULL));
     int aleatoire = 0;
     aleatoire = rand() % 16;
+    return (aleatoire);
+}
+
+int generationAleatoireCommu()
+{
+    srand(time(NULL));
+    int aleatoire = 0;
+    aleatoire = (rand() % (32 - 16 + 1)) + 16;
     return (aleatoire);
 }

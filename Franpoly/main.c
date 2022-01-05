@@ -4,15 +4,17 @@
 #include "header.h"
 
 
-void cartesChance()
+int cartesChance()
 {
-    int aleatoire = generationAleatoireChanceEtCommu();
+    int aleatoire = generationAleatoireChance();
     gotoligcol(100, 50);
 
-    CarteChance tabCartes[16];
+    CarteChance tabCartes[32];
     creationCartesChance(tabCartes);
     creationContourCarteChanceCommunaute();
     affichageCarteChance(aleatoire, tabCartes);
+
+    return aleatoire;
 }
 void carteVille(int numero)
 {
@@ -26,8 +28,17 @@ void carteVille(int numero)
 
 }
 
-void carteCommunaute()
+int carteCommunaute()
 {
+    int aleatoire = generationAleatoireCommu();
+    gotoligcol(100, 50);
+
+    CarteChance tabCartes[32];
+    creationCartesCommunautes(tabCartes);
+    creationContourCarteChanceCommunaute();
+    affichageCarteCommunautes(aleatoire, tabCartes);
+
+    return aleatoire;
 
 }
 
@@ -88,14 +99,22 @@ int main()
 
         if(player[joueurPlaying].choix == 1)
         {
+            if(player[joueurPlaying].position > 27)
+            {
+                player[joueurPlaying].position = 0;
+            }
             gotoligcol(5, 195);
             printf("Daccord");
             player[joueurPlaying].choix = 0;
 
             des(nbDe,pnbDe);
-            player[joueurPlaying].position = nbDe;
+            player[joueurPlaying].lastposition = player[joueurPlaying].position;
+            player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
+
             gotoligcol(6, 195);
-            printf("Tu va vers l'avant de %d cases ! ", player[joueurPlaying].position);
+
+            printf("Tu va vers l'avant de %d cases ! ", nbDe);
+            nbDe = 0;
             affichPion(player, joueurPlaying);
         }
 
