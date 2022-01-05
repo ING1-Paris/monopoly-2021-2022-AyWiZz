@@ -459,5 +459,123 @@ void couleursPlateau()
         }
     }
 //////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////
+///////////////////// PRISON /////////////////////////////////
+    Color(15,0);
+    /////////////////// PREMIER BARREAU /////////////////////
+    gotoligcol(1,174);
+    for(j = 0; j< 1; j++)
+    {
+        for(i = 0; i < 6; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((1+i), (174+j));
+        }
+        gotoligcol(1, (174 + j));
+    }
+    ///////////////////////////////////////////////////////
+    //////////////// DEUXIEME BARREAU /////////////////////
+    gotoligcol(1,177);
+    for(j = 0; j< 1; j++)
+    {
+        for(i = 0; i < 6; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((1+i), (177+j));
+        }
+        gotoligcol(1, (177 + j));
+    }
+    ///////////////////////////////////////////////
+    //////////////// 3 EME BARREAU ///////////////
+    gotoligcol(1,180);
+    for(j = 0; j< 1; j++)
+    {
+        for(i = 0; i < 6; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((1+i), (180+j));
+        }
+        gotoligcol(1, (180 + j));
+    }
+    /////////////////////////////////////////////
+    //////////////// 4 EME BARREAU ///////////////
+    gotoligcol(1,183);
+    for(j = 0; j< 1; j++)
+    {
+        for(i = 0; i < 6; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((1+i), (183+j));
+        }
+        gotoligcol(1, (183 + j));
+    }
+    /////////////////////////////////////////////
+    //////////////// 5 EME BARREAU ///////////////
+    gotoligcol(1,186);
+    for(j = 0; j< 1; j++)
+    {
+        for(i = 0; i < 6; i++)
+        {
+            printf("%c", 0xDB);
+            gotoligcol((1+i), (186+j));
+        }
+        gotoligcol(1, (186 + j));
+    }
+
+    gotoligcol(7, 176);
+    printf("TROU NOIR");
+    /////////////////////////////////////////////
+
+    ////////////// CASE DEPART /////////////////
+    gotoligcol(4, 16);
+    printf("D   E   P   A   R   T");
+//////////////////////////////////////////////////////////////
+////////////////// AFFICHAGE CARTES CHANCES SUR PLATEAU //////
+    gotoligcol(4, 108); // EN HAUT
+    printf("CARTE CHANCE");
+    gotoligcol(53, 108);
+    printf("CARTE CHANCE");// EN BAS
+/////////////////////////////////////////////////////////////
+///////////////// AFFICHAGE CARTES COMMUNAUTES///////////////
+    gotoligcol(39, 18);//A GAUCHE
+    printf("CARTE COMMUNAUTE");
+
+    gotoligcol(25, 172);//A DROITE
+    printf("CARTE COMMLUNAUTE");
+////////////////////////////////////////////////////////////
+///////////////////// AFFICHAGES GARES ////////////////////
+
+    gotoligcol(4,88);//EN HAUT
+    printf("SATELLITE");
+
+    gotoligcol(32, 177);// A DROITE
+    printf("SATELLITE");
+
+    gotoligcol(53, 88);// EN BAS
+    printf("SATELLITE");
+
+    gotoligcol(32, 22);// A GAUCHE
+    printf("SATELLITE");
+
+///////////////////////////////////////////////////////////
+/////////////////////// AFFICHAGE IMPOTS //////////////////
+
+    gotoligcol(25, 23);
+    printf("IMPOTS");
+//////////////////////////////////////////////////////////
+////////////////////// AFFICHAGE ALLER //////////////////
+    gotoligcol(53, 23);
+    printf("ALLER");
+    gotoligcol(54, 21);
+    printf("EN PRISON");
+////////////////////////////////////////////////////////
+//////////////////////// PARC GRATUIT //////////////////
+    gotoligcol(53, 178);
+    printf("PARC");
+    gotoligcol(54, 177);
+    printf("GRATUIT");
+
+
+}
 
 }
