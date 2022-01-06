@@ -7,7 +7,7 @@
 void des(int x,int *px)
 {
 
-    int nbr = 0, a = 1;
+    int nbr = 0, a = 23;
     const int max = 6, min = 1;
     srand(time(NULL));
     for (int i=0; i<2; i++)
@@ -15,7 +15,7 @@ void des(int x,int *px)
 
         nbr = (rand() % (max - min)) + min;
         x+=nbr;
-        gotoligcol(a,1);
+        gotoligcol(a,47);
         printf("%c", 0xDA);
         for (int j=0; j<7; j++)
         {
@@ -23,16 +23,16 @@ void des(int x,int *px)
         }
         printf("%c", 0xBF);
         a+=1;
-        gotoligcol(a, 1);
+        gotoligcol(a, 47);
         printf("%c       %c", 0xB3, 0xB3);
         a+=1;
-        gotoligcol(a, 1);
+        gotoligcol(a, 47);
         printf("%c   %d   %c", 0xB3, nbr, 0xB3);
         a+=1;
-        gotoligcol(a, 1);
+        gotoligcol(a, 47);
         printf("%c       %c", 0xB3, 0xB3);
         a+=1;
-        gotoligcol(a, 1);
+        gotoligcol(a, 47);
         printf("%c", 0xC0);
         for (int j=0; j<7; j++)
         {
@@ -42,6 +42,9 @@ void des(int x,int *px)
         a+=1;
     }
 
+    *px=x;
+
+}
     *px=x;
 
 }
