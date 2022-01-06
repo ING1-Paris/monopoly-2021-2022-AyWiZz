@@ -29,7 +29,7 @@ void affichInfo(Joueur j[], int joueurPlaying){
 int c = 0;
 gotoligcol(10, 145);
 printf("%s vous avez %d M $", j[joueurPlaying].nom,j[joueurPlaying].argent);
-gotoligcol(11,100);
+gotoligcol(11,145);
 if(j[joueurPlaying].t1Possede ==1){
     printf("Vous posseder %s.", j[joueurPlaying].terrain1);
     gotoligcol(11+c,145);

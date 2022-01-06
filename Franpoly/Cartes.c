@@ -2,6 +2,7 @@
 #define tailleCarre 6
 #include <time.h>
 #include"header.h"
+#include <stdio.h>
 
 
 
@@ -137,7 +138,7 @@ void affichageCarteChance(int aleatoire, CarteChance tabCartes[])
     {
         gotoligcol(24,85);
     }
-    printf("%s", tabCartes[aleatoire]);
+    printf("%s", tabCartes[aleatoire].nom);
     gotoligcol(37, 103);
     printf("%d/16", aleatoire+1);
 }

@@ -2,6 +2,8 @@
 #define tailleCarre 6
 #define decal 78
 #include "header.h"
+#include <stdio.h>
+#include <time.h>
 
 void creationContourCarteVille()
 {
@@ -202,7 +204,7 @@ void affichageCartesVilles(int aleatoire, CartePlanete tabCartesPlanetes[])
 
     gotoligcol(28, decal);
 
-    printf("LOYER AVEC TROIS MAISONS : 120 M $", tabCartesPlanetes[aleatoire].loyer3);
+    printf("LOYER AVEC TROIS MAISONS : %d M $", tabCartesPlanetes[aleatoire].loyer3);
 
     gotoligcol(30, decal);
 

@@ -83,13 +83,14 @@ void setConsoleFullscreen();
 void clearScreen();
 
 
-
 void creationPlateau();
+void couleursPlateau();
 
 void des(int nbDe,int *pnbDe);
 
 int positionCurseur();
 int checkPartie();
+
 void affichPion(Joueur j[],int joueurJ);
 int choixDepart();
 void remplir(Joueur j[]);
@@ -101,10 +102,18 @@ void affichInfo(Joueur j[], int joueurPlaying);
 void creationCartesChance(CarteChance tabCartes[]);
 void creationCartesCommunautes(CarteChance tabCartes[]);
 
-void creationContourCarte();
+void creationContourCarteChanceCommunaute();
 void affichageCarteChance(int aleatoire, CarteChance tabCartes[]);
+
+void creationContourCarteSatellite();
+void bandeauCartes();
+
 int generationAleatoireChance();
 int generationAleatoireCommu();
+int generationAleatoireSatellite();
+
+void creationSatellites(Satellite tabSatellites[4]);
+void ecritureSatellite(Satellite tabSatellites[4], int aleatoire);
 
 
 #endif // HEADER_H_INCLUDED

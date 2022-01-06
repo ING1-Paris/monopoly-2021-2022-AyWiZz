@@ -56,7 +56,6 @@ void affichPion(Joueur j[], int joueurJ)
         {46,26},{39,26},{32,26},{25,26},{18,26},{11,26}
     };
 
-    int v=0;
     int nbDe = 0;
     int *pnbDe = &nbDe;
     int pos = 0;

@@ -3,7 +3,7 @@
 #include <windows.h>
 #define tailleCarre 6
 #define decal 70
-#import <time.h>
+#include <time.h>
 #include"header.h"
 
 
