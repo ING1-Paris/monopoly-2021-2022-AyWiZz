@@ -90,12 +90,10 @@ int main()
     gotoligcol(1, 195);
     printf("C'est %s qui commence la partie", player[joueurPlaying].nom);
     while(joueurPlaying<nbJoueurs){
-    do
-    {
-        printf("joueur %d joue",joueurPlaying);
+
         gotoligcol(2, 195);
 
-        printf("C'est %s qui joue", player[joueurPlaying].nom);
+        printf("C'est %s qui joue ,c'est le joueur %d", player[joueurPlaying].nom,joueurPlaying);
         player[joueurPlaying].haveToPlay = 1;
 
         gotoligcol(3, 195);
@@ -538,8 +536,7 @@ int main()
         else{
             joueurPlaying++;
         }
-    }
-    while(player[joueurPlaying].haveToPlay == 1);
+
 
     }
 
