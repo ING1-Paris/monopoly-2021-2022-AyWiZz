@@ -354,6 +354,8 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+                    player[joueurPlaying].argent -= tabCartesPlanetes[3].loyer;
+
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter la Terre");
                     tabCartesPlanetes[3].possede=1;
