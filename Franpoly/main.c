@@ -71,8 +71,6 @@ int main()
     }
     system("cls");
 
-
-
     nbJoueurs = remplissageJoueur(player);
     //remplir(player);
     //////////////// REMPLI TOUT LES JOUEURS //////////////
@@ -91,9 +89,10 @@ int main()
 
     gotoligcol(1, 195);
     printf("C'est %s qui commence la partie", player[joueurPlaying].nom);
-    // while(joueurPlaying<nbJoueurs){
+    while(joueurPlaying<nbJoueurs){
     do
     {
+        printf("joueur %d joue",joueurPlaying);
         gotoligcol(2, 195);
 
         printf("C'est %s qui joue", player[joueurPlaying].nom);
@@ -114,7 +113,7 @@ int main()
                 player[joueurPlaying].position = 0;
             }
             gotoligcol(5, 195);
-            printf("Daccord");
+            printf("D'accord");
             player[joueurPlaying].choix = 0;
 
             des(nbDe,pnbDe);
@@ -530,11 +529,19 @@ int main()
         //joueurPlaying+=1;
 
         gotoligcol(8,195);
-        printf("joueurplaying  = %d",joueurPlaying);
 
+        affichInfo(player,joueurPlaying);
+        printf("joueurplaying a fini  = % d",joueurPlaying);
+        if(joueurPlaying>=nbJoueurs){
+            joueurPlaying = 1;
+        }
+        else{
+            joueurPlaying++;
+        }
     }
     while(player[joueurPlaying].haveToPlay == 1);
-    //}
+
+    }
 
 
 
