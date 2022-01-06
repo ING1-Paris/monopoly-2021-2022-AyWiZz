@@ -118,16 +118,56 @@ int main()
             affichPion(player, joueurPlaying);
         }
 
-        switch(player[joueurPlaying].position)
+       switch(player[joueurPlaying].position)
         {
         case 1:
             carteVille(0);
+            if(tabCartesPlanetes[0].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Mercure ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying].argent -= tabCartesPlanetes[0].loyer;
+                    player[joueurPlaying].terrain1[15] = "MERCURE";
+                    tabCartesPlanetes[0].possession == joueurPlaying;
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Mercure");
+                    gotoligcol(47, 90);
+                    printf(" Vous avez %d $", player[joueurPlaying]. argent);
+
+                }
+
+            }
+            else if(tabCartesPlanetes[0].possede == 1){
+                gotoligcol(45, 90);
+                printf("Mercure est déjà possede !");
+            }
 
 
             break;
         case 2:
             carteVille(1);
+            if(tabCartesPlanetes[1].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Venus ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying].argent -= tabCartesPlanetes[1].loyer;
+                    player[joueurPlaying].terrain1[15] = "VENUS";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Venus");
 
+                }
+
+            }
+            else if(tabCartesPlanetes[1].possede == 1){
+                gotoligcol(45, 90);
+                printf("Venus est déjà possede !");
+            }
             break;
         case 3:
 
@@ -139,20 +179,101 @@ int main()
             break;
         case 5:
             carteVille(2);
+            if(tabCartesPlanetes[2].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter la Lune ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying].argent -= tabCartesPlanetes[2].loyer;
+                    player[joueurPlaying].terrain1[15] = "LUNE";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Lune");
 
+                }
+
+            }
+            else if(tabCartesPlanetes[0].possede == 1){
+                gotoligcol(45, 90);
+                printf("Lune est déjà possede !");
+            }
 
             break;
         case 6:
             carteVille(3);
+            if(tabCartesPlanetes[3].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter la Terre ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    /*gotoligcol(47, 90);
+                    printf(" Vous avez %d $", player[joueurPlaying]. argent);*/
+                    player[joueurPlaying].argent -= tabCartesPlanetes[3].loyer;
+                    player[joueurPlaying].terrain1[taille] = "TERRE";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter la Terre");
+                    gotoligcol(47, 90);
+                    printf(" Vous avez %d $", player[joueurPlaying]. argent);
+                    gotoligcol(47, 90);
+                    printf("%s", player[joueurPlaying].terrain1);
+
+                }
+
+            }
+            else if(tabCartesPlanetes[3].possede == 1){
+                gotoligcol(45, 90);
+                printf("La Terre est déjà possede !");
+            }
             break;
         case 7:
             break;
         case 8:
             carteVille(4);
+            if(tabCartesPlanetes[4].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Phobos ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying]. argent -= tabCartesPlanetes[4].loyer;
+                    player[joueurPlaying].terrain1[15] = "PHOBOS";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Phobos");
+
+                }
+
+            }
+            else if(tabCartesPlanetes[4].possede == 1){
+                gotoligcol(45, 90);
+                printf("Phobos est déjà possede !");
+            }
 
             break;
         case 9:
             carteVille(5);
+            if(tabCartesPlanetes[5].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Mars ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying]. argent -= tabCartesPlanetes[5].loyer;
+                    player[joueurPlaying].terrain1[15] = "MARS";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Mars");
+
+                }
+
+            }
+            else if(tabCartesPlanetes[5].possede == 1){
+                gotoligcol(45, 90);
+                printf("Mars est déjà possede !");
+            }
 
             break;
         case 10:
@@ -164,10 +285,48 @@ int main()
             break;
         case 12:
             carteVille(6);
+            if(tabCartesPlanetes[6].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Triton ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying]. argent -= tabCartesPlanetes[6].loyer;
+                    player[joueurPlaying].terrain1[taille] = "TRITON";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Triton");
+
+                }
+
+            }
+            else if(tabCartesPlanetes[6].possede == 1){
+                gotoligcol(45, 90);
+                printf("Triton est déjà possede !");
+            }
 
             break;
         case 13:
             carteVille(7);
+            if(tabCartesPlanetes[7].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Neptune ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying]. argent -= tabCartesPlanetes[7].loyer;
+                    player[joueurPlaying].terrain1[15] = "NEPTUNE";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Neptune");
+
+                }
+
+            }
+            else if(tabCartesPlanetes[7].possede == 1){
+                gotoligcol(45, 90);
+                printf("Neptune est déjà possede !");
+            }
 
             break;
         case 14:
@@ -175,10 +334,48 @@ int main()
             break;
         case 15:
             carteVille(8);
+            if(tabCartesPlanetes[8].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Titanium ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying]. argent -= tabCartesPlanetes[8].loyer;
+                    player[joueurPlaying].terrain1[15] = "TITANIUM";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Titanium");
+
+                }
+
+            }
+            else if(tabCartesPlanetes[8].possede == 1){
+                gotoligcol(45, 90);
+                printf("Titanium est déjà possede !");
+            }
 
             break;
         case 16:
             carteVille(9);
+            if(tabCartesPlanetes[9].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Uranus ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying]. argent -= tabCartesPlanetes[9].loyer;
+                    player[joueurPlaying].terrain1[15] = "URANUS";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Uranus");
+
+                }
+
+            }
+            else if(tabCartesPlanetes[9].possede == 1){
+                gotoligcol(45, 90);
+                printf("Uranus est déjà possede !");
+            }
 
             break;
         case 17:
@@ -190,18 +387,73 @@ int main()
             break;
         case 19:
             carteVille(10);
+            if(tabCartesPlanetes[10].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Titan ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying]. argent -= tabCartesPlanetes[10].loyer;
+                    player[joueurPlaying].terrain1[15] = "TITAN";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Titan");
+
+                }
+
+            }
+            else if(tabCartesPlanetes[10].possede == 1){
+                gotoligcol(45, 90);
+                printf("Titan est déjà possede !");
+            }
 
             break;
         case 20:
             carteVille(11);
+            if(tabCartesPlanetes[11].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Saturne ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying]. argent -= tabCartesPlanetes[11].loyer;
+                    player[joueurPlaying].terrain1[15] = "SATURNE";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Saturne");
 
+                }
+
+            }
+            else if(tabCartesPlanetes[11].possede == 1){
+                gotoligcol(45, 90);
+                printf("Saturne est déjà possede !");
+            }
             break;
         case 21:
 
             break;
         case 22:
             carteVille(12);
+            if(tabCartesPlanetes[12].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Europe ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying]. argent -= tabCartesPlanetes[12].loyer;
+                    player[joueurPlaying].terrain1[15] = "EUROPE";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Europe");
 
+                }
+
+            }
+            else if(tabCartesPlanetes[12].possede == 1){
+                gotoligcol(45, 90);
+                printf("Europe est déjà possede !");
+            }
             break;
         case 23:
             carteCommunaute();
@@ -215,10 +467,48 @@ int main()
             break;
         case 26:
             carteVille(13);
+            if(tabCartesPlanetes[13].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Ganymede ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying]. argent -= tabCartesPlanetes[13].loyer;
+                    player[joueurPlaying].terrain1[15] = "GANYMEDE";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Ganymede");
+
+                }
+
+            }
+            else if(tabCartesPlanetes[13].possede == 1){
+                gotoligcol(45, 90);
+                printf("Ganymede est déjà possede !");
+            }
 
             break;
         case 27:
             carteVille(14);
+            if(tabCartesPlanetes[14].possede == 0)
+            {
+                gotoligcol(45, 90);
+                printf("Voulez vous acheter Jupiter ? 1 pour Oui; 0 pour Non.");
+                scanf("%d", &repAchat);
+                if(repAchat == 1)
+                {
+                    player[joueurPlaying]. argent -= tabCartesPlanetes[14].loyer;
+                    player[joueurPlaying].terrain1[15] = "JUPITER";
+                    gotoligcol(46, 90);
+                    printf("Vous venez d'acheter Jupiter");
+
+                }
+
+            }
+            else if(tabCartesPlanetes[14].possede == 1){
+                gotoligcol(45, 90);
+                printf("Jupiter est déjà possede !");
+            }
 
             break;
         case 28:
