@@ -42,6 +42,23 @@ int carteCommunaute()
 
 }
 
+int carteSatellite()
+{
+    int aleatoire = generationAleatoireSatellite();
+
+    creationContourCarteSatellite();
+
+    bandeauCartes();
+
+    Satellite tabSatellites[4];
+
+    creationSatellites(tabSatellites);
+
+    ecritureSatellite(tabSatellites, aleatoire);
+
+    return aleatoire;
+}
+
 int main()
 {
     CartePlanete tabCartesPlanetes[15];

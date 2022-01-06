@@ -40,6 +40,9 @@
 		<Unit filename="carteChance.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="carteSatelitte.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="choixJoueurDépart.c">
 			<Option compilerVar="CC" />
 		</Unit>

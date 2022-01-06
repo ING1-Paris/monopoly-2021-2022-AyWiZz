@@ -48,6 +48,17 @@ typedef struct
 
 } CartePlanete;
 
+typedef struct
+{
+    char nom[30];
+    int loyer;
+    int loyer2;
+    int loyer3;
+    int loyer4;
+    int possede;
+} Satellite;
+
+
 void affichageCartesVilles(int aleatoire, CartePlanete tabCartesPlanetes[]);
 
 void creationCartesPlanetes(CartePlanete tabCartesPlanetes[]);
