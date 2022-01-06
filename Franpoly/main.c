@@ -162,13 +162,34 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying].argent -= tabCartesPlanetes[0].loyer;
-                    char mercure[15] = "MERCURE";
-                    strcpy(player[joueurPlaying].terrain1, mercure);
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"MERCURE");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"MERCURE");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"MERCURE");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"MERCURE");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"MERCURE");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     tabCartesPlanetes[0].possession == joueurPlaying;
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Mercure");
                     gotoligcol(47, 90);
-                    printf(" Vous avez %d $", player[joueurPlaying]. argent);
+                    
 
                 }
 
@@ -190,8 +211,31 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"VENUS");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"VENUS");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"VENUS");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"VENUS");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"VENUS");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     player[joueurPlaying].argent -= tabCartesPlanetes[1].loyer;
-                    player[joueurPlaying].terrain1[15] = "VENUS";
+                    
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Venus");
 
@@ -221,9 +265,31 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"LUNE");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"LUNE");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"LUNE");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"LUNE");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"LUNE");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     player[joueurPlaying].argent -= tabCartesPlanetes[2].loyer;
-                    char lune[15] = "LUNE";
-                    strcpy(player[joueurPlaying].terrain1, lune);
+                    
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Lune");
 
@@ -248,36 +314,33 @@ int main()
                 {
                     player[joueurPlaying].nbTerrain+=1;
 
-                    /*gotoligcol(47, 90);
-                    printf(" Vous avez %d $", player[joueurPlaying]. argent);*/
-                    player[joueurPlaying].argent -= tabCartesPlanetes[3].loyer;
-                    char terre[15] = "TERRE";
-                    strcpy(player[joueurPlaying].terrain1, terre);
                     switch (player[joueurPlaying].nbTerrain){
                     case 0:
-                        player[joueurPlaying].terrain1[15] = "TERRE";
+                        strcpy(player[joueurPlaying].terrain1,"TERRE");
                         player[joueurPlaying].t1Possede = 1;
                     break;
                     case 1:
-                        player[joueurPlaying].terrain2[15] = "TERRE";
+                        strcpy(player[joueurPlaying].terrain2,"TERRE");
                         player[joueurPlaying].t2Possede = 1;
                     break;
                     case 2:
-                        player[joueurPlaying].terrain3[15] = "TERRE";
+                        strcpy(player[joueurPlaying].terrain3,"TERRE");
                         player[joueurPlaying].t3Possede = 1;
                     break;
                     case 3:
-                        player[joueurPlaying].terrain3[15] = "TERRE";
+                        strcpy(player[joueurPlaying].terrain4,"TERRE");
                         player[joueurPlaying].t4Possede = 1;
                     break;
                     case 4:
-                        player[joueurPlaying].terrain3[15] = "TERRE";
+                        strcpy(player[joueurPlaying].terrain5,"TERRE");
                         player[joueurPlaying].t5Possede = 1;
                     break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter la Terre");
                     tabCartesPlanetes[3].possede=1;
-                    printf("ta le terrain %s maintenant", player[joueurPlaying].terrain1[15]);
+           
                     gotoligcol(47, 90);
                     affichInfo(player,joueurPlaying);
                     /*printf(" Vous avez %d $", player[joueurPlaying]. argent);
@@ -304,9 +367,31 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"PHOBOS");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"PHOBOS");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"PHOBOS");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"PHOBOS");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"PHOBOS");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     player[joueurPlaying]. argent -= tabCartesPlanetes[4].loyer;
-                    char phobos[15] = "PHOBOS";
-                    strcpy(player[joueurPlaying].terrain1, phobos);
+                   
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Phobos");
 
@@ -329,9 +414,31 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"MARS");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"MARS");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"MARS");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"MARS");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"MARS");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     player[joueurPlaying]. argent -= tabCartesPlanetes[5].loyer;
-                    char mars[15] = "MARS";
-                    strcpy(player[joueurPlaying].terrain1, mars);
+                    
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Mars");
 
@@ -361,9 +468,31 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"TRITON");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"TRITON");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"TRITON");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"TRITON");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"TRITON");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     player[joueurPlaying]. argent -= tabCartesPlanetes[6].loyer;
-                    char triton[15] = "TRITON";
-                    strcpy(player[joueurPlaying].terrain1, triton);
+                    
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Triton");
 
@@ -386,9 +515,31 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"NEPTUNE");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"NEPTUNE");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"NEPTUNE");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"NEPTUNE");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"NEPTUNE");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     player[joueurPlaying]. argent -= tabCartesPlanetes[7].loyer;
-                    char neptune[15] = "NEPTUNE";
-                    strcpy(player[joueurPlaying].terrain1, neptune);
+                   
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Neptune");
 
@@ -414,9 +565,31 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"TITANIUM");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"TITANIUM");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"TITANIUM");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"TITANIUM");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"TITANIUM");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     player[joueurPlaying]. argent -= tabCartesPlanetes[8].loyer;
-                    char titania[15] = "TITANIA";
-                    strcpy(player[joueurPlaying].terrain1, titania);
+                    
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Titania");
 
@@ -439,9 +612,32 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"URANUS");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"URANUS");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"URANUS");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"URANUS");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"URANUS");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
+                    
                     player[joueurPlaying]. argent -= tabCartesPlanetes[9].loyer;
-                    char uranus[15] = "URANUS";
-                    strcpy(player[joueurPlaying].terrain1, uranus);
+                    
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Uranus");
 
@@ -471,9 +667,31 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"TITAN");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"TITAN");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"TITAN");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"TITAN");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"TITAN");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     player[joueurPlaying]. argent -= tabCartesPlanetes[10].loyer;
-                    char titan[15] = "TITAN";
-                    strcpy(player[joueurPlaying].terrain1, titan);
+                    
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Titan");
 
@@ -496,9 +714,31 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"SATURNE");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"SATURNE");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"SATURNE");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"SATURNE");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"SATURNE");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     player[joueurPlaying]. argent -= tabCartesPlanetes[11].loyer;
-                    char saturne[15] = "SATURNE";
-                    strcpy(player[joueurPlaying].terrain1, saturne);
+                    
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Saturne");
 
@@ -523,9 +763,32 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"EUROPE");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"EUROPE");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"EUROPE");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"EUROPE");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"EUROPE");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
+                    
                     player[joueurPlaying]. argent -= tabCartesPlanetes[12].loyer;
-                    char europe[15] = "EUROPE";
-                    strcpy(player[joueurPlaying].terrain1, europe);
+                    
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Europe");
 
@@ -557,9 +820,31 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"GANYMEDE");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"GANYMEDE");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"GANYMEDE");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"GANYMEDE");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"GANYMEDE");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     player[joueurPlaying]. argent -= tabCartesPlanetes[13].loyer;
-                    char ganymede[15] = "GANYMEDE";
-                    strcpy(player[joueurPlaying].terrain1, ganymede);
+                    
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Ganymede");
 
@@ -582,9 +867,31 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        strcpy(player[joueurPlaying].terrain1,"JUPITER");
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        strcpy(player[joueurPlaying].terrain2,"JUPITER");
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        strcpy(player[joueurPlaying].terrain3,"JUPITER");
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        strcpy(player[joueurPlaying].terrain4,"JUPITER");
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        strcpy(player[joueurPlaying].terrain5,"JUPITER");
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
+                    
+                    player[joueurPlaying].nbTerrain+=1;
                     player[joueurPlaying]. argent -= tabCartesPlanetes[14].loyer;
-                    char jupiter[15] = "JUPITER";
-                    strcpy(player[joueurPlaying].terrain1, jupiter);
+                    
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Jupiter");
 
