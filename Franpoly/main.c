@@ -162,7 +162,8 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying].argent -= tabCartesPlanetes[0].loyer;
-                    player[joueurPlaying].terrain1[15] = "MERCURE";
+                    char mercure[15] = "MERCURE";
+                    strcpy(player[joueurPlaying].terrain1, mercure);
                     tabCartesPlanetes[0].possession == joueurPlaying;
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Mercure");
@@ -221,7 +222,8 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying].argent -= tabCartesPlanetes[2].loyer;
-                    player[joueurPlaying].terrain1[15] = "LUNE";
+                    char lune[15] = "LUNE";
+                    strcpy(player[joueurPlaying].terrain1, lune);
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Lune");
 
@@ -249,7 +251,8 @@ int main()
                     /*gotoligcol(47, 90);
                     printf(" Vous avez %d $", player[joueurPlaying]. argent);*/
                     player[joueurPlaying].argent -= tabCartesPlanetes[3].loyer;
-                    //player[joueurPlaying].terrain1[taille] = "TERRE";
+                    char terre[15] = "TERRE";
+                    strcpy(player[joueurPlaying].terrain1, terre);
                     switch (player[joueurPlaying].nbTerrain){
                     case 0:
                         player[joueurPlaying].terrain1[15] = "TERRE";
@@ -302,7 +305,8 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying]. argent -= tabCartesPlanetes[4].loyer;
-                    player[joueurPlaying].terrain1[15] = "PHOBOS";
+                    char phobos[15] = "PHOBOS";
+                    strcpy(player[joueurPlaying].terrain1, phobos);
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Phobos");
 
@@ -326,7 +330,8 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying]. argent -= tabCartesPlanetes[5].loyer;
-                    player[joueurPlaying].terrain1[15] = "MARS";
+                    char mars[15] = "MARS";
+                    strcpy(player[joueurPlaying].terrain1, mars);
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Mars");
 
@@ -357,7 +362,8 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying]. argent -= tabCartesPlanetes[6].loyer;
-                    player[joueurPlaying].terrain1[taille] = "TRITON";
+                    char triton[15] = "TRITON";
+                    strcpy(player[joueurPlaying].terrain1, triton);
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Triton");
 
@@ -381,7 +387,8 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying]. argent -= tabCartesPlanetes[7].loyer;
-                    player[joueurPlaying].terrain1[15] = "NEPTUNE";
+                    char neptune[15] = "NEPTUNE";
+                    strcpy(player[joueurPlaying].terrain1, neptune);
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Neptune");
 
@@ -408,9 +415,10 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying]. argent -= tabCartesPlanetes[8].loyer;
-                    player[joueurPlaying].terrain1[15] = "TITANIUM";
+                    char titania[15] = "TITANIA";
+                    strcpy(player[joueurPlaying].terrain1, titania);
                     gotoligcol(46, 90);
-                    printf("Vous venez d'acheter Titanium");
+                    printf("Vous venez d'acheter Titania");
 
                 }
 
@@ -432,7 +440,8 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying]. argent -= tabCartesPlanetes[9].loyer;
-                    player[joueurPlaying].terrain1[15] = "URANUS";
+                    char uranus[15] = "URANUS";
+                    strcpy(player[joueurPlaying].terrain1, uranus);
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Uranus");
 
@@ -463,7 +472,8 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying]. argent -= tabCartesPlanetes[10].loyer;
-                    player[joueurPlaying].terrain1[15] = "TITAN";
+                    char titan[15] = "TITAN";
+                    strcpy(player[joueurPlaying].terrain1, titan);
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Titan");
 
@@ -487,7 +497,8 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying]. argent -= tabCartesPlanetes[11].loyer;
-                    player[joueurPlaying].terrain1[15] = "SATURNE";
+                    char saturne[15] = "SATURNE";
+                    strcpy(player[joueurPlaying].terrain1, saturne);
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Saturne");
 
@@ -513,7 +524,8 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying]. argent -= tabCartesPlanetes[12].loyer;
-                    player[joueurPlaying].terrain1[15] = "EUROPE";
+                    char europe[15] = "EUROPE";
+                    strcpy(player[joueurPlaying].terrain1, europe);
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Europe");
 
@@ -546,7 +558,8 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying]. argent -= tabCartesPlanetes[13].loyer;
-                    player[joueurPlaying].terrain1[15] = "GANYMEDE";
+                    char ganymede[15] = "GANYMEDE";
+                    strcpy(player[joueurPlaying].terrain1, ganymede);
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Ganymede");
 
@@ -570,7 +583,8 @@ int main()
                 if(repAchat == 1)
                 {
                     player[joueurPlaying]. argent -= tabCartesPlanetes[14].loyer;
-                    player[joueurPlaying].terrain1[15] = "JUPITER";
+                    char jupiter[15] = "JUPITER";
+                    strcpy(player[joueurPlaying].terrain1, jupiter);
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Jupiter");
 
