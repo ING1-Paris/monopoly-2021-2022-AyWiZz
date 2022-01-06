@@ -89,7 +89,9 @@ int main()
 
     gotoligcol(1, 195);
     printf("C'est %s qui commence la partie", player[joueurPlaying].nom);
-    while(joueurPlaying<nbJoueurs){
+
+    do
+    {
 
         gotoligcol(2, 195);
 
@@ -103,13 +105,13 @@ int main()
 
         scanf("%d", &player[joueurPlaying].choix);
 
+        system("cls");
+        couleursPlateau();
+        creationPlateau();
+
 
         if(player[joueurPlaying].choix == 1)
         {
-            if(player[joueurPlaying].position > 27)
-            {
-                player[joueurPlaying].position = 0;
-            }
             gotoligcol(5, 195);
             printf("D'accord");
             player[joueurPlaying].choix = 0;
@@ -122,10 +124,14 @@ int main()
 
             printf("Tu va vers l'avant de %d cases ! ", nbDe);
             nbDe = 0;
-            affichPion(player, joueurPlaying);
+            for(int i = 0; i <= nbJoueurs; i++)
+            {
+                affichPion(player, i);
+            }
+            //affichPion(player, joueurPlaying);
         }
 
-       switch(player[joueurPlaying].position)
+        switch(player[joueurPlaying].position)
         {
         case 1:
             carteVille(0);
@@ -147,7 +153,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[0].possede == 1){
+            else if(tabCartesPlanetes[0].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Mercure est déjà possede !");
             }
@@ -171,7 +178,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[1].possede == 1){
+            else if(tabCartesPlanetes[1].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Venus est déjà possede !");
             }
@@ -201,7 +209,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[0].possede == 1){
+            else if(tabCartesPlanetes[0].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Lune est déjà possede !");
             }
@@ -230,7 +239,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[3].possede == 1){
+            else if(tabCartesPlanetes[3].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("La Terre est déjà possede !");
             }
@@ -254,7 +264,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[4].possede == 1){
+            else if(tabCartesPlanetes[4].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Phobos est déjà possede !");
             }
@@ -277,7 +288,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[5].possede == 1){
+            else if(tabCartesPlanetes[5].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Mars est déjà possede !");
             }
@@ -307,7 +319,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[6].possede == 1){
+            else if(tabCartesPlanetes[6].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Triton est déjà possede !");
             }
@@ -330,7 +343,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[7].possede == 1){
+            else if(tabCartesPlanetes[7].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Neptune est déjà possede !");
             }
@@ -356,7 +370,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[8].possede == 1){
+            else if(tabCartesPlanetes[8].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Titanium est déjà possede !");
             }
@@ -379,7 +394,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[9].possede == 1){
+            else if(tabCartesPlanetes[9].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Uranus est déjà possede !");
             }
@@ -409,7 +425,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[10].possede == 1){
+            else if(tabCartesPlanetes[10].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Titan est déjà possede !");
             }
@@ -432,7 +449,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[11].possede == 1){
+            else if(tabCartesPlanetes[11].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Saturne est déjà possede !");
             }
@@ -457,7 +475,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[12].possede == 1){
+            else if(tabCartesPlanetes[12].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Europe est déjà possede !");
             }
@@ -489,7 +508,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[13].possede == 1){
+            else if(tabCartesPlanetes[13].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Ganymede est déjà possede !");
             }
@@ -512,7 +532,8 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[14].possede == 1){
+            else if(tabCartesPlanetes[14].possede == 1)
+            {
                 gotoligcol(45, 90);
                 printf("Jupiter est déjà possede !");
             }
@@ -530,15 +551,18 @@ int main()
 
         affichInfo(player,joueurPlaying);
         printf("joueurplaying a fini  = % d",joueurPlaying);
-        if(joueurPlaying>=nbJoueurs){
+        if(joueurPlaying>=nbJoueurs)
+        {
             joueurPlaying = 1;
         }
-        else{
+        else
+        {
             joueurPlaying++;
         }
-
-
     }
+    while(1==1);
+
+
 
 
 

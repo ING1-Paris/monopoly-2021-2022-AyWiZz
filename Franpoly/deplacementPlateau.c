@@ -45,9 +45,6 @@ void des(int x,int *px)
     *px=x;
 
 }
-    *px=x;
-
-}
 
 
 void affichPion(Joueur j[], int joueurJ)

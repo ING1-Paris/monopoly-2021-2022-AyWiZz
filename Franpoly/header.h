@@ -6,7 +6,7 @@
 typedef struct Joueur
 {
     char nom[taille];
-    int argent;
+    unsigned int argent;
     int lastposition;
     int position;
     int couleur;
@@ -22,7 +22,7 @@ typedef struct Joueur
     char terrain3[taille];
     char terrain4[taille];
     char terrain5[taille];
-}Joueur;
+} Joueur;
 
 typedef struct
 {
@@ -30,7 +30,7 @@ typedef struct
 
     char couleur[15];
 
-    int loyer;
+    unsigned int loyer;
 
     int loyer1;
 
@@ -55,9 +55,10 @@ void creationContourCarteVille();
 
 
 
-typedef struct Chance{
+typedef struct Chance
+{
     char nom[100];
-}CarteChance;
+} CarteChance;
 
 void gotoligcol( int lig, int col );
 
