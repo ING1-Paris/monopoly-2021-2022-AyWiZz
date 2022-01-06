@@ -43,6 +43,8 @@ typedef struct
     int loyer5;
 
     int hypo;
+    int possede;
+    int possession;
 
 } CartePlanete;
 

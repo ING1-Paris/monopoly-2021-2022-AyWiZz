@@ -44,7 +44,7 @@ int carteCommunaute()
 
 int main()
 {
-
+    CartePlanete tabCartesPlanetes[15];
 
     Joueur player[6];
     setConsoleFullscreen();
@@ -61,6 +61,8 @@ int main()
 
     int nbDe = 0;
     int *pnbDe = &nbDe;
+
+    int repAchat = 0;
 
     curseur = positionCurseur();
     if(curseur == 2)
