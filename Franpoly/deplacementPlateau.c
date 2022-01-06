@@ -103,27 +103,27 @@ void affichPion(Joueur j[], int joueurJ)
         else if(joueurJ == 4)
         {
             Color(13, 0);
-            gotoligcol(caze[pos][0]+2,caze[pos][1]-4);
+            gotoligcol(caze[pos][0]+1,caze[pos][1]-4);
             printf("%c%c%c", 0xC9, 0xCD, 0xBB);
-            gotoligcol(caze[pos][0]+2+1,caze[pos][1]-4);
+            gotoligcol(caze[pos][0]+1+1,caze[pos][1]-4);
             printf("%c%c%c", 0xC8, 0xCD, 0xBC);
             Color(9, 0);
         }
         else if(joueurJ == 5)
         {
             Color(14, 0);
-            gotoligcol(caze[pos][0]+2,caze[pos][1]);
+            gotoligcol(caze[pos][0]+1,caze[pos][1]);
             printf("%c%c%c", 0xC9, 0xCD, 0xBB);
-            gotoligcol(caze[pos][0]+2+1,caze[pos][1]);
+            gotoligcol(caze[pos][0]+1+1,caze[pos][1]);
             printf("%c%c%c", 0xC8, 0xCD, 0xBC);
             Color(9, 0);
         }
         else if(joueurJ == 6)
         {
             Color(15, 0);
-            gotoligcol(caze[pos][0]+2,caze[pos][1]+4);
+            gotoligcol(caze[pos][0]+1,caze[pos][1]+4);
             printf("%c%c%c", 0xC9, 0xCD, 0xBB);
-            gotoligcol(caze[pos][0]+2+1,caze[pos][1]+4);
+            gotoligcol(caze[pos][0]+1+1,caze[pos][1]+4);
             printf("%c%c%c", 0xC8, 0xCD, 0xBC);
             Color(9, 0);
         }
@@ -161,27 +161,27 @@ void affichPion(Joueur j[], int joueurJ)
         else if(joueurJ == 4)
         {
             Color(13, 0);
-            gotoligcol(caze[pos][0]+3,caze[pos][1]-4);
+            gotoligcol(caze[pos][0]+2,caze[pos][1]-4);
             printf("%c%c%c", 0xC9, 0xCD, 0xBB);
-            gotoligcol(caze[pos][0]+3+1,caze[pos][1]-4);
+            gotoligcol(caze[pos][0]+2+1,caze[pos][1]-4);
             printf("%c%c%c", 0xC8, 0xCD, 0xBC);
             Color(9, 0);
         }
         else if(joueurJ == 5)
         {
             Color(14, 0);
-            gotoligcol(caze[pos][0]+3,caze[pos][1]);
+            gotoligcol(caze[pos][0]+2,caze[pos][1]);
             printf("%c%c%c", 0xC9, 0xCD, 0xBB);
-            gotoligcol(caze[pos][0]+3+1,caze[pos][1]);
+            gotoligcol(caze[pos][0]+2+1,caze[pos][1]);
             printf("%c%c%c", 0xC8, 0xCD, 0xBC);
             Color(9, 0);
         }
         else if(joueurJ == 6)
         {
             Color(15, 0);
-            gotoligcol(caze[pos][0]+3,caze[pos][1]+4);
+            gotoligcol(caze[pos][0]+2,caze[pos][1]+4);
             printf("%c%c%c", 0xC9, 0xCD, 0xBB);
-            gotoligcol(caze[pos][0]+3+1,caze[pos][1]+4);
+            gotoligcol(caze[pos][0]+2+1,caze[pos][1]+4);
             printf("%c%c%c", 0xC8, 0xCD, 0xBC);
             Color(9, 0);
         }
@@ -219,27 +219,27 @@ void affichPion(Joueur j[], int joueurJ)
         else if(joueurJ == 4)
         {
             Color(13, 0);
-            gotoligcol(caze[pos][0]+3,caze[pos][1]-4);
+            gotoligcol(caze[pos][0]+2,caze[pos][1]-4);
             printf("%c%c%c", 0xC9, 0xCD, 0xBB);
-            gotoligcol(caze[pos][0]+3+1,caze[pos][1]-4);
+            gotoligcol(caze[pos][0]+2+1,caze[pos][1]-4);
             printf("%c%c%c", 0xC8, 0xCD, 0xBC);
             Color(9, 0);
         }
         else if(joueurJ == 5)
         {
             Color(14, 0);
-            gotoligcol(caze[pos][0]+3,caze[pos][1]);
+            gotoligcol(caze[pos][0]+2,caze[pos][1]);
             printf("%c%c%c", 0xC9, 0xCD, 0xBB);
-            gotoligcol(caze[pos][0]+3+1,caze[pos][1]);
+            gotoligcol(caze[pos][0]+2+1,caze[pos][1]);
             printf("%c%c%c", 0xC8, 0xCD, 0xBC);
             Color(9, 0);
         }
         else if(joueurJ == 6)
         {
             Color(15, 0);
-            gotoligcol(caze[pos][0]+3,caze[pos][1]+4);
+            gotoligcol(caze[pos][0]+2,caze[pos][1]+4);
             printf("%c%c%c", 0xC9, 0xCD, 0xBB);
-            gotoligcol(caze[pos][0]+3+1,caze[pos][1]+4);
+            gotoligcol(caze[pos][0]+2+1,caze[pos][1]+4);
             printf("%c%c%c", 0xC8, 0xCD, 0xBC);
             Color(9, 0);
         }
@@ -259,9 +259,9 @@ void affichPion(Joueur j[], int joueurJ)
         else if(joueurJ == 2)
         {
             Color(11, 0);
-            gotoligcol(caze[pos][0]-2,caze[pos][1]+10);
+            gotoligcol(caze[pos][0]-2,caze[pos][1]+8);
             printf("%c%c%c", 0xC9, 0xCD, 0xBB);
-            gotoligcol(caze[pos][0]-2+1,caze[pos][1]+10);
+            gotoligcol(caze[pos][0]-2+1,caze[pos][1]+8);
             printf("%c%c%c", 0xC8, 0xCD, 0xBC);
             Color(9, 0);
         }
@@ -277,9 +277,9 @@ void affichPion(Joueur j[], int joueurJ)
         else if(joueurJ == 4)
         {
             Color(13, 0);
-            gotoligcol(caze[pos][0],caze[pos][1]+10);
+            gotoligcol(caze[pos][0],caze[pos][1]+8);
             printf("%c%c%c", 0xC9, 0xCD, 0xBB);
-            gotoligcol(caze[pos][0]+1,caze[pos][1]+10);
+            gotoligcol(caze[pos][0]+1,caze[pos][1]+8);
             printf("%c%c%c", 0xC8, 0xCD, 0xBC);
             Color(9, 0);
         }
@@ -295,9 +295,9 @@ void affichPion(Joueur j[], int joueurJ)
         else if(joueurJ == 6)
         {
             Color(15, 0);
-            gotoligcol(caze[pos][0]+2,caze[pos][1]+10);
+            gotoligcol(caze[pos][0]+2,caze[pos][1]+8);
             printf("%c%c%c", 0xC9, 0xCD, 0xBB);
-            gotoligcol(caze[pos][0]+2+1,caze[pos][1]+10);
+            gotoligcol(caze[pos][0]+2+1,caze[pos][1]+8);
             printf("%c%c%c", 0xC8, 0xCD, 0xBC);
             Color(9, 0);
         }
