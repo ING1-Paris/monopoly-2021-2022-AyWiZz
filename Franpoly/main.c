@@ -62,6 +62,7 @@ int carteSatellite()
 int main()
 {
     CartePlanete tabCartesPlanetes[15];
+    creationCartesPlanetes(tabCartesPlanetes); //CREER LES 15 CARTES
 
     Joueur player[6];
     setConsoleFullscreen();
