@@ -72,7 +72,15 @@ int main()
 
 
     nbJoueurs = remplissageJoueur(player);
-    remplir(player);
+    //remplir(player);
+    //////////////// REMPLI TOUT LES JOUEURS //////////////
+    for (int i=1; i<7; i++)
+    {
+        player[i].argent = 1500;
+        player[i].position = 0;
+        //j[i].haveToPlay = 0;
+    }
+    //////////////////////////////////////////////////////
     joueurPlaying = choixDepart(nbJoueurs);
 
     // system("cls");
