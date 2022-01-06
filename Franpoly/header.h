@@ -12,6 +12,11 @@ typedef struct Joueur
     int couleur;
     int choix;
     int haveToPlay;
+    int t1Possede;
+    int t2Possede;
+    int t3Possede;
+    int t4Possede;
+    int t5Possede;
     char terrain1[taille];
     char terrain2[taille];
     char terrain3[taille];
@@ -75,6 +80,8 @@ int choixDepart();
 void remplir(Joueur j[]);
 int remplissageJoueur(Joueur j[]);
 void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[]);
+
+void affichInfo(Joueur j[], int joueurPlaying);
 
 void creationCartesChance(CarteChance tabCartes[]);
 void creationCartesCommunautes(CarteChance tabCartes[]);
