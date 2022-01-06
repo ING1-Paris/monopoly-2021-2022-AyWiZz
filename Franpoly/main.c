@@ -139,7 +139,7 @@ int main()
 
             gotoligcol(6, 195);
 
-            printf("Tu va vers l'avant de %d cases ! ", nbDe);
+            printf("Tu va vers l'avant de %d cases position %d! ", nbDe, player[joueurPlaying].position);
             nbDe = 0;
             for(int i = 0; i <= nbJoueurs; i++)
             {
@@ -557,7 +557,6 @@ int main()
 
             break;
         case 28:
-            player[joueurPlaying].position = 1;
             break;
 
         }

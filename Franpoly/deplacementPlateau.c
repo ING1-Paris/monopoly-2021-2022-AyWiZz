@@ -66,9 +66,10 @@ void affichPion(Joueur j[], int joueurJ)
     if(pos>27)
     {
         j[joueurJ].argent+=200;
-        pos = pos-28;
+        pos = pos-27;
     }
-    pos = 1+ pos + *pnbDe;
+    j[joueurJ].position = pos;
+    pos = 1 + pos + *pnbDe;
 
 
     if (pos==1 || pos==2 || pos==3 || pos==4 || pos==5 || pos==6 || pos==7 || pos==9 ||pos==10 || pos==11 || pos==12 || pos==13 || pos==14 || pos==18 || pos==19 || pos==23 || pos==24 || pos==25 || pos==26 || pos==27 || pos==28)
