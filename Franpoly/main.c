@@ -67,12 +67,12 @@ int main()
     Joueur player[6];
     setConsoleFullscreen();
 
-    int game = 1;
-    int numero = 0;
-    int joueurJ = 0;
+    //int game = 1;
+    //int numero = 0;
+    //int joueurJ = 0;
 
     int joueurPlaying = 0;
-    int ligne = 0;
+    //int ligne = 0;
     int curseur = 1;
     int sauvegarde = 0;
     int nbJoueurs = 0;
