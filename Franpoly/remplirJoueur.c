@@ -9,10 +9,16 @@ typedef struct Joueur
 {
     char nom[taille];
     int argent;
-    int couleur;
+    int lastposition;
     int position;
+    int couleur;
     int choix;
     int haveToPlay;
+    int t1Possede;
+    int t2Possede;
+    int t3Possede;
+    int t4Possede;
+    int t5Possede;
     char terrain1[taille];
     char terrain2[taille];
     char terrain3[taille];
