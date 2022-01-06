@@ -1,11 +1,9 @@
 #include <windows.h>
 #define tailleCarre 6
 #include <time.h>
+#include"header.h"
 
-typedef struct Chance
-{
-    char nom[100];
-} CarteChance;
+
 
 void creationCartesChance(CarteChance tabCartes[])
 {

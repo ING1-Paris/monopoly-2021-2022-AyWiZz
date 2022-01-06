@@ -95,6 +95,7 @@ int main()
     {
         player[i].argent = 1500;
         player[i].position = 0;
+        player[i].nbTerrain = 0;
         //j[i].haveToPlay = 0;
     }
     //////////////////////////////////////////////////////
@@ -135,7 +136,7 @@ int main()
 
             des(nbDe,pnbDe);
             player[joueurPlaying].lastposition = player[joueurPlaying].position;
-            player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
+            player[joueurPlaying].position = 6;//player[joueurPlaying].lastposition + nbDe;
 
             gotoligcol(6, 195);
 
@@ -242,16 +243,42 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1)
                 {
+                    player[joueurPlaying].nbTerrain+=1;
+
                     /*gotoligcol(47, 90);
                     printf(" Vous avez %d $", player[joueurPlaying]. argent);*/
                     player[joueurPlaying].argent -= tabCartesPlanetes[3].loyer;
-                    player[joueurPlaying].terrain1[taille] = "TERRE";
+                    //player[joueurPlaying].terrain1[taille] = "TERRE";
+                    switch (player[joueurPlaying].nbTerrain){
+                    case 0:
+                        player[joueurPlaying].terrain1[15] = "TERRE";
+                        player[joueurPlaying].t1Possede = 1;
+                    break;
+                    case 1:
+                        player[joueurPlaying].terrain2[15] = "TERRE";
+                        player[joueurPlaying].t2Possede = 1;
+                    break;
+                    case 2:
+                        player[joueurPlaying].terrain3[15] = "TERRE";
+                        player[joueurPlaying].t3Possede = 1;
+                    break;
+                    case 3:
+                        player[joueurPlaying].terrain3[15] = "TERRE";
+                        player[joueurPlaying].t4Possede = 1;
+                    break;
+                    case 4:
+                        player[joueurPlaying].terrain3[15] = "TERRE";
+                        player[joueurPlaying].t5Possede = 1;
+                    break;}
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter la Terre");
+                    tabCartesPlanetes[3].possede=1;
+                    printf("ta le terrain %s maintenant", player[joueurPlaying].terrain1[15]);
                     gotoligcol(47, 90);
-                    printf(" Vous avez %d $", player[joueurPlaying]. argent);
+                    affichInfo(player,joueurPlaying);
+                    /*printf(" Vous avez %d $", player[joueurPlaying]. argent);
                     gotoligcol(47, 90);
-                    printf("%s", player[joueurPlaying].terrain1);
+                    printf("%s", player[joueurPlaying].terrain1);*/
 
                 }
 
@@ -565,7 +592,7 @@ int main()
 
         gotoligcol(8,195);
 
-        affichInfo(player,joueurPlaying);
+        //affichInfo(player,joueurPlaying);
         printf("joueurplaying a fini  = % d",joueurPlaying);
         if(joueurPlaying>=nbJoueurs)
         {

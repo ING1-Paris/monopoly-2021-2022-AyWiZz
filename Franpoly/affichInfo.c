@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <windows.h>
 #define taille 20
-
-typedef struct Joueur
+#include "header.h"
+/*typedef struct Joueur
 {
     char nom[taille];
     int argent;
@@ -17,12 +17,13 @@ typedef struct Joueur
     int t3Possede;
     int t4Possede;
     int t5Possede;
+    int nbTerrain;
     char terrain1[taille];
     char terrain2[taille];
     char terrain3[taille];
     char terrain4[taille];
     char terrain5[taille];
-}Joueur;
+}Joueur;*/
 
 void affichInfo(Joueur j[], int joueurPlaying){
 int c = 0;

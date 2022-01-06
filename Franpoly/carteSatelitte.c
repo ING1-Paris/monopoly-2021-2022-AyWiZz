@@ -4,15 +4,7 @@
 #define tailleCarre 6
 #define decal 70
 #import <time.h>
-typedef struct
-{
-    char nom[30];
-    int loyer;
-    int loyer2;
-    int loyer3;
-    int loyer4;
-    int possede;
-} Satellite;
+#include"header.h"
 
 
 
