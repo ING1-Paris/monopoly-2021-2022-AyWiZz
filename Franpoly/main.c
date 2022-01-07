@@ -141,7 +141,7 @@ int main()
 
             des(nbDe,pnbDe);
             player[joueurPlaying].lastposition = player[joueurPlaying].position;
-            player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
+            player[joueurPlaying].position = 1;//player[joueurPlaying].lastposition + nbDe;
 
             for(int i = 0; i <= nbJoueurs; i++)
             {
@@ -192,6 +192,16 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    //strcpy(tabCartesPlanetes[0].possession, player[joueurPlaying].nom);
+
+                    tabCartesPlanetes[0].possession = joueurPlaying;
+
+
+                    gotoligcol(48,90);
+
+                    printf("%d", tabCartesPlanetes[0].possession);
+                    ///////////////////////////////////////////////////////////////:
 
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter Mercure");
@@ -200,13 +210,23 @@ int main()
                     tabCartesPlanetes[0].possede = 1;
 
 
+
+
+
                 }
 
             }
-            else if(tabCartesPlanetes[0].possede == 1)
+            else if(tabCartesPlanetes[0].possede == 1 && tabCartesPlanetes[0].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
-                printf("Mercure est déjà possede !");
+                printf("Voulez vous acheter des maisons ?");
+            }
+            else if(tabCartesPlanetes[0].possede == 1 && tabCartesPlanetes[0].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
+            {
+
+                player[joueurPlaying].argent -= tabCartesPlanetes[0].loyer; // LE JOUEUR PAYE LE LOYER
+                player[tabCartesPlanetes[0].possession].argent += tabCartesPlanetes[0].loyer;
+
             }
 
 
@@ -245,6 +265,11 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[1].possession = joueurPlaying;
+
+
                     player[joueurPlaying].argent -= tabCartesPlanetes[1].loyer;
 
                     gotoligcol(46, 90);
@@ -254,7 +279,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[1].possede == 1)
+            else if(tabCartesPlanetes[1].possede == 1 && tabCartesPlanetes[1].possession == joueurPlaying)//PERMET DE SAVOIR SI C'EST AU JOUEUR QUI EST EN TRAIN DE JOUER)
             {
                 gotoligcol(45, 90);
                 printf("Venus est déjà possede !");
@@ -302,6 +327,10 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[2].possession = joueurPlaying;
+
+
                     player[joueurPlaying].argent -= tabCartesPlanetes[2].loyer;
 
                     gotoligcol(46, 90);
@@ -311,7 +340,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[0].possede == 1)
+            else if(tabCartesPlanetes[2].possede == 1 && tabCartesPlanetes[2].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("Lune est déjà possede !");
@@ -354,6 +383,11 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[3].possession = joueurPlaying;
+
+
+
                     player[joueurPlaying].argent -= tabCartesPlanetes[3].loyer;
 
                     gotoligcol(46, 90);
@@ -368,7 +402,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[3].possede == 1)
+            else if(tabCartesPlanetes[3].possede == 1 && tabCartesPlanetes[3].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("La Terre est déjà possede !");
@@ -410,6 +444,11 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[4].possession = joueurPlaying;
+
+
                     player[joueurPlaying]. argent -= tabCartesPlanetes[4].loyer;
 
                     gotoligcol(46, 90);
@@ -419,7 +458,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[4].possede == 1)
+            else if(tabCartesPlanetes[4].possede == 1 && tabCartesPlanetes[4].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("Phobos est déjà possede !");
@@ -460,6 +499,9 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[5].possession = joueurPlaying; //DIT QUE LE TERRAIN EST POSSEDE PAR LE NOM DU JOUEUR EN TRAIN DE JOUER
+
                     player[joueurPlaying]. argent -= tabCartesPlanetes[5].loyer;
 
                     gotoligcol(46, 90);
@@ -469,7 +511,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[5].possede == 1)
+            else if(tabCartesPlanetes[5].possede == 1 && tabCartesPlanetes[5].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("Mars est déjà possede !");
@@ -517,6 +559,10 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[6].possession = joueurPlaying; //DIT QUE LE TERRAIN EST POSSEDE PAR LE NOM DU JOUEUR EN TRAIN DE JOUER
+
                     player[joueurPlaying]. argent -= tabCartesPlanetes[6].loyer;
 
                     gotoligcol(46, 90);
@@ -527,7 +573,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[6].possede == 1)
+            else if(tabCartesPlanetes[6].possede == 1 && tabCartesPlanetes[6].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("Triton est déjà possede !");
@@ -568,6 +614,10 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[7].possession = joueurPlaying; //DIT QUE LE TERRAIN EST POSSEDE PAR LE NOM DU JOUEUR EN TRAIN DE JOUER
+
                     player[joueurPlaying]. argent -= tabCartesPlanetes[7].loyer;
 
                     gotoligcol(46, 90);
@@ -577,7 +627,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[7].possede == 1)
+            else if(tabCartesPlanetes[7].possede == 1 && tabCartesPlanetes[7].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("Neptune est déjà possede !");
@@ -589,7 +639,7 @@ int main()
             break;
         case 15:
             carteVille(8);
-            if(tabCartesPlanetes[8].possede == 0)
+            if(tabCartesPlanetes[8].possede == 0 && (strcmp(tabCartesPlanetes[8].possession, player[joueurPlaying].nom)==0))
             {
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Titanium ? 1 pour Oui; 0 pour Non.");
@@ -621,6 +671,10 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[8].possession = joueurPlaying; //DIT QUE LE TERRAIN EST POSSEDE PAR LE NOM DU JOUEUR EN TRAIN DE JOUER
+
                     player[joueurPlaying]. argent -= tabCartesPlanetes[8].loyer;
 
                     gotoligcol(46, 90);
@@ -631,7 +685,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[8].possede == 1)
+            else if(tabCartesPlanetes[8].possede == 1 && tabCartesPlanetes[8].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("Titanium est déjà possede !");
@@ -673,6 +727,9 @@ int main()
 
                     player[joueurPlaying].nbTerrain+=1;
 
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[9].possession = joueurPlaying; //DIT QUE LE TERRAIN EST POSSEDE PAR LE NOM DU JOUEUR EN TRAIN DE JOUER
+
                     player[joueurPlaying]. argent -= tabCartesPlanetes[9].loyer;
 
                     gotoligcol(46, 90);
@@ -683,7 +740,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[9].possede == 1)
+            else if(tabCartesPlanetes[9].possede == 1 && tabCartesPlanetes[9].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("Uranus est déjà possede !");
@@ -731,6 +788,10 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[10].possession = joueurPlaying; //DIT QUE LE TERRAIN EST POSSEDE PAR LE NOM DU JOUEUR EN TRAIN DE JOUER
+
                     player[joueurPlaying]. argent -= tabCartesPlanetes[10].loyer;
 
                     gotoligcol(46, 90);
@@ -741,7 +802,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[10].possede == 1)
+            else if(tabCartesPlanetes[10].possede == 1 && tabCartesPlanetes[10].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("Titan est déjà possede !");
@@ -782,6 +843,10 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[11].possession = joueurPlaying; //DIT QUE LE TERRAIN EST POSSEDE PAR LE NOM DU JOUEUR EN TRAIN DE JOUER
+
                     player[joueurPlaying]. argent -= tabCartesPlanetes[11].loyer;
 
                     gotoligcol(46, 90);
@@ -791,7 +856,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[11].possede == 1)
+            else if(tabCartesPlanetes[11].possede == 1 && tabCartesPlanetes[11].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("Saturne est déjà possede !");
@@ -835,6 +900,9 @@ int main()
 
                     player[joueurPlaying].nbTerrain+=1;
 
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[12].possession = joueurPlaying;//DIT QUE LE TERRAIN EST POSSEDE PAR LE NOM DU JOUEUR EN TRAIN DE JOUER
+
                     player[joueurPlaying]. argent -= tabCartesPlanetes[12].loyer;
 
                     gotoligcol(46, 90);
@@ -845,7 +913,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[12].possede == 1)
+            else if(tabCartesPlanetes[12].possede == 1 && tabCartesPlanetes[12].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("Europe est déjà possede !");
@@ -895,6 +963,10 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[13].possession = joueurPlaying; //DIT QUE LE TERRAIN EST POSSEDE PAR LE NOM DU JOUEUR EN TRAIN DE JOUER
+
                     player[joueurPlaying]. argent -= tabCartesPlanetes[13].loyer;
 
                     gotoligcol(46, 90);
@@ -905,7 +977,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[13].possede == 1)
+            else if(tabCartesPlanetes[13].possede == 1 && tabCartesPlanetes[13].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("Ganymede est déjà possede !");
@@ -946,6 +1018,10 @@ int main()
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
+
+                    //////////////// NOUVELES MODIF ACHAT /////////////////////////////
+                    tabCartesPlanetes[14].possession = joueurPlaying; //DIT QUE LE TERRAIN EST POSSEDE PAR LE NOM DU JOUEUR EN TRAIN DE JOUER
+
                     player[joueurPlaying]. argent -= tabCartesPlanetes[14].loyer;
 
                     gotoligcol(46, 90);
@@ -956,7 +1032,7 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[14].possede == 1)
+            else if(tabCartesPlanetes[14].possede == 1 && tabCartesPlanetes[14].possession == joueurPlaying)
             {
                 gotoligcol(45, 90);
                 printf("Jupiter est déjà possede !");
