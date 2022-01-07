@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #include "header.h"
+#include <unistd.h>
 
 
 int cartesChance()
@@ -65,6 +66,7 @@ int main()
     creationCartesPlanetes(tabCartesPlanetes); //CREER LES 15 CARTES
 
     Joueur player[6];
+
     setConsoleFullscreen();
 
     //int game = 1;
@@ -97,6 +99,7 @@ int main()
         player[i].argent = 1500;
         player[i].position = 0;
         player[i].nbTerrain = 0;
+        player[i].prison = 0;
         //j[i].haveToPlay = 0;
     }
     for(int i = 0 ; i < 15; i++)
@@ -112,6 +115,11 @@ int main()
 
     gotoligcol(1, 195);
     printf("C'est %s qui commence la partie", player[joueurPlaying].nom);
+
+
+    ////////////////////////////////////////////////////////////////////
+    ///Boucle Principale///
+    ///////////////////////////////////////////////////////////////////
 
     do
     {
@@ -132,6 +140,8 @@ int main()
         couleursPlateau();
         creationPlateau();
 
+        affichInfo(player,joueurPlaying);
+
 
         if(player[joueurPlaying].choix == 1)
         {
@@ -139,9 +149,16 @@ int main()
             printf("D'accord");
             player[joueurPlaying].choix = 0;
 
+            if(player[joueurPlaying].prison != 1)
+            {
+
+
             des(nbDe,pnbDe);
             player[joueurPlaying].lastposition = player[joueurPlaying].position;
             player[joueurPlaying].position = 1;//player[joueurPlaying].lastposition + nbDe;
+
+            }
+
 
             for(int i = 0; i <= nbJoueurs; i++)
             {
@@ -150,10 +167,49 @@ int main()
 
             gotoligcol(6, 195);
 
-            printf("Tu va vers l'avant de %d cases position %d! ", nbDe, player[joueurPlaying].position);
-            nbDe = 0;
-            //affichPion(player, joueurPlaying);
+            ///////////////////////////// Pour prison///////////////////////
+
+            if(player[joueurPlaying].position == 21) // Pour l'affichage si il est dans la prison alors on raffiche tout
+            {
+
+                gotoligcol(16, 195);
+                printf("Vous allez en prison !!!!!!!!");
+                sleep(3);
+
+                player[joueurPlaying].position = 7;
+                player[joueurPlaying].prison = 1;
+
+                system("cls");
+                couleursPlateau();
+                creationPlateau();
+
+                for(int i = 0; i <= nbJoueurs; i++)
+                {
+                    affichPion(player, i);
+
+                }
+                affichInfo(player,joueurPlaying);
+                gotoligcol(16, 195);
+                printf("Vous avez atteri en prison !");
+            }
+
+            if(player[joueurPlaying].prison == 1)
+            {
+                player[joueurPlaying].position = 7;
+            }
+
+            //////////////////////////////////////////////////////
+
         }
+
+
+
+        printf("Tu va vers l'avant de %d cases position %d! ", nbDe, player[joueurPlaying].position);
+        nbDe = 0;
+
+
+
+
 
         switch(player[joueurPlaying].position)
         {
@@ -1063,9 +1119,9 @@ int main()
 
 
 
-    // des(nbDe,pnbDe);
+// des(nbDe,pnbDe);
 
-    // affichPion(player, joueurJ);
+// affichPion(player, joueurJ);
 
 
     gotoligcol(58,0);

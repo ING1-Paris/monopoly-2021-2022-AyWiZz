@@ -12,6 +12,7 @@ typedef struct Joueur
     int couleur;
     int choix;
     int haveToPlay;
+    int prison;
     int t1Possede;
     int t2Possede;
     int t3Possede;
@@ -117,5 +118,6 @@ int generationAleatoireSatellite();
 void creationSatellites(Satellite tabSatellites[4]);
 void ecritureSatellite(Satellite tabSatellites[4], int aleatoire);
 
+int prison(Joueur player[],int joueurPlaying, int nbJoueurs);
 
 #endif // HEADER_H_INCLUDED
