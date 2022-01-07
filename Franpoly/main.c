@@ -78,9 +78,12 @@ int main()
     int curseur = 1;
     int sauvegarde = 0;
     int nbJoueurs = 0;
+    int alea = 0;
 
-    int nbDe = 0;
-    int *pnbDe = &nbDe;
+    int nbDe1 = 0, nbDe2 = 0, nbDe = 0;
+    int *pnbDe1 = &nbDe1;
+    int *pnbDe2 = &nbDe2;
+    int *pnbDe = & nbDe;
 
     int repAchat = 0;
 
@@ -153,7 +156,7 @@ int main()
             {
 
 
-            des(nbDe,pnbDe);
+            des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe);
             player[joueurPlaying].lastposition = player[joueurPlaying].position;
             player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
 
@@ -353,6 +356,53 @@ int main()
             break;
         case 4:
             cartesChance();
+            alea=generationAleatoireChance();
+
+            if (alea==0 || alea==1)
+            {
+                player[joueurPlaying].argent += (nbJoueurs)*100;
+                for (int j=0; j<(nbJoueurs-1); j++)
+                {
+                    player[j].argent -= 100;
+                }
+            }
+            else if (alea==2 || alea==3)
+            {
+                player[joueurPlaying].argent -= (nbJoueurs)*100;
+                for (int j=0; j<(nbJoueurs-1); j++)
+                {
+                    player[j].argent += 100;
+                }
+            }
+            else if (alea==4 || alea==5)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 7;
+            }
+            else if (alea==6 || alea==7)
+            {
+                player[joueurPlaying].argent -= 300;
+            }
+            else if (alea==8 || alea==9)
+            {
+                player[joueurPlaying].argent += 300;
+            }
+            else if (alea==10 || alea==11)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 2;
+            }
+            else if (alea==12 || alea==13)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 0;
+            }
+            else if (alea==14 || alea==15)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position += 6;
+            }
+
 
 
             break;
@@ -868,6 +918,53 @@ int main()
             break;
         case 17:
             cartesChance();
+            alea=generationAleatoireChance();
+
+            if (alea==0 || alea==1)
+            {
+                player[joueurPlaying].argent += (nbJoueurs)*100;
+                for (int j=0; j<(nbJoueurs-1); j++)
+                {
+                    player[j].argent -= 100;
+                }
+            }
+            else if (alea==2 || alea==3)
+            {
+                player[joueurPlaying].argent -= (nbJoueurs)*100;
+                for (int j=0; j<(nbJoueurs-1); j++)
+                {
+                    player[j].argent += 100;
+                }
+            }
+            else if (alea==4 || alea==5)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 7;
+            }
+            else if (alea==6 || alea==7)
+            {
+                player[joueurPlaying].argent -= 300;
+            }
+            else if (alea==8 || alea==9)
+            {
+                player[joueurPlaying].argent += 300;
+            }
+            else if (alea==10 || alea==11)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 2;
+            }
+            else if (alea==12 || alea==13)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 0;
+            }
+            else if (alea==14 || alea==15)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position += 6;
+            }
+
 
             break;
         case 18:

@@ -89,7 +89,7 @@ void clearScreen();
 void creationPlateau();
 void couleursPlateau();
 
-void des(int nbDe,int *pnbDe);
+void des(int nbDe1, int nbDe2, int nbDe, int *pnbDe1, int *pnbDe2, int *pnbDe);
 
 int positionCurseur();
 int checkPartie();

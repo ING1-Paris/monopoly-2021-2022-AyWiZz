@@ -4,17 +4,14 @@
 #include <time.h>
 #include "header.h"
 
-void des(int x,int *px)
+void des(int x1, int x2, int x, int *px1, int * px2, int *px)
 {
 
     int nbr = 0, a = 23;
     const int max = 6, min = 1;
     srand(time(NULL));
-    for (int i=0; i<2; i++)
-    {
-
         nbr = (rand() % (max - min)) + min;
-        x+=nbr;
+        x1=nbr;
         gotoligcol(a,47);
         printf("%c", 0xDA);
         for (int j=0; j<7; j++)
@@ -40,8 +37,40 @@ void des(int x,int *px)
         }
         printf("%c\n", 0xD9);
         a+=1;
-    }
 
+
+        nbr = (rand() % (max - min)) + min;
+        x2=nbr;
+        gotoligcol(a,47);
+        printf("%c", 0xDA);
+        for (int j=0; j<7; j++)
+        {
+            printf("%c", 0xC4);
+        }
+        printf("%c", 0xBF);
+        a+=1;
+        gotoligcol(a, 47);
+        printf("%c       %c", 0xB3, 0xB3);
+        a+=1;
+        gotoligcol(a, 47);
+        printf("%c   %d   %c", 0xB3, nbr, 0xB3);
+        a+=1;
+        gotoligcol(a, 47);
+        printf("%c       %c", 0xB3, 0xB3);
+        a+=1;
+        gotoligcol(a, 47);
+        printf("%c", 0xC0);
+        for (int j=0; j<7; j++)
+        {
+            printf("%c", 0xC4);
+        }
+        printf("%c\n", 0xD9);
+        a+=1;
+
+        x=x1+x2;
+
+    *px1=x1;
+    *px2=x2;
     *px=x;
 
 }
