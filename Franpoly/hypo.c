@@ -42,6 +42,7 @@ void hypotheque(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int pla
         }
         else
         {
+            gotoligcol(49,90);
             printf("erreur");
         }
     }
@@ -49,23 +50,26 @@ void hypotheque(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int pla
 void rachatHypo(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int planete,int nbMaisonTotal, int nbHotelTotal,int *pnbMaisonTotal, int *pnbHotelTotal)
 {
     int repAchatHypo=0;
+    gotoligcol(46,90);
     printf("Voulez-vous acheter votre hypotheque ? ");
     scanf("%d",&repAchatHypo);
 
     if(repAchatHypo == 1 && j[joueurPlaying].argent >= (tabCartes[planete].loyer+(tabCartes[planete].loyer*0.1)))
     {
-        printf("test test %d", tabCartes[planete].loyer);
         j[joueurPlaying].argent-= (tabCartes[planete].loyer + (tabCartes[planete].loyer*(0.1)));
         tabCartes[planete].hypoValid = 0;
-        printf("Vous avez bien racheter vôtre hypotheque");
+        gotoligcol(47,90);
+        printf("Vous avez bien racheter votre hypotheque");
     }
 
     else if(repAchatHypo == 1 && j[joueurPlaying].argent <= (tabCartes[planete].loyer+(tabCartes[planete].loyer*0.1)))
     {
+        gotoligcol(47,90);
         printf("Vous n'avez pas assez d'argent !");
     }
     else if(repAchatHypo == 0)
     {
-        printf("D'accord vous n'allez pas racheter vôtre hypothèque.");
+        gotoligcol(47,90);
+        printf("D'accord vous n'allez pas racheter votre hypothèque.");
     }
 }

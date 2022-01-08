@@ -7,25 +7,25 @@ typedef struct Joueur
 {
     char nom[taille];
     unsigned int argent;
-    int lastposition;
-    int position;
-    int couleur;
-    int choix;
-    int haveToPlay;
-    int prison;
-    int tempsPrison;
-    int t1Possede;
-    int t2Possede;
-    int t3Possede;
-    int t4Possede;
-    int t5Possede;
-    int t6Possede;
-    int t7Possede;
-    int t8Possede;
-    int t9Possede;
-    int t10Possede;
-    int nbTerrain;
-    int doubleDee;
+    unsigned int lastposition;
+    unsigned int position;
+    unsigned int couleur;
+    unsigned int choix;
+    unsigned int haveToPlay;
+    unsigned int prison;
+    unsigned int tempsPrison;
+    unsigned int t1Possede;
+    unsigned int t2Possede;
+    unsigned int t3Possede;
+    unsigned int t4Possede;
+    unsigned int t5Possede;
+    unsigned int t6Possede;
+    unsigned int t7Possede;
+    unsigned int t8Possede;
+    unsigned int t9Possede;
+    unsigned int t10Possede;
+    unsigned int nbTerrain;
+    unsigned int doubleDee;
     char terrain1[taille];
     char terrain2[taille];
     char terrain3[taille];
@@ -41,25 +41,16 @@ typedef struct Joueur
 typedef struct
 {
     char nom[30];
-
     char couleur[15];
-
     unsigned int loyer;
-
-    int loyer1;
-
-    int loyer2;
-
-    int loyer3;
-
-    int loyer4;
-
-    int loyer5;
-
+    unsigned int loyer1;
+    unsigned int loyer2;
+    unsigned int loyer3;
+    unsigned int loyer4;
+    unsigned int loyer5;
     int hypo;
     int hypoValid;
     int possede;
-
     int possession;
     int nbMaisons;
     int nbHotels;
