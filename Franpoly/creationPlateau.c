@@ -9,7 +9,7 @@
 #define six 6
 #define neuf 9
 #define trentesept 37
-
+////////////////////// FONCTION PROVENANT DU TUTORAT ////////////////////////
 void gotoligcol( int lig, int col )
 {
 
@@ -56,7 +56,7 @@ void clearScreen()
     const char *CLEAR_SCREEN_ANSI = "\e[1;1H\e[2J";
     write(STDOUT_FILENO, CLEAR_SCREEN_ANSI, 12);
 }
-
+///////////////////////////////////////////////////////////////////////////
 void creationPlateau()
 {
     /////////////////// Initialisation des variables //////////////////////
@@ -76,18 +76,18 @@ void creationPlateau()
     ///////////////////////////////////////////////////////////////////////
     ////////////////////// 1ère Ligne Horizontale /////////////////////////
     gotoligcol(1,15);
-    printf("%c", 0xDA);
+    printf("%c", 0xDA); //AFFICHE L'ANGLE EN HAUT A GAUCHE
     for(i = 0; i < tailleCarre; i++)
     {
-        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-        printf("%c", 0xC2);
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+        printf("%c", 0xC2); //AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
     }
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c", 0xBF);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c", 0xBF); //AFFICHE L'ANGLE EN HAUT A DROITE
     /////////////////////////////////////////////////////////////////////
 
     /////////////////////// 1ère Ligne Verticale ///////////////////////
@@ -96,23 +96,23 @@ void creationPlateau()
         for(i = 0; i < six; i++)
         {
             gotoligcol((dplusk),15);
-            printf("%c", 0xB3);
-            k = k+1;
+            printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+            k = k+1; //INCREMENTE k DE 1
         }
         gotoligcol((dplusk),15);
-        printf("%c", 0xC3);
-        k = k + 1;
+        printf("%c", 0xC3); //AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
+        k = k + 1; //INCREMENTE k DE 1
     }
 
     for(i = 0; i < six; i++)
     {
         gotoligcol((dplusk),15);
-        printf("%c", 0xB3);
-        k = k+1;
+        printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+        k = k+1; //INCREMENTE k DE 1
     }
     gotoligcol((dplusk),15);
-    printf("%c", 0xC0);
-    k = k + 1;
+    printf("%c", 0xC0); //AFFICHE L'ANGLE EN BAS A GAUCHE
+    k = k + 1; //INCREMENTE k DE 1
 
     ///////////////////////////////////////////////////////////////////
     ////////////////////////// Ligne verticale à Droite //////////////
@@ -121,70 +121,70 @@ void creationPlateau()
         for(i = 0; i < six; i++)
         {
             gotoligcol((2+l),longd);
-            printf("%c", 0xB3);
-            l = l+1;
+            printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+            l = l+1; //INCREMENTE l DE 1
         }
         gotoligcol((2+l),longd);
-        printf("%c", 0xB4);
-        l = l + 1;
+        printf("%c", 0xB4);//AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
+        l = l + 1; //INCREMENTE l DE 1
     }
     for(i = 0; i < six; i++)
     {
         gotoligcol((2+l),longd);
-        printf("%c", 0xB3);
-        l = l+1;
+        printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+        l = l+1; //INCREMENTE l DE 1
     }
     gotoligcol((2+l),longd);
-    printf("%c", 0xD9);
-    l = l + 1;
+    printf("%c", 0xD9); //AFFICHE L'ANGLE EN BAS A DROITE
+    l = l + 1; //INCREMENTE l DE 1
     ///////////////////////////////////////////////////////////////////////
     /////////////////////////// 2ème Ligne/////////////////////////////////
 
     gotoligcol(8,16);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c", 0xC5);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c", 0xC5); //AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
     for(i = 0; i < (tailleCarre-2); i++)
     {
-        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-        printf("%c", 0xC1);
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+        printf("%c", 0xC1); //AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
     }
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c", 0xC5);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c", 0xC5); //AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
 
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c", 0xB4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c", 0xB4); //AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
 //////////////////////////////////////////////////////////////////////////
 ////////////////////// Barre du Bas //////////////////////////////////////
     gotoligcol(57,16);
     for(i = 0; i < tailleCarre; i++)
     {
-        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-        printf("%c", 0xC1);
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+        printf("%c", 0xC1); //AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
     }
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
 ////////////////////// Jonction entre la première ligne et la deuxième////
     gotoligcol(2,37);
     for(i = 0; i < 7; i++)
     {
         for(j = 0; j < 6; j++)
         {
-            printf("%c", 0xB3);
+            printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
             gotoligcol(m, n);
-            m += 1;
+            m += 1; //INCREMENTE m DE 1
         }
-        n += 22;
+        n += 22; //INCREMENTE m DE 22
         m = 2;
     }
 /////////////////////////////////////////////////////////////////////////
@@ -196,22 +196,22 @@ void creationPlateau()
         for(i = 0; i < six; i++)
         {
             gotoligcol(p,longdb);
-            printf("%c", 0xB3);
+            printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
             p = p+1;
         }
         gotoligcol(p,longdb);
-        printf("%c", 0xB4);
-        p = p + 1;
+        printf("%c", 0xB4); //AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
+        p = p + 1; //INCREMENTE p DE 1
     }
     for(i = 0; i < six; i++)
     {
         gotoligcol(p,longdb);
-        printf("%c", 0xB3);
-        p = p+1;
+        printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+        p = p+1; //INCREMENTE p DE 1
     }
     gotoligcol(p,longdb);
-    printf("%c", 0xD9);
-    p = p + 1;
+    printf("%c", 0xD9); //AFFICHE L'ANGLE EN BAS A DROITE
+    p = p + 1; //INCREMENTE p DE 1
 ////////////////////////////////////////////////////////////////////////
 /////////////////////// On trace la grande barre intérieur droite //////
     //gotoligcol(9, 147);
@@ -220,52 +220,52 @@ void creationPlateau()
         for(i = 0; i < six; i++)
         {
             gotoligcol(q,longda);
-            printf("%c", 0xB3);
+            printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
             q = q+1;
         }
         gotoligcol(q,longda);
-        printf("%c", 0xC3);
-        q = q + 1;
+        printf("%c", 0xC3); //AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
+        q = q + 1; //INCREMENTE q DE 1
     }
 
     for(i = 0; i < six; i++)
     {
         gotoligcol(q,longda);
-        printf("%c", 0xB3);
-        q = q+1;
+        printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+        q = q+1; //INCREMENTE q DE 1
     }
     gotoligcol(q,longda);
-    printf("%c", 0xC0);
-    q = q + 1;
+    printf("%c", 0xC0); //AFFICHE L'ANGLE EN BAS A GAUCHE
+    q = q + 1; //INCREMENTE q DE 1
 /////////////////////////////// OBLIGE DE METTRE CA SINON BUG/////////////////
     gotoligcol(7, longda);
-    printf("%c", 0XB3);
+    printf("%c", 0XB3); //AFFICHE UNE BARRE VERTICALE
 
     gotoligcol(56, longda);
-    printf("%c", 0XB3);
+    printf("%c", 0XB3); //AFFICHE UNE BARRE VERTICALE
 ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 //////////////////// On trace l'avant dernière ligne du plateau////////
     gotoligcol(50, 16);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c", 0xC5);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c", 0xC5); //AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
     for(i = 0; i < (tailleCarre-2); i++)
     {
-        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-        printf("%c", 0xC2);
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+        printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+        printf("%c", 0xC2); //AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
     }
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c", 0xC5);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c", 0xC5); //AFFICHE LA RELIURE ENTRE UNE BARRE HORIZONTALE ET UNE BARRE VERTICALE
 
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
-    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4);
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
+    printf("%c%c%c%c%c%c%c", 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4, 0xC4); //AFFICHE DES BARRES HORIZONTALES
     /////////////////////////////////////////////////////////////////////
     ////////////////////// Jonction entre les deux dernières lignes//////
     gotoligcol(51,37);
@@ -273,11 +273,11 @@ void creationPlateau()
     {
         for(j = 0; j < 6; j++)
         {
-            printf("%c", 0xB3);
+            printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
             gotoligcol(r, s);
-            r += 1;
+            r += 1; //INCREMENTE r DE 1
         }
-        s += 22;
+        s += 22; //INCREMENTE s DE 22
         r = 51;
     }
     /////////////////////////////////////////////////////////////////////
@@ -287,9 +287,9 @@ void creationPlateau()
     {
         for(j = 0; j < 21; j++)
         {
-            printf("%c", 0xC4);
+            printf("%c", 0xC4); //AFFICHE UNE BARRE HORIZONTALE
         }
-        t += 7;
+        t += 7; //INCREMENTE t DE 7
         gotoligcol(t, 16);
     }
     ///////////////////////////////////////////////////////////////////
@@ -299,9 +299,9 @@ void creationPlateau()
     {
         for(j = 0; j < 21; j++)
         {
-            printf("%c", 0xC4);
+            printf("%c", 0xC4); //AFFICHE UNE BARRE HORIZONTALE
         }
-        u += 7;
+        u += 7; //INCREMENTE u DE 7
         gotoligcol(u, longda+1);
     }
 
@@ -317,111 +317,111 @@ void couleursPlateau()
     int j = 0;
 
 /////////////////// CASES BLEU FONCE /////////////////////////////
-    Color(1,0);
+    Color(1,0); //CASES BLEU FONCE
 
     for(j = 0; j < 4; j++)
     {
         /*gotoligcol(8,(37-j));
         printf("%c", 0xDB);*/
 
-        gotoligcol(9,(37-j));
+        gotoligcol(9,(37-j)); //A CHAQUE TOUR DE BOUCLE
 
         for(i = 0; i < 14; i++)
         {
-            printf("%c", 0xDB);
-            gotoligcol((neuf+i),(37-j));
+            printf("%c", 0xDB); //AFFICHE UN CARRE DE COULEUR
+            gotoligcol((neuf+i),(37-j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET ON ENLEVE J COLONNE
         }
     }
 ///////////////////////////////////////////////////////////////
 
 /////////////////// CASES Bleu Fonce /////////////////////////////
-    Color(1,0);
+    Color(1,0); //CASES BLEU FONCE
 
     for(j = 0; j < 4; j++)
     {
         /*gotoligcol(8,(37-j));
         printf("%c", 0xDB);*/
 
-        gotoligcol(44,(37-j));
+        gotoligcol(44,(37-j)); //A CHAQUE TOUR DE BOUCLE ON REVIENT EN ARRIERE DE 1 COLONNE
 
         for(i = 0; i < 7; i++)
         {
-            printf("%c", 0xDB);
-            gotoligcol((44+i),(37-j));
+            printf("%c", 0xDB); //AFFICHE UN CARRE DE COULEUR
+            gotoligcol((44+i),(37-j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET ON ENLEVE J COLONNE
         }
     }
 ///////////////////////////////////////////////////////////////
 
 /////////////////// CASES ROUGE FONCE V2 /////////////////////////////
-    Color(4,0);
+    Color(4,0); //CASES ROUGES FONCE
 
     for(j = 0; j < 4; j++)
     {
         /*gotoligcol(8,(37-j));
         printf("%c", 0xDB);*/
 
-        gotoligcol(9,(172-j));
+        gotoligcol(9,(172-j)); //A CHAQUE TOUR DE BOUCLE ON REVIENT EN ARRIERE DE 1 COLONNE
 
         for(i = 0; i < 14; i++)
         {
-            printf("%c", 0xDB);
-            gotoligcol((neuf+i),(172-j));
+            printf("%c", 0xDB); //AFFICHE UN CARRE DE COULEUR
+            gotoligcol((neuf+i),(172-j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET ON ENLEVE J COLONNE
         }
     }
 ///////////////////////////////////////////////////////////////
 
 /////////////////// CASES ROUGE FLUO V2 /////////////////////////////
-    Color(12,0);
+    Color(12,0); //CASES ROUGE FLUO
 
     for(j = 0; j < 4; j++)
     {
         /*gotoligcol(8,(37-j));
         printf("%c", 0xDB);*/
 
-        gotoligcol(37,(172-j));
+        gotoligcol(37,(172-j)); //A CHAQUE TOUR DE BOUCLE ON REVIENT EN ARRIERE DE 1 COLONNE
 
         for(i = 0; i < 14; i++)
         {
-            printf("%c", 0xDB);
-            gotoligcol((trentesept+i),(172-j));
+            printf("%c", 0xDB); //AFFICHE UN CARRE DE COULEUR
+            gotoligcol((trentesept+i),(172-j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET ON ENLEVE J COLONNE
         }
     }
 ///////////////////////////////////////////////////////////////
 
 /////////////////// CASES TURQUOISE ////////////////////////////
 
-    Color(11,0);
+    Color(11,0); //CASES TURQUOISES
 
     for(j = 0; j < 2; j++)
     {
         /*gotoligcol(8,(37-j));
         printf("%c", 0xDB);*/
 
-        gotoligcol((8-j),37);
+        gotoligcol((8-j),37); //A CHAQUE TOUR DE BOUCLE ON REVIENT EN ARRIERE DE 1 LIGNE
 
         for(i = 0; i < 45; i++)
         {
-            printf("%c", 0xDB);
-            gotoligcol((8-j), (trentesept+i));
+            printf("%c", 0xDB); //AFFICHE UN CARRE DE COULEUR
+            gotoligcol((8-j), (trentesept+i)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET ON ENLEVE J COLONNE
         }
     }
 //////////////////////////////////////////////////////////////
 
 /////////////////// CASES BLEU CLAIR V2 ////////////////////////////
 
-    Color(9,0);
+    Color(9,0); //CASES BLEU CLAIR
 
     for(j = 0; j < 2; j++)
     {
         /*gotoligcol(8,(37-j));
         printf("%c", 0xDB);*/
 
-        gotoligcol((8-j),125);
+        gotoligcol((8-j),125); //A CHAQUE TOUR DE BOUCLE ON REVIENT EN ARRIERE DE 1 LIGNE
 
         for(i = 0; i < 45; i++)
         {
-            printf("%c", 0xDB);
-            gotoligcol((8-j), (125+i));
+            printf("%c", 0xDB); //AFFICHE UN CARRE DE COULEUR
+            gotoligcol((8-j), (125+i)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET ON ENLEVE J COLONNE
         }
     }
 //////////////////////////////////////////////////////////////
@@ -440,7 +440,7 @@ void couleursPlateau()
         for(i = 0; i < 45; i++)
         {
             printf("%c", 0xDB);
-            gotoligcol((50+j), (trentesept+i));
+            gotoligcol((50+j), (trentesept+i)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET J COLONNE
         }
     }
 
@@ -454,8 +454,8 @@ void couleursPlateau()
 
         for(i = 0; i < 45; i++)
         {
-            printf("%c", 0xDB);
-            gotoligcol((50+j), (125+i));
+            printf("%c", 0xDB); //ON AFFICHE UN CARRE DE COULEUR
+            gotoligcol((50+j), (125+i)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET J COLONNE
         }
     }
 //////////////////////////////////////////////////////////////
@@ -468,10 +468,10 @@ void couleursPlateau()
     {
         for(i = 0; i < 6; i++)
         {
-            printf("%c", 0xDB);
-            gotoligcol((1+i), (174+j));
+            printf("%c", 0xDB);//ON AFFICHE UN CARRE DE COULEUR
+            gotoligcol((1+i), (174+j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET J COLONNE
         }
-        gotoligcol(1, (174 + j));
+        gotoligcol(1, (174 + j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE J LIGNE
     }
     ///////////////////////////////////////////////////////
     //////////////// DEUXIEME BARREAU /////////////////////
@@ -480,10 +480,10 @@ void couleursPlateau()
     {
         for(i = 0; i < 6; i++)
         {
-            printf("%c", 0xDB);
-            gotoligcol((1+i), (177+j));
+            printf("%c", 0xDB); //ON AFFICHE UN CARRE DE COULEUR
+            gotoligcol((1+i), (177+j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET J COLONNE
         }
-        gotoligcol(1, (177 + j));
+        gotoligcol(1, (177 + j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE J LIGNE
     }
     ///////////////////////////////////////////////
     //////////////// 3 EME BARREAU ///////////////
@@ -492,10 +492,10 @@ void couleursPlateau()
     {
         for(i = 0; i < 6; i++)
         {
-            printf("%c", 0xDB);
-            gotoligcol((1+i), (180+j));
+            printf("%c", 0xDB); //ON AFFICHE UN CARRE DE COULEUR
+            gotoligcol((1+i), (180+j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET J COLONNE
         }
-        gotoligcol(1, (180 + j));
+        gotoligcol(1, (180 + j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE J LIGNE
     }
     /////////////////////////////////////////////
     //////////////// 4 EME BARREAU ///////////////
@@ -504,10 +504,10 @@ void couleursPlateau()
     {
         for(i = 0; i < 6; i++)
         {
-            printf("%c", 0xDB);
-            gotoligcol((1+i), (183+j));
+            printf("%c", 0xDB); //ON AFFICHE UN CARRE DE COULEUR
+            gotoligcol((1+i), (183+j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET J COLONNE
         }
-        gotoligcol(1, (183 + j));
+        gotoligcol(1, (183 + j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE J LIGNE
     }
     /////////////////////////////////////////////
     //////////////// 5 EME BARREAU ///////////////
@@ -516,10 +516,10 @@ void couleursPlateau()
     {
         for(i = 0; i < 6; i++)
         {
-            printf("%c", 0xDB);
-            gotoligcol((1+i), (186+j));
+            printf("%c", 0xDB); //ON AFFICHE UN CARRE DE COULEUR
+            gotoligcol((1+i), (186+j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE I LIGNE ET J COLONNE
         }
-        gotoligcol(1, (186 + j));
+        gotoligcol(1, (186 + j)); //A CHAQUE TOUR DE BOUCLE ON AJOUTE J LIGNE
     }
 
     gotoligcol(7, 176);

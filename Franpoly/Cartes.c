@@ -5,14 +5,20 @@
 #include <stdio.h>
 
 
-
+/*
+    ENTREE : TABLEAU DE STRUCTURES CARTECHANCE
+    SORTIE : AUCUNE
+    BUT DU SOUS PROGRAMME : CREATION DE TOUTES LES CARTES CHANCES
+*/
 void creationCartesChance(CarteChance tabCartes[])
 {
-    //CarteChance tabCartes[16];
+    //////////////////// MEME PROCESSUS POUR TOUTES LES CARTES ///////
+    //////////////////// JE COMMMENTE DONC QUE LE PREMIER ////////////
 
-    char var0et1[100] = "Vous recevez 100 euros de la part de tout les joueurs.";
-    strcpy(tabCartes[0].nom, var0et1);
-    strcpy(tabCartes[1].nom, var0et1);
+    char var0et1[100] = "Vous recevez 100 euros de la part de tout les joueurs."; //CETTE VARIABLE PREMETTRA DE
+    strcpy(tabCartes[0].nom, var0et1); // LE VAR 0 ET 1 SERA AFFECTE DANS tabCartes[0].nom
+    strcpy(tabCartes[1].nom, var0et1); // // LE VAR 0 ET 1 SERA AFFECTE DANS tabCartes[1].nom
+    // LA CARTE CHANCE 0 ET 1 EST INITIALISE AVEC VAR 0 ET 1
 
     char var2et3[] = "Vous donnez 100 euros a tout les joueurs.";
     strcpy(tabCartes[2].nom, var2et3);
@@ -45,87 +51,103 @@ void creationCartesChance(CarteChance tabCartes[])
 
 
 
-
+/*  ENTREE : AUCUNE
+    SORTIE : AUCUNE
+    BUT DE LA FONCTION : CREER LE CONTOUR DES CARTES CHANCES ET COMMUNAUTES
+*/
 void creationContourCarteChanceCommunaute()
 {
     gotoligcol(39, 65);
-    printf("%c", 0xB3);
+    printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
 
     gotoligcol(39, 145);
-    printf("%c", 0xB3);
-
+    printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+//////////////// INITIALISATION DES VARIABLES ///////
     int i = 0;
     int j = 0;
     int k = 9;
     int l = 9;
     int m = 24;
+////////////////////////////////////////////////////
     gotoligcol(10,65);
+    ///// PERMET DE CREER LA GRANDE BARRE HORIZONTALE EN HAUT /////
     for(i = 0; i < 80; i++)
     {
-        printf("%c", 0xC4);
+        printf("%c", 0xC4); //AFFICHE DES BARRES HORIZONTALES
     }
     gotoligcol(10,65);
-    printf("%c", 0xDA);
+    printf("%c", 0xDA); //AFFICHE L'ANGLE EN HAUT A GAUCHE
     gotoligcol(10,145);
-    printf("%c", 0xBF);
+    printf("%c", 0xBF); //AFFICHE L'ANGLE EN HAUT A DROITE
     gotoligcol(20,65);
-
+////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////// AFFICHE LA GRANDE BARRE VERTICALE A GAUCHE //////
     for(j = 0; j <4; j++)
     {
         for(i = 0; i < 7; i++)
         {
-            gotoligcol((2+k),65);
-            printf("%c", 0xB3);
-            k = k+1;
+            gotoligcol((2+k),65); //A CHAQUE TOUR DE BOUCLE ON VA A LA LIGNE EN DESSOUS
+            printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+            k = k+1; //k EST INCREMENTE DE 1
         }
 
     }
     for(i = 0; i < 5; i++)
     {
-        gotoligcol((2+m),65);
-        printf("%c", 0xB3);
-        m = m+1;
+        gotoligcol((2+m),65);  //A CHAQUE TOUR DE BOUCLE ON VA A LA LIGNE EN DESSOUS
+        printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+        m = m+1; //m EST INCREMENTE DE 1
     }
 
     gotoligcol(40, 65);
-    printf("%c", 0xC0);
+    printf("%c", 0xC0); //AFFICHE L'ANGLE EN BAS A GAUCHE
+////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////// AFFICHE LA GRANDE BARRE HORIZONTALE EN BAS /////////////
     for(i = 0; i < 80; i++)
     {
-        printf("%c", 0xC4);
+        printf("%c", 0xC4); //AFFICHE UNE BARRE HORIZONTALE
     }
     gotoligcol(40, 145);
-    printf("%c", 0xD9);
-
+    printf("%c", 0xD9); //AFFICHE L'ANGLE EN BAS A DROITE
+////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+////////// AFFICHE LA GRANDE BARRE VERTICALE A DROITE ////////
     gotoligcol(11, 145);
     for(j = 0; j < 4; j++)
     {
         for(i = 0; i < tailleCarre; i++)
         {
-            gotoligcol((2+l),145);
-            printf("%c", 0xB3);
-            l = l+1;
+            gotoligcol((2+l),145);//A CHAQUE TOUR DE BOUCLE ON VA A LA LIGNE EN DESSOUS
+            printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+            l = l+1; //l EST INCREMENTE DE 1
         }
 
     }
     for(i = 0; i < 4; i++)
     {
-        gotoligcol((2+l),145);
-        printf("%c", 0xB3);
-        l = l+1;
+        gotoligcol((2+l),145);//A CHAQUE TOUR DE BOUCLE ON VA A LA LIGNE EN DESSOUS
+        printf("%c", 0xB3);//AFFICHE UNE BARRE VERTICALE
+        l = l+1; //l EST INCREMENTE DE 1
     }
-
+/////////////////////////////////////////////////////////////
 
 
 }
 
 
 
-
+/*  ENTREE : INT ALEATOIRE ET TABLEAUX DE STRUCTURES CARTECHANCE
+    SORTIE : AUCUNE
+    BUT DE LA FONCTION : AFFICHER A L'ECRAN LE CONTENU D'UNE CARTE CHANCE
+*/
 void affichageCarteChance(int aleatoire, CarteChance tabCartes[])
 {
-    Color(9,0);
+    Color(9,0); //BLEU
     gotoligcol(12,100);
     printf("CARTE CHANCE");
+    // ON REGLE L4AFFICHAGE SELON LA LONGUEUR DE LA CARTE CHANCE ////
     if(aleatoire == 6 || aleatoire == 7 || aleatoire == 8 || aleatoire == 9 || aleatoire == 10 || aleatoire == 11)
     {
         gotoligcol(24, 75);
@@ -138,17 +160,23 @@ void affichageCarteChance(int aleatoire, CarteChance tabCartes[])
     {
         gotoligcol(24,85);
     }
-    printf("%s", tabCartes[aleatoire].nom);
+    //////////////////////////////////////////////////////////////
+    printf("%s", tabCartes[aleatoire].nom); //ON AFFICHE LE CONTENU DE LA CARTE CHANCE
     gotoligcol(37, 103);
-    printf("%d/16", aleatoire+1);
+    printf("%d/16", aleatoire+1); //ON AFFICHE LE NOMBRE DE LA CARTE ALEATOIRE
 }
 
-
+/*  ENTREE : TABLEAUX DE STRUCTURE CARTECHANCE
+    SORTIE : AUCUNE
+    BUT DE LA FONCTION : CREER TOUTES LES CARTES COMMUNAUTES
+*/
 void creationCartesCommunautes(CarteChance tabCartes[])
 {
+    //////////////////// MEME PROCESSUS POUR TOUTES LES CARTES ///////
+    //////////////////// JE COMMMENTE DONC QUE LE PREMIER ////////////
 
-    char com1[] = "Allez en prison sans passer par la case de départ.";
-    strcpy(tabCartes[16].nom, com1);
+    char com1[] = "Allez en prison sans passer par la case de dÃ©part."; //ON CREER CETTE VARIABLE POUR POUVOIR FAIRE UN STRCPY
+    strcpy(tabCartes[16].nom, com1); //COPIE COM1 DANS tabCartes[16].nom
 
     char com2[] = "Payer une amende de 30 euros ou tirer une carte chance.";
     strcpy(tabCartes[17].nom, com2);
@@ -183,7 +211,7 @@ void creationCartesCommunautes(CarteChance tabCartes[])
     char com12[] = "Vous etes elu astronaute de l'annee. Vous recevez 50 euros.";
     strcpy(tabCartes[27].nom, com12);
 
-    char com13[] = "Allez en prison sans passer par la case de départ";
+    char com13[] = "Allez en prison sans passer par la case de dÃ©part";
     strcpy(tabCartes[28].nom, com13);
 
     char com14[] = "Vous avez ete capture. Payez 150 euros de rancon.";
@@ -196,12 +224,16 @@ void creationCartesCommunautes(CarteChance tabCartes[])
     strcpy(tabCartes[31].nom, com16);
 
 }
-
+/*  ENTREES : INT ALEATOIRE, LE TABLEAUX DE STRUCTURES CARTECHANCE
+    SORTIE : AUCUNE
+    BUT DE LA FONCTION : AFFICHE LE CONTENU D'UNE CARTE COMMUNAUTES
+*/
 void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[])
 {
-    Color(9,0);
+    Color(9,0); //BLEU
     gotoligcol(12,100);
     printf("CARTE COMMUNAUTES");
+    // ON REGLE L'AFFICHAGE SELON LA LONGUEUR DE LA CARTE COMMUNAUTES ////
     if(aleatoire == 21 || aleatoire == 25)
     {
         gotoligcol(24, 70);
@@ -214,24 +246,31 @@ void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[])
     {
         gotoligcol(24,75);
     }
-    printf("%s", tabCartes[aleatoire].nom);
+    //////////////////////////////////////////////////////////////////////
+    printf("%s", tabCartes[aleatoire].nom); //AFFICHE LE CONTENU DE LA CARTE COMMUNAUTES
     gotoligcol(39, 103);
-    printf("%d/16", aleatoire);
+    printf("%d/16", aleatoire); //AFFICHE LE NOMBRE DE LA CARTE COMMUNAUTES
 }
 
-
-/*int generationAleatoireChance()
+/*  ENTREE : AUCUNE
+    SORTIE : INT ALEATOIRE COMPRIS ENTRE 0 ET 15
+    BUT DE LA FONCTION : GENERATION D'UN NOMBRE ALEATOIRE ENTRE 0 ET 15
+*/
+int generationAleatoireChance()
 {
     srand(time(NULL));
     int aleatoire = 0;
-    aleatoire = rand() % 16;
+    aleatoire = (rand() % (15-0) + 0); // generation aleatoire entre 0 et 15
     return (aleatoire);
 }
-
+/*  ENTREE : AUCUNE
+    SORTIE : INT ALEATOIRE COMPRIS ENTRE 16 ET 31
+    BUT DE LA FONCTION : GENERATION D'UN NOMBRE ALEATOIRE ENTRE 16 ET 31
+*/
 int generationAleatoireCommu()
 {
-    srand(time(NULL));
+    srand(time(NULL)); //PERMET D'EVITER D'AVOIR LE MEME NOMBRE ALEATOIRE
     int aleatoire = 0;
-    aleatoire = (rand() % (32 - 16 + 1)) + 16;
+    aleatoire = (rand() % (31 - 16) + 16); //GENERATION ALEATOIRE ENTRE 16 ET 31
     return (aleatoire);
-}*/
+}
