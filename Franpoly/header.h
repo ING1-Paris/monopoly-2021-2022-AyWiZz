@@ -74,6 +74,7 @@ typedef struct
     int loyer3;
     int loyer4;
     int possede;
+    int possession;
 } Satellite;
 
 
