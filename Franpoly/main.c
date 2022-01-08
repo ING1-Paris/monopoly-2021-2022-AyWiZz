@@ -116,6 +116,29 @@ int main()
     {
         tabCartesPlanetes[i].possede = 0;
     }
+    for(int i = 0 ; i < nbJoueurs; i++)
+    {
+        player[i].t1Possede = 0;
+        player[i].t2Possede = 0;
+        player[i].t3Possede = 0;
+        player[i].t4Possede = 0;
+        player[i].t5Possede = 0;
+        player[i].t6Possede = 0;
+        player[i].t7Possede = 0;
+        player[i].t8Possede = 0;
+        player[i].t9Possede = 0;
+        player[i].t10Possede = 0;
+        strcpy(player[i].terrain1,"");
+        strcpy(player[i].terrain2,"");
+        strcpy(player[i].terrain3,"");
+        strcpy(player[i].terrain4,"");
+        strcpy(player[i].terrain5,"");
+        strcpy(player[i].terrain6,"");
+        strcpy(player[i].terrain7,"");
+        strcpy(player[i].terrain8,"");
+        strcpy(player[i].terrain9,"");
+        strcpy(player[i].terrain10,"");
+    }
     //////////////////////////////////////////////////////
     joueurPlaying = choixDepart(nbJoueurs);
 
@@ -299,6 +322,26 @@ int main()
                         strcpy(player[joueurPlaying].terrain5,"MERCURE");
                         player[joueurPlaying].t5Possede = 1;
                         break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"MERCURE");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"MERCURE");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"MERCURE");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"MERCURE");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"MERCURE");
+                        player[joueurPlaying].t10Possede = 1;
+                        break;
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
@@ -410,6 +453,26 @@ int main()
                     case 4:
                         strcpy(player[joueurPlaying].terrain5,"VENUS");
                         player[joueurPlaying].t5Possede = 1;
+                        break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"VENUS");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"VENUS");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"VENUS");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"VENUS");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"VENUS");
+                        player[joueurPlaying].t10Possede = 1;
                         break;
                     }
 
@@ -565,6 +628,26 @@ int main()
                         strcpy(player[joueurPlaying].terrain5,"LUNE");
                         player[joueurPlaying].t5Possede = 1;
                         break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"LUNE");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"LUNE");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"LUNE");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"LUNE");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"LUNE");
+                        player[joueurPlaying].t10Possede = 1;
+                        break;
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
@@ -665,6 +748,26 @@ int main()
                     case 4:
                         strcpy(player[joueurPlaying].terrain5,"TERRE");
                         player[joueurPlaying].t5Possede = 1;
+                        break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"TERRE");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"TERRE");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"TERRE");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"TERRE");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"TERRE");
+                        player[joueurPlaying].t10Possede = 1;
                         break;
                     }
 
@@ -772,6 +875,26 @@ int main()
                         strcpy(player[joueurPlaying].terrain5,"PHOBOS");
                         player[joueurPlaying].t5Possede = 1;
                         break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"PHOBOS");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"PHOBOS");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"PHOBOS");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"PHOBOS");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"PHOBOS");
+                        player[joueurPlaying].t10Possede = 1;
+                        break;
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
@@ -871,6 +994,26 @@ int main()
                     case 4:
                         strcpy(player[joueurPlaying].terrain5,"MARS");
                         player[joueurPlaying].t5Possede = 1;
+                        break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"MARS");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"MARS");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"MARS");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"MARS");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"MARS");
+                        player[joueurPlaying].t10Possede = 1;
                         break;
                     }
 
@@ -977,6 +1120,26 @@ int main()
                         strcpy(player[joueurPlaying].terrain5,"TRITON");
                         player[joueurPlaying].t5Possede = 1;
                         break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"TRITON");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"TRITON");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"TRITON");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"TRITON");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"TRITON");
+                        player[joueurPlaying].t10Possede = 1;
+                        break;
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
@@ -1076,6 +1239,26 @@ int main()
                     case 4:
                         strcpy(player[joueurPlaying].terrain5,"NEPTUNE");
                         player[joueurPlaying].t5Possede = 1;
+                        break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"NEPTUNE");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"NEPTUNE");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"NEPTUNE");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"NEPTUNE");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"NEPTUNE");
+                        player[joueurPlaying].t10Possede = 1;
                         break;
                     }
 
@@ -1179,6 +1362,26 @@ int main()
                         strcpy(player[joueurPlaying].terrain5,"TITANIUM");
                         player[joueurPlaying].t5Possede = 1;
                         break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"TITANIUM");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"TITANIUM");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"TITANIUM");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"TITANIUM");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"TITANIUM");
+                        player[joueurPlaying].t10Possede = 1;
+                        break;
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
@@ -1281,6 +1484,26 @@ int main()
                     case 4:
                         strcpy(player[joueurPlaying].terrain5,"URANUS");
                         player[joueurPlaying].t5Possede = 1;
+                        break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"URANUS");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"URANUS");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"URANUS");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"URANUS");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"URANUS");
+                        player[joueurPlaying].t10Possede = 1;
                         break;
                     }
 
@@ -1436,6 +1659,26 @@ int main()
                         strcpy(player[joueurPlaying].terrain5,"TITAN");
                         player[joueurPlaying].t5Possede = 1;
                         break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"TITAN");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"TITAN");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"TITAN");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"TITAN");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"TITAN");
+                        player[joueurPlaying].t10Possede = 1;
+                        break;
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
@@ -1535,6 +1778,26 @@ int main()
                     case 4:
                         strcpy(player[joueurPlaying].terrain5,"SATURNE");
                         player[joueurPlaying].t5Possede = 1;
+                        break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"SATURNE");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"SATURNE");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"SATURNE");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"SATURNE");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"SATURNE");
+                        player[joueurPlaying].t10Possede = 1;
                         break;
                     }
 
@@ -1636,6 +1899,26 @@ int main()
                     case 4:
                         strcpy(player[joueurPlaying].terrain5,"EUROPE");
                         player[joueurPlaying].t5Possede = 1;
+                        break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"EUROPE");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"EUROPE");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"EUROPE");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"EUROPE");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"EUROPE");
+                        player[joueurPlaying].t10Possede = 1;
                         break;
                     }
 
@@ -1746,6 +2029,26 @@ int main()
                         strcpy(player[joueurPlaying].terrain5,"GANYMEDE");
                         player[joueurPlaying].t5Possede = 1;
                         break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"GANYMEDE");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"GANYMEDE");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"GANYMEDE");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"GANYMEDE");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"GANYMEDE");
+                        player[joueurPlaying].t10Possede = 1;
+                        break;
                     }
 
                     player[joueurPlaying].nbTerrain+=1;
@@ -1845,6 +2148,26 @@ int main()
                     case 4:
                         strcpy(player[joueurPlaying].terrain5,"JUPITER");
                         player[joueurPlaying].t5Possede = 1;
+                        break;
+                    case 5:
+                        strcpy(player[joueurPlaying].terrain6,"JUPITER");
+                        player[joueurPlaying].t6Possede = 1;
+                        break;
+                    case 6:
+                        strcpy(player[joueurPlaying].terrain7,"JUPITER");
+                        player[joueurPlaying].t7Possede = 1;
+                        break;
+                    case 7:
+                        strcpy(player[joueurPlaying].terrain8,"JUPITER");
+                        player[joueurPlaying].t8Possede = 1;
+                        break;
+                    case 8:
+                        strcpy(player[joueurPlaying].terrain9,"JUPITER");
+                        player[joueurPlaying].t9Possede = 1;
+                        break;
+                    case 9:
+                        strcpy(player[joueurPlaying].terrain10,"JUPITER");
+                        player[joueurPlaying].t10Possede = 1;
                         break;
                     }
 

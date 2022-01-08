@@ -3,29 +3,6 @@
 #include <windows.h>
 #define taille 20
 #include"header.h"
-//int nbJoueurs = 6;
-/*
-typedef struct Joueur
-{
-    char nom[taille];
-    int argent;
-    int lastposition;
-    int position;
-    int couleur;
-    int choix;
-    int haveToPlay;
-    int t1Possede;
-    int t2Possede;
-    int t3Possede;
-    int t4Possede;
-    int t5Possede;
-    int nbTerrain;
-    char terrain1[taille];
-    char terrain2[taille];
-    char terrain3[taille];
-    char terrain4[taille];
-    char terrain5[taille];
-}Joueur;*/
 
 
 void remplir(Joueur j[])

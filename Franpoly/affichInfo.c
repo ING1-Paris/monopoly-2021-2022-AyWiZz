@@ -3,27 +3,7 @@
 #include <windows.h>
 #define taille 20
 #include "header.h"
-/*typedef struct Joueur
-{
-    char nom[taille];
-    int argent;
-    int lastposition;
-    int position;
-    int couleur;
-    int choix;
-    int haveToPlay;
-    int t1Possede;
-    int t2Possede;
-    int t3Possede;
-    int t4Possede;
-    int t5Possede;
-    int nbTerrain;
-    char terrain1[taille];
-    char terrain2[taille];
-    char terrain3[taille];
-    char terrain4[taille];
-    char terrain5[taille];
-}Joueur;*/
+
 
 void affichInfo(Joueur j[], int joueurPlaying, int nbJoueurs)
 {
@@ -47,7 +27,7 @@ void affichInfo(Joueur j[], int joueurPlaying, int nbJoueurs)
     }
     if(j[joueurPlaying].t3Possede ==1)
     {
-        printf("Vous posseder %s.", j[joueurPlaying].terrain3);
+        printf("Vous posseder %s. elle bug", j[joueurPlaying].terrain3);
         gotoligcol(20+c,195);
         c++;
     }
@@ -60,6 +40,36 @@ void affichInfo(Joueur j[], int joueurPlaying, int nbJoueurs)
     if(j[joueurPlaying].t5Possede ==1)
     {
         printf("Vous posseder %s.", j[joueurPlaying].terrain5);
+        gotoligcol(20+c,195);
+        c++;
+    }
+    if(j[joueurPlaying].t6Possede ==1)
+    {
+        printf("Vous posseder %s.", j[joueurPlaying].terrain6);
+        gotoligcol(20+c,195);
+        c++;
+    }
+    if(j[joueurPlaying].t7Possede ==1)
+    {
+        printf("Vous posseder %s.", j[joueurPlaying].terrain7);
+        gotoligcol(20+c,195);
+        c++;
+    }
+    if(j[joueurPlaying].t8Possede ==1)
+    {
+        printf("Vous posseder %s.", j[joueurPlaying].terrain8);
+        gotoligcol(20+c,195);
+        c++;
+    }
+    if(j[joueurPlaying].t9Possede ==1)
+    {
+        printf("Vous posseder %s. elle bug", j[joueurPlaying].terrain9);
+        gotoligcol(20+c,195);
+        c++;
+    }
+    if(j[joueurPlaying].t10Possede ==1)
+    {
+        printf("Vous posseder %s.", j[joueurPlaying].terrain10);
         gotoligcol(20+c,195);
         c++;
     }
