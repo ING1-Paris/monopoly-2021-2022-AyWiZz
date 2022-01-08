@@ -13,6 +13,7 @@ typedef struct Joueur
     int choix;
     int haveToPlay;
     int prison;
+    int tempsPrison;
     int t1Possede;
     int t2Possede;
     int t3Possede;
@@ -101,7 +102,7 @@ void remplir(Joueur j[]);
 int remplissageJoueur(Joueur j[]);
 void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[]);
 
-void affichInfo(Joueur j[], int joueurPlaying);
+void affichInfo(Joueur j[], int joueurPlaying, int nbJoueurs);
 
 void creationCartesChance(CarteChance tabCartes[]);
 void creationCartesCommunautes(CarteChance tabCartes[]);

@@ -104,6 +104,7 @@ int main()
         player[i].nbTerrain = 0;
         player[i].prison = 0;
         player[i].doubleDee = 0;
+        player[i].tempsPrison = 0;
         //j[i].haveToPlay = 0;
     }
     for(int i = 0 ; i < 15; i++)
@@ -144,7 +145,7 @@ int main()
         couleursPlateau();
         creationPlateau();
 
-        affichInfo(player,joueurPlaying);
+        affichInfo(player,joueurPlaying, nbJoueurs);
 
 
         if(player[joueurPlaying].choix == 1)
@@ -209,7 +210,7 @@ int main()
                     affichPion(player, i);
 
                 }
-                affichInfo(player,joueurPlaying);
+                affichInfo(player,joueurPlaying, nbJoueurs);
                 gotoligcol(16, 195);
                 printf("Vous avez atteri en prison !");
             }
@@ -223,12 +224,27 @@ int main()
                     if(nbDe1 == nbDe2)
                     {
                         player[joueurPlaying].prison = 0;
+                        player[joueurPlaying].tempsPrison = 0;
                     }
                     else
                     {
-                        player[joueurPlaying].argent -= 50;
+                        if(player[joueurPlaying].tempsPrison == 3)
+                        {
+                            player[joueurPlaying].argent -= 50;
+                            player[joueurPlaying].prison = 0;
+                            player[joueurPlaying].tempsPrison = 0;
+                        }
+                        player[joueurPlaying].tempsPrison +=1;
+                        joueurPlaying++;
                     }
                 }
+                else
+                {
+                    des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe);
+                    player[joueurPlaying].tempsPrison +=1;
+                    joueurPlaying++;
+                }
+
             }
 
             //////////////////////////////////////////////////////
@@ -241,7 +257,7 @@ int main()
         nbDe = 0;
 
 
-
+        affichInfo(player,joueurPlaying, nbJoueurs);
 
 
         switch(player[joueurPlaying].position)
@@ -1328,7 +1344,7 @@ int main()
         }
 
 
-        affichInfo(player,joueurPlaying);
+        affichInfo(player,joueurPlaying, nbJoueurs);
 
         if(joueurPlaying>=nbJoueurs)
         {
