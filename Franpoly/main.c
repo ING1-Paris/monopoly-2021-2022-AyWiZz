@@ -303,9 +303,9 @@ int main()
                     tabCartesPlanetes[0].possession = joueurPlaying;
 
 
-                    gotoligcol(48,90);
+                    //gotoligcol(48,90);
 
-                    printf("%d", tabCartesPlanetes[0].possession);
+                    //printf("%d", tabCartesPlanetes[0].possession);
                     ///////////////////////////////////////////////////////////////:
 
                     gotoligcol(46, 90);
@@ -321,16 +321,55 @@ int main()
                 }
 
             }
-            else if(tabCartesPlanetes[0].possede == 1 && tabCartesPlanetes[0].possession == joueurPlaying)
+            else if(tabCartesPlanetes[0].possede == 1 && tabCartesPlanetes[0].possession == joueurPlaying && player[joueurPlaying].argent >= 70)//LE JOUEUR PEUT ACHETER DES MAISONS OU HOTELS
             {
-                gotoligcol(45, 90);
-                printf("Voulez vous acheter des maisons ?");
+                if(tabCartesPlanetes[0].nbMaisons >= 0 && tabCartesPlanetes[0].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[0].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[0].loyer = tabCartesPlanetes[0].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[0].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[0].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[0].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[0].loyer = tabCartesPlanetes[0].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
+
             }
             else if(tabCartesPlanetes[0].possede == 1 && tabCartesPlanetes[0].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[0].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[0].possession].argent += tabCartesPlanetes[0].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[0].loyer, player[tabCartesPlanetes[0].possession].nom);
 
             }
 
@@ -386,14 +425,52 @@ int main()
             }
             else if(tabCartesPlanetes[1].possede == 1 && tabCartesPlanetes[1].possession == joueurPlaying)//PERMET DE SAVOIR SI C'EST AU JOUEUR QUI EST EN TRAIN DE JOUER)
             {
-                gotoligcol(45, 90);
-                printf("Venus est déjà possede !");
+                if(tabCartesPlanetes[1].nbMaisons >= 0 && tabCartesPlanetes[1].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[1].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[1].loyer = tabCartesPlanetes[1].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[1].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[1].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[1].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[1].loyer = tabCartesPlanetes[1].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[1].possede == 1 && tabCartesPlanetes[1].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[1].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[1].possession].argent += tabCartesPlanetes[1].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[1].loyer, player[tabCartesPlanetes[1].possession].nom);
 
             }
             break;
@@ -501,14 +578,52 @@ int main()
             }
             else if(tabCartesPlanetes[2].possede == 1 && tabCartesPlanetes[2].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("Lune est déjà possede !");
+                if(tabCartesPlanetes[2].nbMaisons >= 0 && tabCartesPlanetes[2].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[2].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[2].loyer = tabCartesPlanetes[0].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[2].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[2].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[2].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[2].loyer = tabCartesPlanetes[2].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[2].possede == 1 && tabCartesPlanetes[2].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[2].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[2].possession].argent += tabCartesPlanetes[2].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[2].loyer, player[tabCartesPlanetes[2].possession].nom);
 
             }
 
@@ -570,14 +685,52 @@ int main()
             }
             else if(tabCartesPlanetes[3].possede == 1 && tabCartesPlanetes[3].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("La Terre est déjà possede !");
+                if(tabCartesPlanetes[3].nbMaisons >= 0 && tabCartesPlanetes[3].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[3].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[3].loyer = tabCartesPlanetes[3].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[0].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[3].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[3].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[3].loyer = tabCartesPlanetes[3].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[3].possede == 1 && tabCartesPlanetes[3].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[3].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[3].possession].argent += tabCartesPlanetes[3].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[3].loyer, player[tabCartesPlanetes[3].possession].nom);
 
             }
             break;
@@ -633,14 +786,52 @@ int main()
             }
             else if(tabCartesPlanetes[4].possede == 1 && tabCartesPlanetes[4].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("Phobos est déjà possede !");
+                if(tabCartesPlanetes[4].nbMaisons >= 0 && tabCartesPlanetes[4].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[4].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[4].loyer = tabCartesPlanetes[4].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[4].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[4].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[4].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[4].loyer = tabCartesPlanetes[4].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[4].possede == 1 && tabCartesPlanetes[4].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[4].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[4].possession].argent += tabCartesPlanetes[4].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[4].loyer, player[tabCartesPlanetes[4].possession].nom);
 
             }
 
@@ -693,14 +884,52 @@ int main()
             }
             else if(tabCartesPlanetes[5].possede == 1 && tabCartesPlanetes[5].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("Mars est déjà possede !");
+                if(tabCartesPlanetes[5].nbMaisons >= 0 && tabCartesPlanetes[5].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[5].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[5].loyer = tabCartesPlanetes[5].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[5].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[5].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[5].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[5].loyer = tabCartesPlanetes[5].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[5].possede == 1 && tabCartesPlanetes[5].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[5].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[5].possession].argent += tabCartesPlanetes[5].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[5].loyer, player[tabCartesPlanetes[5].possession].nom);
 
             }
 
@@ -762,14 +991,52 @@ int main()
             }
             else if(tabCartesPlanetes[6].possede == 1 && tabCartesPlanetes[6].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("Triton est déjà possede !");
+                if(tabCartesPlanetes[6].nbMaisons >= 0 && tabCartesPlanetes[6].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[6].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[6].loyer = tabCartesPlanetes[6].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[6].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[6].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[6].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[6].loyer = tabCartesPlanetes[6].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[6].possede == 1 && tabCartesPlanetes[6].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[6].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[6].possession].argent += tabCartesPlanetes[6].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[6].loyer, player[tabCartesPlanetes[6].possession].nom);
 
             }
 
@@ -823,14 +1090,52 @@ int main()
             }
             else if(tabCartesPlanetes[7].possede == 1 && tabCartesPlanetes[7].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("Neptune est déjà possede !");
+                if(tabCartesPlanetes[7].nbMaisons >= 0 && tabCartesPlanetes[7].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[7].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[7].loyer = tabCartesPlanetes[7].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[7].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[7].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[7].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[7].loyer = tabCartesPlanetes[7].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[7].possede == 1 && tabCartesPlanetes[7].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[7].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[7].possession].argent += tabCartesPlanetes[7].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[7].loyer, player[tabCartesPlanetes[7].possession].nom);
 
             }
 
@@ -888,15 +1193,54 @@ int main()
             }
             else if(tabCartesPlanetes[8].possede == 1 && tabCartesPlanetes[8].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("Titanium est déjà possede !");
+                if(tabCartesPlanetes[8].nbMaisons >= 0 && tabCartesPlanetes[8].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[8].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[8].loyer = tabCartesPlanetes[8].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[8].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[8].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[8].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[8].loyer = tabCartesPlanetes[8].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[8].possede == 1 && tabCartesPlanetes[8].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[8].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[8].possession].argent += tabCartesPlanetes[8].loyer;
+
                 gotoligcol(48, 90);
+
                 printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[8].loyer, player[tabCartesPlanetes[8].possession].nom);
 
             }
@@ -952,14 +1296,52 @@ int main()
             }
             else if(tabCartesPlanetes[9].possede == 1 && tabCartesPlanetes[9].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("Uranus est déjà possede !");
+                if(tabCartesPlanetes[9].nbMaisons >= 0 && tabCartesPlanetes[9].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[9].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[9].loyer = tabCartesPlanetes[9].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[9].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[9].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[9].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[9].loyer = tabCartesPlanetes[9].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[9].possede == 1 && tabCartesPlanetes[9].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[9].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[9].possession].argent += tabCartesPlanetes[9].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[9].loyer, player[tabCartesPlanetes[9].possession].nom);
 
             }
 
@@ -1068,14 +1450,52 @@ int main()
             }
             else if(tabCartesPlanetes[10].possede == 1 && tabCartesPlanetes[10].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("Titan est déjà possede !");
+                if(tabCartesPlanetes[10].nbMaisons >= 0 && tabCartesPlanetes[10].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[10].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[10].loyer = tabCartesPlanetes[10].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[10].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[10].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[10].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[10].loyer = tabCartesPlanetes[10].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[10].possede == 1 && tabCartesPlanetes[10].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[10].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[10].possession].argent += tabCartesPlanetes[10].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[10].loyer, player[tabCartesPlanetes[10].possession].nom);
 
             }
 
@@ -1129,14 +1549,52 @@ int main()
             }
             else if(tabCartesPlanetes[11].possede == 1 && tabCartesPlanetes[11].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("Saturne est déjà possede !");
+                if(tabCartesPlanetes[11].nbMaisons >= 0 && tabCartesPlanetes[11].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[11].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[11].loyer = tabCartesPlanetes[11].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[11].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[11].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[11].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[11].loyer = tabCartesPlanetes[11].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[11].possede == 1 && tabCartesPlanetes[11].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[11].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[11].possession].argent += tabCartesPlanetes[11].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[11].loyer, player[tabCartesPlanetes[11].possession].nom);
 
             }
             break;
@@ -1193,14 +1651,52 @@ int main()
             }
             else if(tabCartesPlanetes[12].possede == 1 && tabCartesPlanetes[12].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("Europe est déjà possede !");
+                if(tabCartesPlanetes[12].nbMaisons >= 0 && tabCartesPlanetes[12].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[12].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[12].loyer = tabCartesPlanetes[12].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[12].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[12].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[12].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[12].loyer = tabCartesPlanetes[12].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[12].possede == 1 && tabCartesPlanetes[12].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[12].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[12].possession].argent += tabCartesPlanetes[12].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[12].loyer, player[tabCartesPlanetes[12].possession].nom);
 
             }
             break;
@@ -1264,14 +1760,52 @@ int main()
             }
             else if(tabCartesPlanetes[13].possede == 1 && tabCartesPlanetes[13].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("Ganymede est déjà possede !");
+                if(tabCartesPlanetes[13].nbMaisons >= 0 && tabCartesPlanetes[13].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[13].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[13].loyer = tabCartesPlanetes[13].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[13].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[13].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[13].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[13].loyer = tabCartesPlanetes[13].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[13].possede == 1 && tabCartesPlanetes[13].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[13].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[13].possession].argent += tabCartesPlanetes[13].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[13].loyer, player[tabCartesPlanetes[13].possession].nom);
 
             }
 
@@ -1326,14 +1860,52 @@ int main()
             }
             else if(tabCartesPlanetes[14].possede == 1 && tabCartesPlanetes[14].possession == joueurPlaying)
             {
-                gotoligcol(45, 90);
-                printf("Jupiter est déjà possede !");
+                if(tabCartesPlanetes[14].nbMaisons >= 0 && tabCartesPlanetes[14].nbMaisons <= 3 ) // SI LE NOMBRE DE MAISON SUR LA PROPRIETE EST DE 0 1 2 OU 3
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'une maison est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter une maison ? 1/oui 0/non");
+                    scanf("%d", &repMaison);
+                    if(repMaison == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[14].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
+                        nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[14].loyer = tabCartesPlanetes[14].loyer1;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete une maison !");
+                    }
+                }
+                else if(tabCartesPlanetes[14].nbMaisons == 4)
+                {
+                    gotoligcol(45, 90);
+                    printf("Le prix d'un hotel est de 70 M$");
+                    gotoligcol(46, 90);
+                    printf("Voulez vous acheter un hotel ? 1/oui 0/non");
+                    scanf("%d", &repHotel);
+                    if(repHotel == 1)
+                    {
+                        player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
+                        tabCartesPlanetes[14].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
+                        tabCartesPlanetes[14].nbHotels += 1;// LE NOMBRE D'HOTEL SUR CETTE PROPRIETE EST DE +1
+                        nbHotelTotal -= 1;// LE NOMBRE D'HOTELS DISPONIBLES A L'ACHAT EST DE -1
+                        tabCartesPlanetes[14].loyer = tabCartesPlanetes[14].loyer5;//LE LOYER SI UN AUTRE JOUEUR PASSE DESSUS EST DE LOYER AVEC 1 MAISON
+                        gotoligcol(47,90);
+                        printf("Felicitations vous avez achete un hotel !");
+                    }
+                }
+                else{
+                    gotoligcol(46, 90);
+                    printf("STOP ! Vous avez deja un hotel !");
+                }
             }
             else if(tabCartesPlanetes[14].possede == 1 && tabCartesPlanetes[14].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[14].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[14].possession].argent += tabCartesPlanetes[14].loyer;
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[14].loyer, player[tabCartesPlanetes[14].possession].nom);
 
             }
 
@@ -1356,11 +1928,6 @@ int main()
         }
     }
     while(1==1);
-
-
-
-
-
 
 // des(nbDe,pnbDe);
 
