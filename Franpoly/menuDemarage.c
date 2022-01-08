@@ -9,8 +9,6 @@ int positionCurseur()
 {
     int toucheUtilisateur = 0;
     int curseur = 1;
-    int choix = 0;
-    int choixNaviguer = 0;
     //rang 0
     //printf("\n");//rang 1
     //gotoligcol(0,COLONNE);
@@ -27,14 +25,8 @@ int positionCurseur()
     Color(15,0);
     //gotoligcol(7,COLONNE);
     printf("%c Charger la Partie:",0x08);//rang 4
-    printf("\n");
-    printf("\n");            //rang 5
-    Color(15, 0);
-    printf("%c Afficher les regles:",0x08);
-    printf("\n");
-    printf("\n");            //rang 5
-    Color(15, 0);
-    printf("%c Afficher les membres du projet:",0x08);
+    printf("\n");//rang 5
+    gotoligcol(5,17);//Car il y a 16 lettres dans "Nouvelle Partie :"
 
 
     do
@@ -50,9 +42,9 @@ int positionCurseur()
         }
         if(curseur == -1 || curseur == 0) //Si le curseur est trop en haut
         {
-            curseur = 4;//Retourner en bas
+            curseur = 2;//Retourner en bas
         }
-        if(curseur == 5) //Si le curseur est trop en bas
+        if(curseur == 3) //Si le curseur est trop en bas
         {
             curseur = 1;//Retourner en haut
         }
@@ -70,13 +62,6 @@ int positionCurseur()
             Color(9,0);
             gotoligcol(5,COLONNE);
             printf("%c Nouvelle Partie:",0x08);
-            Color(15, 0);
-            gotoligcol(9, COLONNE);
-            printf("%c Afficher les regles:",0x08);
-            Color(15, 0);
-            gotoligcol(11, COLONNE);
-            printf("%c Afficher les membres du projet:",0x08);
-
             if(toucheUtilisateur == 0x0D)
             {
                 system("cls");
@@ -100,13 +85,6 @@ int positionCurseur()
             Color(9,0);
             gotoligcol(7,COLONNE);
             printf("%c Charger la Partie:",0x08);
-            Color(15, 0);
-            gotoligcol(9, COLONNE);
-            printf("%c Afficher les regles:",0x08);
-            Color(15, 0);
-            gotoligcol(11, COLONNE);
-            printf("%c Afficher les membres du projet:",0x08);
-
             if(toucheUtilisateur == 0x0D)
             {
                 system("cls");
@@ -118,132 +96,6 @@ int positionCurseur()
             }
 
         }
-        if(curseur == 3)
-        {
-
-            Color(15,0);
-            gotoligcol(0,COLONNE);
-            printf("SPACE FRANPOLY :\n");
-            Color(15,0);
-            gotoligcol(5,COLONNE);
-            printf("%c Nouvelle Partie:",0x08);
-            Color(15,0);
-            gotoligcol(7,COLONNE);
-            printf("%c Charger la Partie:",0x08);
-            Color(9, 0);
-            gotoligcol(9, COLONNE);
-            printf("%c Afficher les regles:",0x08);
-            Color(15, 0);
-            gotoligcol(11, COLONNE);
-            printf("%c Afficher les membres du projet:",0x08);
-
-            if(toucheUtilisateur == 0x0D)
-            {
-                FILE * fp;
-
-                fp = fopen("regles.txt", "r");
-
-                if(fp == NULL)
-                {
-                    printf("erreur fopen \n");
-                    return 1;
-                }
-                char c = fgetc(fp);
-                system("cls");
-                while(c != EOF)
-                {
-                    printf("%c", c);
-                    c = fgetc(fp);
-                }
-
-
-                Color(9, 0);
-                do
-                {
-                    printf("\n \n \n Taper 1 pour retourner au menu");
-                    fflush(stdin);
-                    scanf("%d", &choix);
-                }
-                while(choix < 1 || choix > 2);
-
-                if(choix == 1)
-                {
-                    system("cls");
-                    positionCurseur();
-                    Color(9, 0);
-                }
-
-
-                Color(9,0);
-
-
-            }
-
-
-        }
-        if(curseur == 4)
-        {
-            Color(15,0);
-            gotoligcol(0,COLONNE);
-            printf("SPACE FRANPOLY :\n");
-            Color(15,0);
-            gotoligcol(5,COLONNE);
-            printf("%c Nouvelle Partie:",0x08);
-            Color(15,0);
-            gotoligcol(7,COLONNE);
-            printf("%c Charger la Partie:",0x08);
-            Color(15, 0);
-            gotoligcol(9, COLONNE);
-            printf("%c Afficher les regles:",0x08);
-            Color(9, 0);
-            gotoligcol(11, COLONNE);
-            printf("%c Afficher les membres du projet:",0x08);
-
-            if(toucheUtilisateur == 0x0D)
-            {
-                FILE * fp;
-
-                fp = fopen("membres.txt", "r");
-
-                if(fp == NULL)
-                {
-                    printf("erreur fopen \n");
-                    return 1;
-                }
-                char c = fgetc(fp);
-                system("cls");
-                Color(9, 0);
-                while(c != EOF)
-                {
-                    printf("%c", c);
-                    c = fgetc(fp);
-                }
-
-
-                do
-                {
-                    gotoligcol(57, 0);
-                    printf("\n \n \n Taper 1 pour retourner au menu \n");
-                    fflush(stdin);
-                    scanf("%d", &choix);
-                }
-                while(choix < 1 || choix > 2);
-
-                if(choix == 1)
-                {
-                    system("cls");
-                    positionCurseur();
-                    Color(9, 0);
-                }
-
-
-
-                Color(5, 0);
-
-            }
-
-        }
-
 
 
 
@@ -255,7 +107,7 @@ int positionCurseur()
 
 int checkPartie()
 {
-    system("cls");
+   system("cls");
     printf("SPACE FRANPOLY SAUVEGARDES:\n");
     printf("\n");
     printf("\n");

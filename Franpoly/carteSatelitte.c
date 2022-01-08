@@ -169,10 +169,10 @@ void creationSatellites(Satellite tabSatellites[4])
 
 }
 
-/*int generationAleatoireSatellite()
+int generationAleatoireSatellite()
 {
     srand(time(NULL));
     int aleatoire = 0;
     aleatoire = rand() % 4;
     return (aleatoire);
-}*/
+}

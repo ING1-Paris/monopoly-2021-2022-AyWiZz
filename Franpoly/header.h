@@ -60,6 +60,10 @@ typedef struct
 
     int possede;
 
+    int couleurPlanete;
+    //int couleurMax;
+    int hypoValid;
+
     int possession;
     int nbMaisons;
     int nbHotels;
@@ -74,7 +78,6 @@ typedef struct
     int loyer3;
     int loyer4;
     int possede;
-    int possession;
 } Satellite;
 
 
@@ -135,4 +138,7 @@ void ecritureSatellite(Satellite tabSatellites[4], int aleatoire);
 
 int prison(Joueur player[],int joueurPlaying, int nbJoueurs);
 
+void hypotheque(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int planete,int nbMaisonTotal, int nbHotelTotal,int *pnbMaisonTotal, int *pnbHotelTotal);
+void rachatHypo(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int planete,int nbMaisonTotal, int nbHotelTotal,int *pnbMaisonTotal, int *pnbHotelTotal);
+void passMaison(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int planete);
 #endif // HEADER_H_INCLUDED
