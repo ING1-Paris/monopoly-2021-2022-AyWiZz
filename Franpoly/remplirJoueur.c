@@ -27,14 +27,22 @@ int remplissageJoueur(Joueur j[])
     int ligne = 3;
     gotoligcol(2,2);
     printf("Bienvenue sur le SPACE MONOPOLY !");
-    gotoligcol(3,2);
-    do{
-    printf("Combien de joueurs pour cette partie ? ");
-    gotoligcol(4,2);
-    ligne+=1;
-    fflush(stdin);
-    scanf("%d", &nbJoueurs);
-    }while(nbJoueurs<1 || nbJoueurs>6);
+
+    do
+    {
+        gotoligcol(3,2);
+        printf("Combien de joueurs pour cette partie ? ");
+        gotoligcol(4,2);
+        fflush(stdin);
+        scanf("%d", &nbJoueurs);
+        if(nbJoueurs>1 && nbJoueurs<6)
+        {
+            ligne+=1;
+        }
+    }
+    while(nbJoueurs<1 || nbJoueurs>6);
+
+
     for(int i=1; i<nbJoueurs+1; i++)
     {
         gotoligcol(ligne+i,2);
@@ -49,7 +57,8 @@ int remplissageJoueur(Joueur j[])
     return nbJoueurs;
 
 }
-int returnNbJ(int nbJoueurs){
-int z=nbJoueurs;
-return z;
+int returnNbJ(int nbJoueurs)
+{
+    int z=nbJoueurs;
+    return z;
 }
