@@ -3,7 +3,6 @@
 #include <windows.h>
 #include "header.h"
 #include <unistd.h>
-#include <time.h>
 
 int generationAleatoireChance()
 {
@@ -110,8 +109,10 @@ int main()
     int repMaison = 0;
     int repHotel = 0;
     int nbMaisonTotal = 0;
-    int *pnbMaisonTotal = &nbMaisonTotal;
     int nbHotelTotal = 0;
+
+    int *pnbMaisonTotal = &nbMaisonTotal;
+
     int *pnbHotelTotal = &nbHotelTotal;
 
     curseur = positionCurseur();
@@ -237,7 +238,7 @@ int main()
                 ////////////////////////////////////////////////////////
 
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
+                player[joueurPlaying].position = 5;//player[joueurPlaying].lastposition + nbDe;
 
             }
 
@@ -928,7 +929,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,2);
                 }
-
+            }
             break;
         case 6:
             carteVille(3);
@@ -1069,6 +1070,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,3);
                 }
+            }
             break;
         case 7:
             break;
@@ -1204,7 +1206,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,4);
                 }
-
+            }
             break;
         case 9:
             carteVille(5);
@@ -1336,7 +1338,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,5);
                 }
-
+            }
             break;
         case 10:
             carteCommunaute();
@@ -1678,7 +1680,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,6);
                 }
-
+            }
             break;
         case 13:
             carteVille(7);
@@ -1811,7 +1813,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,7);
                 }
-
+            }
             break;
         case 14:
 
@@ -1948,7 +1950,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,8);
                 }
-
+            }
             break;
         case 16:
             carteVille(9);
@@ -2082,6 +2084,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,9);
                 }
+            }
             break;
         case 17:
             cartesChance();
@@ -2404,7 +2407,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,10);
                 }
-
+            }
             break;
         case 20:
             carteVille(11);
@@ -2537,6 +2540,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,11);
                 }
+            }
             break;
         case 21:
 
@@ -2673,6 +2677,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,12);
                 }
+            }
             break;
         case 23:
             carteCommunaute();
@@ -3015,7 +3020,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,13);
                 }
-
+            }
             break;
         case 27:
             carteVille(14);
@@ -3149,7 +3154,7 @@ int main()
                 else {
                 passMaison(player,tabCartesPlanetes,joueurPlaying,14);
                 }
-
+            }
             break;
         case 28:
             break;
