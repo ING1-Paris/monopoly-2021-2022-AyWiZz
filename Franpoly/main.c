@@ -3,6 +3,7 @@
 #include <windows.h>
 #include "header.h"
 #include <unistd.h>
+#include <time.h>
 
 int generationAleatoireChance()
 {
@@ -109,7 +110,9 @@ int main()
     int repMaison = 0;
     int repHotel = 0;
     int nbMaisonTotal = 0;
+    int *pnbMaisonTotal = &nbMaisonTotal;
     int nbHotelTotal = 0;
+    int *pnbHotelTotal = &nbHotelTotal;
 
     curseur = positionCurseur();
     if(curseur == 2)
@@ -412,7 +415,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[0].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[0].nbMaisons);
                     }
@@ -448,7 +451,7 @@ int main()
             }
             else if(tabCartesPlanetes[0].hypoValid == 1 && tabCartesPlanetes[0].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,0,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[0].possede == 1 && tabCartesPlanetes[0].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -549,7 +552,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[1].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[1].nbMaisons);
                     }
@@ -585,7 +588,7 @@ int main()
             }
             else if(tabCartesPlanetes[1].hypoValid == 1 && tabCartesPlanetes[1].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,1,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[1].possede == 1 && tabCartesPlanetes[1].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -876,7 +879,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[2].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[2].nbMaisons);
                     }
@@ -912,7 +915,7 @@ int main()
             }
             else if(tabCartesPlanetes[2].hypoValid == 1 && tabCartesPlanetes[2].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,2,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[2].possede == 1 && tabCartesPlanetes[2].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -1017,7 +1020,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[3].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[3].nbMaisons);
                     }
@@ -1053,7 +1056,7 @@ int main()
             }
             else if(tabCartesPlanetes[3].hypoValid == 1 && tabCartesPlanetes[3].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,3,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[3].possede == 1 && tabCartesPlanetes[3].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -1152,7 +1155,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[4].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[4].nbMaisons);
                     }
@@ -1188,7 +1191,7 @@ int main()
             }
             else if(tabCartesPlanetes[4].hypoValid == 1 && tabCartesPlanetes[4].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,4,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[4].possede == 1 && tabCartesPlanetes[4].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -1284,7 +1287,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[5].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[5].nbMaisons);
                     }
@@ -1320,7 +1323,7 @@ int main()
             }
             else if(tabCartesPlanetes[5].hypoValid == 1 && tabCartesPlanetes[5].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,5,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[5].possede == 1 && tabCartesPlanetes[5].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -1626,7 +1629,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[6].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[6].nbMaisons);
                     }
@@ -1662,12 +1665,12 @@ int main()
             }
             else if(tabCartesPlanetes[6].hypoValid == 1 && tabCartesPlanetes[6].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,6,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[6].possede == 1 && tabCartesPlanetes[6].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
                 /////////////////////////////////////////////////////////////////////////////
-                if(tabCartesPlanetes[6].hypoValid == 1){ 
+                if(tabCartesPlanetes[6].hypoValid == 1){
                         gotoligcol(47, 90);
                     printf("Vous ne payez rien car cette planete est hypothequee.");
                 }
@@ -1759,7 +1762,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[7].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[7].nbMaisons);
                     }
@@ -1795,7 +1798,7 @@ int main()
             }
             else if(tabCartesPlanetes[7].hypoValid == 1 && tabCartesPlanetes[7].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,7,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[7].possede == 1 && tabCartesPlanetes[7].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -1896,7 +1899,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[8].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[8].nbMaisons);
                     }
@@ -1932,7 +1935,7 @@ int main()
             }
             else if(tabCartesPlanetes[8].hypoValid == 1 && tabCartesPlanetes[8].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,8,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[8].possede == 1 && tabCartesPlanetes[8].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -2030,7 +2033,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[9].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[9].nbMaisons);
                     }
@@ -2066,7 +2069,7 @@ int main()
             }
             else if(tabCartesPlanetes[9].hypoValid == 1 && tabCartesPlanetes[9].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,9,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[9].possede == 1 && tabCartesPlanetes[9].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -2352,7 +2355,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[10].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[10].nbMaisons);
                     }
@@ -2388,7 +2391,7 @@ int main()
             }
             else if(tabCartesPlanetes[10].hypoValid == 1 && tabCartesPlanetes[10].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,10,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[10].possede == 1 && tabCartesPlanetes[10].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -2485,7 +2488,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[11].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[11].nbMaisons);
                     }
@@ -2521,7 +2524,7 @@ int main()
             }
             else if(tabCartesPlanetes[11].hypoValid == 1 && tabCartesPlanetes[11].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,11,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[11].possede == 1 && tabCartesPlanetes[11].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -2621,7 +2624,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[12].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[12].nbMaisons);
                     }
@@ -2657,7 +2660,7 @@ int main()
             }
             else if(tabCartesPlanetes[12].hypoValid == 1 && tabCartesPlanetes[12].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,12,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[12].possede == 1 && tabCartesPlanetes[12].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -2963,7 +2966,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[13].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[13].nbMaisons);
                     }
@@ -2999,7 +3002,7 @@ int main()
             }
             else if(tabCartesPlanetes[13].hypoValid == 1 && tabCartesPlanetes[13].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,13,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[13].possede == 1 && tabCartesPlanetes[13].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
@@ -3097,7 +3100,7 @@ int main()
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[14].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
                         nbMaisonTotal -= 1;// LE NOMBRE DE MAISONS DISPONIBLES A L'ACHAT EST DE -1
-                        
+
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete une maison !test nbMaisons tot = %d", tabCartesPlanetes[14].nbMaisons);
                     }
@@ -3133,7 +3136,7 @@ int main()
             }
             else if(tabCartesPlanetes[14].hypoValid == 1 && tabCartesPlanetes[14].possession == joueurPlaying){
                 rachatHypo(player, tabCartesPlanetes,joueurPlaying,14,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
-                
+
             }
             else if(tabCartesPlanetes[14].possede == 1 && tabCartesPlanetes[14].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
