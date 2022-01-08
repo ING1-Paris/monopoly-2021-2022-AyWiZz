@@ -87,6 +87,11 @@ int main()
 
     int repAchat = 0;
 
+    int repMaison = 0;
+    int repHotel = 0;
+    int nbMaisonTotal = 0;
+    int nbHotelTotal = 0;
+
     curseur = positionCurseur();
     if(curseur == 2)
     {

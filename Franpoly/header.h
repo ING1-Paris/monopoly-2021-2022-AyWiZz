@@ -51,6 +51,8 @@ typedef struct
     int possede;
 
     int possession;
+    int nbMaisons;
+    int nbHotels;
 
 } CartePlanete;
 
