@@ -31,7 +31,35 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Cartes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="affichInfo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="carteChance.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="carteSatelitte.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="choixJoueurDépart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="creationPlateau.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="deplacementPlateau.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="header.h" />
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menuDemarage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="remplirJoueur.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
