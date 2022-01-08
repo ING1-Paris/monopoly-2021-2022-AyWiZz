@@ -5,68 +5,83 @@
 #include <stdio.h>
 #include <time.h>
 
+
+
+
+
+
+
+/*  Entree : AUCUNE
+    Sortie : Aucune (VOID)
+    BUT DE CETTE FONCTION : AFFICHER LE CONTOUR DES CARTES PLANETES
+*/
 void creationContourCarteVille()
 {
+ ///////////////// INITIALISATION DES VARIABLES ///////////////////
     int i = 0;
     int j = 0;
     int k = 9;
     int l = 9;
     int m = 24;
+  ////////////////////////////////////////////////////////////////
+  /////////////////// AFFICHAGE DU CONTOUR DE LA CARTE //////////
     gotoligcol(10,65);
-    for(i = 0; i <55; i++)
+    //////////////// AFFICHE LA BARRE EN HAUT //////////////////
+    for(i = 0; i <55; i++)//CETTE BOUCLE PERMET DE CREER UNE GRANDE BARRE HORIZONTALE EN HAUT
     {
-        printf("%c", 0xC4);
+        printf("%c", 0xC4); //AFFICHE UNE BARRE HORIZONTALE
     }
     gotoligcol(10,65);
-    printf("%c", 0xDA);
+    printf("%c", 0xDA); //METS L'ANGLE EN HAUT A GAUCHE
     gotoligcol(10,120);
-    printf("%c", 0xBF);
+    printf("%c", 0xBF); //METS L'ANGLE EN HAUT A DROITE
     gotoligcol(20,65);
 
     for(j = 0; j <4; j++)
     {
-        for(i = 0; i < 7; i++)
+        for(i = 0; i < 7; i++) //REPETE 7 FOIS LA BOUCLE POUR FAIRE UNE BARRE A GAUCHE DE 7 LONGUEURS
         {
-            gotoligcol((2+k),65);
-            printf("%c", 0xB3);
-            k = k+1;
+            gotoligcol((2+k),65); // A CHAQUE ITERATION DE BOUCLE, CELA VA A LA LIGNE EN DESSOUS
+            printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+            k = k+1; //A CHAQUE TOUR DE BOUCLE K EST ITERE DE 1
         }
 
     }
     for(i = 0; i < 5; i++)
     {
-        gotoligcol((2+m),65);
-        printf("%c", 0xB3);
-        m = m+1;
+        gotoligcol((2+m),65); //A CHAQUE TOUR DE BOUCLE ON VA A LA LIGNE D'EN DESSOUS
+        printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+        m = m+1; //m EST ITERE DE 1 A CHAQUE TOUR DE BOUCLE
     }
 
     gotoligcol(40, 65);
-    printf("%c", 0xC0);
+    printf("%c", 0xC0); //FAITS L'ANGLE EN BAS A GAUCHE
 
-    for(i = 0; i < 55; i++)
+    for(i = 0; i < 55; i++) //CETTE BOUCLE PERMET DE CREER UNE GRANDE BARRE HORIZONTALE EN BAS
     {
-        printf("%c", 0xC4);
+        printf("%c", 0xC4);//AFFICHE UNE BARRE HORIZONTALE
     }
     gotoligcol(40, 120);
-    printf("%c", 0xD9);
+    printf("%c", 0xD9); //AFFICHE L'ANGLE EN BAS A DROITE
 
     gotoligcol(10, 120);
-    for(j = 0; j < 4; j++)
+    for(j = 0; j < 4; j++) //CETTE BOUCLE PERMET DE FAIRE LA GRANDE LIGNE VERTICALE A DROITE
     {
         for(i = 0; i < tailleCarre; i++)
         {
-            gotoligcol((2+l),120);
-            printf("%c", 0xB3);
-            l = l+1;
+            gotoligcol((2+l),120); //A CHAQUE TOUR DE BOUCLE ON VA A LA LIGNE D'EN DESSOUS
+            printf("%c", 0xB3); //AFFICHE UNE BARRE VERTICALE
+            l = l+1; //l EST ITERE DE 1
         }
 
     }
     for(i = 0; i < 4; i++)
     {
-        gotoligcol((2+l),120);
-        printf("%c", 0xB3);
-        l = l+1;
+        gotoligcol((2+l),120);//A CHAQUE TOUR DE BOUCLE ON VA A LA LIGNE D'EN DESSOUS
+        printf("%c", 0xB3);//AFFICHE UNE BARRE VERTICALE
+        l = l+1;//l EST ITERE DE 1
     }
+/////////////////////////////////////////////////////////////
 //////////////////////////// OBLIGATOIRE SINON BUG///////////
     gotoligcol(39,65);
     printf("%c", 0xB3);
@@ -81,16 +96,17 @@ void creationContourCarteVille()
 
 /*  ENTREES : LE NOMBRE ALEATOIRE ENTRE PAR L'UTILISATEUR, LE TABLEAU DE 15 CARTES
     SORTIES : AUCUNE
-    BUT DE LA FONCTION : AFFICHER UNE CARTE DANS LA CONSOLE
+    BUT DE LA FONCTION : AFFICHER LE CONTENU D'UNE CARTE DANS LA CONSOLE
 */
 void affichageCartesVilles(int aleatoire, CartePlanete tabCartesPlanetes[])
 {
+    //////////////////////////// INITIALISATION DES VARIABLES /////////////
     int i = 0;
 
     int j = 0;
 
     int k = 0;
-
+    ////////////////////////// AIDE A FAIRE UN STRCPY //////////////////
     char turquoise[] = "turquoise";
 
     char bleuClair[] = "bleu clair";
@@ -104,33 +120,36 @@ void affichageCartesVilles(int aleatoire, CartePlanete tabCartesPlanetes[])
     char vert[] = "vert";
 
     char bleuFonce[] = "bleu fonce";
+    /////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////
+    //// PERMET DE SAVOIR LA COULEUR DE CHAQUE CARTE EST CORRESPONDANTE /
 
-    if(strcmp(tabCartesPlanetes[aleatoire].couleur,turquoise) == 0){
-        Color(11,0);
+    if(strcmp(tabCartesPlanetes[aleatoire].couleur,turquoise) == 0){ //ON DETERMINE SI "TURQUOISE" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DU BANDEAU
+        Color(11,0); //TURQUOISE
     }
 
-    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,bleuClair) == 0){
-        Color(9,0);
+    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,bleuClair) == 0){//ON DETERMINE SI "bleuClair" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DU BANDEAU
+        Color(9,0); //BLEAU CLAIR
     }
 
-    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,rougeFonce) == 0){
-        Color(4,0);
+    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,rougeFonce) == 0){//ON DETERMINE SI "rougeFonce" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DU BANDEAU
+        Color(4,0); //ROUGE FONCE
     }
 
-    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,rouge) == 0){
-        Color(12,0);
+    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,rouge) == 0){//ON DETERMINE SI "rouge" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DU BANDEAU
+        Color(12,0); //ROUGE
     }
 
-    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,jaune) == 0){
-        Color(14,0);
+    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,jaune) == 0){//ON DETERMINE SI "jaune" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DU BANDEAU
+        Color(14,0); //JAUNE
     }
 
-    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,vert) == 0){
-        Color(10,0);
+    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,vert) == 0){//ON DETERMINE SI "vert" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DU BANDEAU
+        Color(10,0); //VERT
     }
 
-    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,bleuFonce) == 0){
-        Color(1,0);
+    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,bleuFonce) == 0){//ON DETERMINE SI "bleuFonce" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DU BANDEAU
+        Color(1,0); //BLEU FONCE
     }
 
     //Color(9,0);
@@ -141,82 +160,81 @@ void affichageCartesVilles(int aleatoire, CartePlanete tabCartesPlanetes[])
     {
         for(i = 0; i < 56; i++)
         {
-            printf("%c", 0xDB);
+            printf("%c", 0xDB); //AFFICHE UN CARRE DE COULEUR
         }
-        k += 1;
-        gotoligcol((11 + k), 65);
+        k += 1; //ITERRE k DE 1
+        gotoligcol((11 + k), 65); //POUR CHAQUE TOUR DE BOUCLE J ON VA A LA LIGNE EN DESSOUS
     }
 
     gotoligcol(10,65);
 
     for(i = 0; i < 56; i++)
     {
-        printf("%c", 0xDC);
+        printf("%c", 0xDC); //AFFICHE UN PETIT RECTANGLE DE COULEUR EN BAS DU PIXEL
     }
 ////////////////////////////////////////////////////////////////////////
     gotoligcol(14, 85);
-
-    if(strcmp(tabCartesPlanetes[aleatoire].couleur,turquoise) == 0){
-        Color(0,11);
+//// PERMET DE SAVOIR LA COULEUR DE CHAQUE CARTE EST CORRESPONDANTE /
+    if(strcmp(tabCartesPlanetes[aleatoire].couleur,turquoise) == 0){ //ON DETERMINE SI "TURQUOISE" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DE FOND DU BANDEAU
+        Color(0,11); //FOND TURQUOISE
     }
 
-    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,bleuClair) == 0){
-        Color(0,9);
+    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,bleuClair) == 0){ //ON DETERMINE SI "BLEU CLAIR" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DE FOND DU BANDEAU
+        Color(0,9); //FOND BLEU CLAIR
     }
 
-    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,rougeFonce) == 0){
-        Color(0,4);
+    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,rougeFonce) == 0){ //ON DETERMINE SI "ROUGE FONCE" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DE FOND DU BANDEAU
+        Color(0,4); //FOND ROUGE FONCE
     }
 
-    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,rouge) == 0){
-        Color(0,12);
+    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,rouge) == 0){ //ON DETERMINE SI "ROUGE" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DE FOND DU BANDEAU
+        Color(0,12); //FOND ROUGE
     }
 
-    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,jaune) == 0){
-        Color(0,14);
+    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,jaune) == 0){ //ON DETERMINE SI "JAUNE" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DE FOND DU BANDEAU
+        Color(0,14); //FOND JAUNE
     }
 
-    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,vert) == 0){
-        Color(0,10);
+    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,vert) == 0){ //ON DETERMINE SI "VERT" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DE FOND DU BANDEAU
+        Color(0,10); //FOND VERT
     }
 
-    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,bleuFonce) == 0){
-        Color(0,1);
+    else if(strcmp(tabCartesPlanetes[aleatoire].couleur,bleuFonce) == 0){ ////ON DETERMINE SI "BLEU FONCE" ET tabCartesPlanetes[aleatoire].couleur SONT SIMILAIRES POUR DETERMINER LA COULEUR DE FOND DU BANDEAU
+        Color(0,1); //FOND BLEU FONCE
     }
 
     //Color(0,9);
 
-    printf("%s", tabCartesPlanetes[aleatoire].nom);
+    printf("%s", tabCartesPlanetes[aleatoire].nom); //AFFICHE LE NOM DE LA PLANETE
 
     Color(15,0);
 
     gotoligcol(20, 85);
 
-    printf("LOYER : %d M $", tabCartesPlanetes[aleatoire].loyer);
+    printf("LOYER : %d M $", tabCartesPlanetes[aleatoire].loyer); //AFFICHE LE MONTANT DU LOYER
 
     gotoligcol(24, decal);
 
-    printf("LOYER AVEC UNE MAISON : %d M $", tabCartesPlanetes[aleatoire].loyer1);
+    printf("LOYER AVEC UNE MAISON : %d M $", tabCartesPlanetes[aleatoire].loyer1); //AFFICHE LE MONTANT DU LOYER AVEC 1 MAISON
 
     gotoligcol(26, decal);
 
-    printf("LOYER AVEC DEUX MAISONS : %d M $", tabCartesPlanetes[aleatoire].loyer2);
+    printf("LOYER AVEC DEUX MAISONS : %d M $", tabCartesPlanetes[aleatoire].loyer2); //AFFICHE LE MONTANT DU LOYER AVEC 2 MAISONS
 
     gotoligcol(28, decal);
 
-    printf("LOYER AVEC TROIS MAISONS : %d M $", tabCartesPlanetes[aleatoire].loyer3);
-
+    printf("LOYER AVEC TROIS MAISONS : %d M $", tabCartesPlanetes[aleatoire].loyer3); //AFFICHE LE MONTANT DU LOYER AVEC 3 MAISONS
     gotoligcol(30, decal);
 
-    printf("LOYER AVEC QUATRE MAISONS : %d M $", tabCartesPlanetes[aleatoire].loyer4);
+    printf("LOYER AVEC QUATRE MAISONS : %d M $", tabCartesPlanetes[aleatoire].loyer4); //AFFICHE LE MONTANT DU LOYER AVEC 4 MAISONS
 
     gotoligcol(32, decal);
 
-    printf("LOYER AVEC UN HOTEL : %d M $", tabCartesPlanetes[aleatoire].loyer5);
+    printf("LOYER AVEC UN HOTEL : %d M $", tabCartesPlanetes[aleatoire].loyer5); //AFFICHE LE MONTANT DU LOYER AVEC 5 MAISONS
 
     gotoligcol(36, decal);
 
-    printf("VALEUR HYPOTHEQUE : %d M $", tabCartesPlanetes[aleatoire].hypo);
+    printf("VALEUR HYPOTHEQUE : %d M $", tabCartesPlanetes[aleatoire].hypo); //AFFICHE LE MONTANT DE L'HYPOTHEQUE
 }
 
 /*  ENTREES : TABLEAU DE 15 CARTES
@@ -224,18 +242,20 @@ void affichageCartesVilles(int aleatoire, CartePlanete tabCartesPlanetes[])
     BUT DE LA FONCTION : CREER LES 15 CARTES DIFFERENTES AVEC LEURS CARACTERISTIQUES.
 */
 void creationCartesPlanetes(CartePlanete tabCartesPlanetes[]){
+    //////////////////// MEME PROCESSUS POUR TOUTES LES CARTES //////
+    //////////////////// JE COMMMENTE DONC QUE LE PREMIER ////////////
 
     char planete0[] = "M   E   R   C   U   R   E";
-    strcpy(tabCartesPlanetes[0].nom, planete0);
+    strcpy(tabCartesPlanetes[0].nom, planete0); //tabCartesPlanetes[0].nom PREND LA VALEUR DE planete0
     char couleur0[] = "turquoise";
-    strcpy(tabCartesPlanetes[0].couleur, couleur0);
-    tabCartesPlanetes[0].loyer = 60;
-    tabCartesPlanetes[0].loyer1 = 80;
-    tabCartesPlanetes[0].loyer2 = 100;
-    tabCartesPlanetes[0].loyer3 = 120;
-    tabCartesPlanetes[0].loyer4 = 140;
-    tabCartesPlanetes[0].loyer5 = 160;
-    tabCartesPlanetes[0].hypo = 40;
+    strcpy(tabCartesPlanetes[0].couleur, couleur0); //tabCartesPlanetes[0].couleur PREND LA VALEUR DE couleur0
+    tabCartesPlanetes[0].loyer = 60; //LE LOYER EST INITIALISE A 60
+    tabCartesPlanetes[0].loyer1 = 80; //LE LOYER AVEC 1 MAISON EST INITIALISE A 80
+    tabCartesPlanetes[0].loyer2 = 100; //LE LOYER AVEC 2 MAISONS EST INITIALISE A 100
+    tabCartesPlanetes[0].loyer3 = 120; //LE LOYER AVEC 3 MAISONS EST INITIALISE A 120
+    tabCartesPlanetes[0].loyer4 = 140; //LE LOYER AVEC 4 MAISONS EST INITIALISE A 140
+    tabCartesPlanetes[0].loyer5 = 160; //LE LOYER AVEC 5 MAISONS EST INITIALISE A 160
+    tabCartesPlanetes[0].hypo = 40; //LA VALEUR DE L'HYPOTHEQUE EST INITIALISE A 40
 
 
     char planete1[] = "V   E   N   U   S";
@@ -419,11 +439,15 @@ void creationCartesPlanetes(CartePlanete tabCartesPlanetes[]){
     tabCartesPlanetes[14].loyer5 = 500;
     tabCartesPlanetes[14].hypo = 380;
 }
-
+/*
+    ENTREE : AUCUNE
+    SORTIE : INT ALEATOIRE
+    BUT DU SOUS PROGRAMME : GENERER UN NOMBRE ALEATOIRE ENTRE 0 ET 15
+*/
 int generationAleatoireVille()
 {
-    srand(time(NULL));
+    srand(time(NULL)); //PERMET D'EVITER D'AVOIR LE MEME NOMBRE ALEATOIRE
     int aleatoire = 0;
-    aleatoire = rand() % 15;
+    aleatoire = rand() % 15; //GENERE UN CHIFFRE ENTRE 0 ET 15 ET LE STOCKE DANS ALEATOIRE
     return (aleatoire);
 }
