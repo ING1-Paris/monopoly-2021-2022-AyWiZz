@@ -159,6 +159,8 @@ int main()
 
         gotoligcol(2, 195);
 
+
+        Color(joueurPlaying+1, 0);
         printf("C'est %s qui joue ,c'est le joueur %d", player[joueurPlaying].nom,joueurPlaying);
         player[joueurPlaying].haveToPlay = 1;
 
@@ -174,6 +176,7 @@ int main()
         creationPlateau();
 
         affichInfo(player,joueurPlaying, nbJoueurs);
+
 
 
         if(player[joueurPlaying].choix == 1)

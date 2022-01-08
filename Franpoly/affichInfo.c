@@ -8,7 +8,8 @@
 void affichInfo(Joueur j[], int joueurPlaying, int nbJoueurs)
 {
     int c = 1;
-    Color(14, 0);
+
+    Color(joueurPlaying+1, 0);
     gotoligcol(19, 195);
     printf("%s vous avez %d M $", j[joueurPlaying].nom,j[joueurPlaying].argent);
     gotoligcol(20,195);
@@ -73,6 +74,8 @@ void affichInfo(Joueur j[], int joueurPlaying, int nbJoueurs)
         gotoligcol(20+c,195);
         c++;
     }
-    Color(9,0);
 
+    Color(9,0);
 }
+
+
