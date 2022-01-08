@@ -135,4 +135,8 @@ void ecritureSatellite(Satellite tabSatellites[4], int aleatoire);
 
 int prison(Joueur player[],int joueurPlaying, int nbJoueurs);
 
+void hypotheque(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int planete,int nbMaisonTotal, int nbHotelTotal,int *pnbMaisonTotal, int *pnbHotelTotal);
+void rachatHypo(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int planete,int nbMaisonTotal, int nbHotelTotal,int *pnbMaisonTotal, int *pnbHotelTotal);
+void passMaison(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int planete);
+
 #endif // HEADER_H_INCLUDED
