@@ -4,6 +4,13 @@
 #include "header.h"
 #include <unistd.h>
 
+int generationAleatoireChance()
+{
+    srand(time(NULL));
+    int aleatoire = 0;
+    aleatoire = (rand() % (15-0)) + 0;
+    return (aleatoire);
+}
 
 int cartesChance()
 {
@@ -17,6 +24,7 @@ int cartesChance()
 
     return aleatoire;
 }
+
 void carteVille(int numero)
 {
 
@@ -27,6 +35,14 @@ void carteVille(int numero)
     creationContourCarteVille();// CREER LE CONTOUR D'UNE CARTE
     affichageCartesVilles(numero, tabCartesPlanetes);// PERMET D'AFFICHER LA CARTE QUE L'ON SOUHAITE
 
+}
+
+int generationAleatoireCommu()
+{
+    srand(time(NULL));
+    int aleatoire = 0;
+    aleatoire = (rand() % (31 - 16)) +16;
+    return (aleatoire);
 }
 
 int carteCommunaute()
@@ -78,7 +94,7 @@ int main()
     int curseur = 1;
     int sauvegarde = 0;
     int nbJoueurs = 0;
-    int alea = 0;
+    int aleaChance = 0, aleaCommu = 0;
 
     int nbDe1 = 0, nbDe2 = 0, nbDe = 0;
     int *pnbDe1 = &nbDe1;
@@ -545,54 +561,60 @@ int main()
         case 3:
 
             break;
+
         case 4:
             cartesChance();
-            alea=generationAleatoireChance();
+            aleaChance=generationAleatoireChance();
 
-            if (alea==0 || alea==1)
+            if (aleaChance==0 || aleaChance==1)
             {
                 player[joueurPlaying].argent += (nbJoueurs)*100;
-                for (int j=0; j<(nbJoueurs-1); j++)
+                for (int j=0; j<(nbJoueurs); j++)
                 {
                     player[j].argent -= 100;
                 }
             }
-            else if (alea==2 || alea==3)
+            else if (aleaChance==2 || aleaChance==3)
             {
                 player[joueurPlaying].argent -= (nbJoueurs)*100;
-                for (int j=0; j<(nbJoueurs-1); j++)
+                for (int j=0; j<(nbJoueurs); j++)
                 {
                     player[j].argent += 100;
                 }
             }
-            else if (alea==4 || alea==5)
+            else if (aleaChance==4 || aleaChance==5)
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
                 player[joueurPlaying].position = 21;
+
             }
-            else if (alea==6 || alea==7)
+            else if (aleaChance==6 || aleaChance==7)
             {
                 player[joueurPlaying].argent -= 300;
             }
-            else if (alea==8 || alea==9)
+            else if (aleaChance==8 || aleaChance==9)
             {
                 player[joueurPlaying].argent += 300;
             }
-            else if (alea==10 || alea==11)
+            else if (aleaChance==10 || aleaChance==11)
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
                 player[joueurPlaying].position = 2;
+
             }
-            else if (alea==12 || alea==13)
+            else if (aleaChance==12 || aleaChance==13)
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
                 player[joueurPlaying].position = 0;
+
             }
-            else if (alea==14 || alea==15)
+            else if (aleaChance==14 || aleaChance==15)
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position += 6;
+                player[joueurPlaying].position += 5;
+
             }
+
 
 
 
@@ -1084,6 +1106,75 @@ int main()
             break;
         case 10:
             carteCommunaute();
+            aleaCommu=generationAleatoireCommu();
+
+            if (aleaCommu==16 || aleaCommu==27)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 21;
+            }
+            else if (aleaCommu==19)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 27;
+            }
+            else if (aleaCommu==20)
+            {
+                player[joueurPlaying].argent += (nbJoueurs)*50;
+                for (int j=0; j<(nbJoueurs); j++)
+                {
+                    player[j].argent -= 50;
+                }
+            }
+            else if (aleaCommu==21)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 9;
+
+            }
+            else if (aleaCommu==22)
+            {
+                player[joueurPlaying].argent -= 100;
+            }
+            else if (aleaCommu==23)
+            {
+                player[joueurPlaying].argent -= 300;
+            }
+            else if (aleaCommu==24)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 3;
+
+            }
+            else if (aleaCommu==25)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 0;
+
+
+            }
+            else if (aleaCommu==26)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position -= 4;
+
+            }
+            else if (aleaCommu==28)
+            {
+                player[joueurPlaying].argent += 100;
+            }
+            else if (aleaCommu==29)
+            {
+                player[joueurPlaying].argent -= 150;
+            }
+            else if (aleaCommu==31)
+            {
+                player[joueurPlaying].argent -= (nbJoueurs)*30;
+                for (int j=0; j<(nbJoueurs); j++)
+                {
+                    player[j].argent += 30;
+                }
+            }
 
             break;
         case 11:
@@ -1576,51 +1667,56 @@ int main()
             break;
         case 17:
             cartesChance();
-            alea=generationAleatoireChance();
+            aleaChance=generationAleatoireChance();
 
-            if (alea==0 || alea==1)
+            if (aleaChance==0 || aleaChance==1)
             {
                 player[joueurPlaying].argent += (nbJoueurs)*100;
-                for (int j=0; j<(nbJoueurs-1); j++)
+                for (int j=0; j<(nbJoueurs); j++)
                 {
                     player[j].argent -= 100;
                 }
             }
-            else if (alea==2 || alea==3)
+            else if (aleaChance==2 || aleaChance==3)
             {
                 player[joueurPlaying].argent -= (nbJoueurs)*100;
-                for (int j=0; j<(nbJoueurs-1); j++)
+                for (int j=0; j<(nbJoueurs); j++)
                 {
                     player[j].argent += 100;
                 }
             }
-            else if (alea==4 || alea==5)
+            else if (aleaChance==4 || aleaChance==5)
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
                 player[joueurPlaying].position = 21;
+
             }
-            else if (alea==6 || alea==7)
+            else if (aleaChance==6 || aleaChance==7)
             {
                 player[joueurPlaying].argent -= 300;
             }
-            else if (alea==8 || alea==9)
+            else if (aleaChance==8 || aleaChance==9)
             {
                 player[joueurPlaying].argent += 300;
             }
-            else if (alea==10 || alea==11)
+            else if (aleaChance==10 || aleaChance==11)
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
                 player[joueurPlaying].position = 2;
+
+
             }
-            else if (alea==12 || alea==13)
+            else if (aleaChance==12 || aleaChance==13)
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
                 player[joueurPlaying].position = 0;
+
             }
-            else if (alea==14 || alea==15)
+            else if (aleaChance==14 || aleaChance==15)
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position += 6;
+                player[joueurPlaying].position += 5;
+
             }
 
 
@@ -1990,6 +2086,75 @@ int main()
             break;
         case 23:
             carteCommunaute();
+            aleaCommu=generationAleatoireCommu();
+
+            if (aleaCommu==16 || aleaCommu==27)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 21;
+            }
+            else if (aleaCommu==19)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 27;
+            }
+            else if (aleaCommu==20)
+            {
+                player[joueurPlaying].argent += (nbJoueurs)*50;
+                for (int j=0; j<(nbJoueurs); j++)
+                {
+                    player[j].argent -= 50;
+                }
+            }
+            else if (aleaCommu==21)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 9;
+
+            }
+            else if (aleaCommu==22)
+            {
+                player[joueurPlaying].argent -= 100;
+            }
+            else if (aleaCommu==23)
+            {
+                player[joueurPlaying].argent -= 300;
+            }
+            else if (aleaCommu==24)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 3;
+
+            }
+            else if (aleaCommu==25)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = 0;
+
+
+            }
+            else if (aleaCommu==26)
+            {
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position -= 4;
+
+            }
+            else if (aleaCommu==28)
+            {
+                player[joueurPlaying].argent += 100;
+            }
+            else if (aleaCommu==29)
+            {
+                player[joueurPlaying].argent -= 150;
+            }
+            else if (aleaCommu==31)
+            {
+                player[joueurPlaying].argent -= (nbJoueurs)*30;
+                for (int j=0; j<(nbJoueurs); j++)
+                {
+                    player[j].argent += 30;
+                }
+            }
 
             break;
         case 24:
