@@ -57,7 +57,7 @@ typedef struct
     int loyer5;
 
     int hypo;
-
+    int hypoValid;
     int possede;
 
     int possession;
