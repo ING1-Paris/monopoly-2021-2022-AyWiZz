@@ -4,13 +4,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+#include "header.h"
+#include <conio.h>
 
 int positionCurseur()
 {
     int toucheUtilisateur = 0;
     int curseur = 1;
     int choix = 0;
-    int choixNaviguer = 0;
     //rang 0
     //printf("\n");//rang 1
     //gotoligcol(0,COLONNE);
@@ -148,13 +149,20 @@ int positionCurseur()
                     printf("erreur fopen \n");
                     return 1;
                 }
-                char c = fgetc(fp);
-                system("cls");
-                while(c != EOF)
+
+                char str[1000];
+                while(fgets(str, 1000, fp) != NULL)
                 {
-                    printf("%c", c);
-                    c = fgetc(fp);
+                    printf("%s", str);
                 }
+                fclose(fp);
+//                char c = fgetc(fp);
+//                system("cls");
+//                while(c != EOF)
+//                {
+//                    printf("%c", c);
+//                    c = fgetc(fp);
+//                }
 
 
                 Color(9, 0);
@@ -163,6 +171,7 @@ int positionCurseur()
                     printf("\n \n \n Taper 1 pour retourner au menu");
                     fflush(stdin);
                     scanf("%d", &choix);
+                    Color(9, 0);
                 }
                 while(choix < 1 || choix > 2);
 
