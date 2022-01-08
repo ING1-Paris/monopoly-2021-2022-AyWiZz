@@ -53,16 +53,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="header.h" />
-		<Unit filename="hypo.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="menuDemarage.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="passageMaison.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="remplirJoueur.c">
