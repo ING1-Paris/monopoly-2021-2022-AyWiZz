@@ -407,7 +407,7 @@ int main()
             else if (alea==4 || alea==5)
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position = 7;
+                player[joueurPlaying].position = 21;
             }
             else if (alea==6 || alea==7)
             {
@@ -971,7 +971,7 @@ int main()
             else if (alea==4 || alea==5)
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position = 7;
+                player[joueurPlaying].position = 21;
             }
             else if (alea==6 || alea==7)
             {
