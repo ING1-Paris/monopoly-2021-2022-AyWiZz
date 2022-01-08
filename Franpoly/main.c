@@ -103,6 +103,7 @@ int main()
         player[i].position = 0;
         player[i].nbTerrain = 0;
         player[i].prison = 0;
+        player[i].doubleDee = 0;
         //j[i].haveToPlay = 0;
     }
     for(int i = 0 ; i < 15; i++)
@@ -156,9 +157,26 @@ int main()
             {
 
 
-            des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe);
-            player[joueurPlaying].lastposition = player[joueurPlaying].position;
-            player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
+                des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe);
+                ////////////////////Pour les doubles //////////////////////
+                if(nbDe1 == nbDe2)
+                {
+                    player[joueurPlaying].doubleDee+=1;
+                }
+                if(nbDe1 != nbDe2)
+                {
+                    player[joueurPlaying].doubleDee = 0;
+                }
+                if(player[joueurPlaying].doubleDee == 3)
+                {
+                    player[joueurPlaying].position = 21;
+                    player[joueurPlaying].doubleDee = 0;
+                }
+
+                ////////////////////////////////////////////////////////
+
+                player[joueurPlaying].lastposition = player[joueurPlaying].position;
+                player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
 
             }
 
@@ -198,7 +216,19 @@ int main()
 
             if(player[joueurPlaying].prison == 1)
             {
-                player[joueurPlaying].position = 7;
+                des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe);
+                if(nbDe1 == nbDe2)
+                {
+                    des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe);
+                    if(nbDe1 == nbDe2)
+                    {
+                        player[joueurPlaying].prison = 0;
+                    }
+                    else
+                    {
+                        player[joueurPlaying].argent -= 50;
+                    }
+                }
             }
 
             //////////////////////////////////////////////////////
@@ -206,7 +236,7 @@ int main()
         }
 
 
-
+        gotoligcol(6, 195);
         printf("Tu va vers l'avant de %d cases position %d! ", nbDe, player[joueurPlaying].position);
         nbDe = 0;
 
@@ -850,6 +880,8 @@ int main()
 
                 player[joueurPlaying].argent -= tabCartesPlanetes[8].loyer; // LE JOUEUR PAYE LE LOYER
                 player[tabCartesPlanetes[8].possession].argent += tabCartesPlanetes[8].loyer;
+                gotoligcol(48, 90);
+                printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartesPlanetes[8].loyer, player[tabCartesPlanetes[8].possession].nom);
 
             }
 

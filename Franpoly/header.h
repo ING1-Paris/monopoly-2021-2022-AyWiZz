@@ -19,6 +19,7 @@ typedef struct Joueur
     int t4Possede;
     int t5Possede;
     int nbTerrain;
+    int doubleDee;
     char terrain1[taille];
     char terrain2[taille];
     char terrain3[taille];

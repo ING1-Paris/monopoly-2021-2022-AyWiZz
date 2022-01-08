@@ -26,34 +26,37 @@
 }Joueur;*/
 
 void affichInfo(Joueur j[], int joueurPlaying){
-int c = 0;
-gotoligcol(10, 145);
+int c = 1;
+Color(14, 0);
+gotoligcol(19, 195);
 printf("%s vous avez %d M $", j[joueurPlaying].nom,j[joueurPlaying].argent);
-gotoligcol(11,145);
+gotoligcol(20,195);
+
 if(j[joueurPlaying].t1Possede ==1){
     printf("Vous posseder %s.", j[joueurPlaying].terrain1);
-    gotoligcol(11+c,145);
+    gotoligcol(20+c,195);
     c++;
 }
 if(j[joueurPlaying].t2Possede ==1){
     printf("Vous posseder %s.", j[joueurPlaying].terrain2);
-    gotoligcol(11+c,145);
+    gotoligcol(20+c,195);
     c++;
 }
 if(j[joueurPlaying].t3Possede ==1){
     printf("Vous posseder %s.", j[joueurPlaying].terrain3);
-    gotoligcol(11+c,145);
+    gotoligcol(20+c,195);
     c++;
 }
 if(j[joueurPlaying].t4Possede ==1){
     printf("Vous posseder %s.", j[joueurPlaying].terrain4);
-    gotoligcol(11+c,145);
+    gotoligcol(20+c,195);
     c++;
 }
 if(j[joueurPlaying].t5Possede ==1){
     printf("Vous posseder %s.", j[joueurPlaying].terrain5);
-    gotoligcol(11+c,145);
+    gotoligcol(20+c,195);
     c++;
 }
+Color(9,0);
 
 }
