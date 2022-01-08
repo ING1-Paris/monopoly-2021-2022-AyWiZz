@@ -9,7 +9,7 @@ int generationAleatoireChance()
     srand(time(NULL));
     int aleatoire = 0;
     aleatoire = (rand() % (15-0)) + 0;
-    return (aleatoire);
+    return aleatoire;
 }
 
 int cartesChance()

@@ -252,25 +252,3 @@ void affichageCarteCommunautes(int aleatoire, CarteChance tabCartes[])
     printf("%d/16", aleatoire); //AFFICHE LE NOMBRE DE LA CARTE COMMUNAUTES
 }
 
-/*  ENTREE : AUCUNE
-    SORTIE : INT ALEATOIRE COMPRIS ENTRE 0 ET 15
-    BUT DE LA FONCTION : GENERATION D'UN NOMBRE ALEATOIRE ENTRE 0 ET 15
-*/
-int generationAleatoireChance()
-{
-    srand(time(NULL));
-    int aleatoire = 0;
-    aleatoire = (rand() % (15-0) + 0); // generation aleatoire entre 0 et 15
-    return (aleatoire);
-}
-/*  ENTREE : AUCUNE
-    SORTIE : INT ALEATOIRE COMPRIS ENTRE 16 ET 31
-    BUT DE LA FONCTION : GENERATION D'UN NOMBRE ALEATOIRE ENTRE 16 ET 31
-*/
-int generationAleatoireCommu()
-{
-    srand(time(NULL)); //PERMET D'EVITER D'AVOIR LE MEME NOMBRE ALEATOIRE
-    int aleatoire = 0;
-    aleatoire = (rand() % (31 - 16) + 16); //GENERATION ALEATOIRE ENTRE 16 ET 31
-    return (aleatoire);
-}
