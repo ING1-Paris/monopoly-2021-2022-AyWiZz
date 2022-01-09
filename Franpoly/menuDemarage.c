@@ -12,30 +12,26 @@ int positionCurseur()
     int toucheUtilisateur = 0;
     int curseur = 1;
     int choix = 0;
-    //rang 0
-    //printf("\n");//rang 1
-    //gotoligcol(0,COLONNE);
+    ////Affichage menu démarage
     printf("SPACE MONOPOLY:\n");
     printf("\n");
     printf("\n");
     printf("\n");
     printf("\n");
     Color(9,0);
-    //gotoligcol(5, COLONNE);
     printf("%c Nouvelle Partie:",0x08);//rang 2
-    printf("\n");//rang 3
+    printf("\n");
     printf("\n");
     Color(15,0);
-    //gotoligcol(7,COLONNE);
-    printf("%c Charger la Partie:",0x08);//rang 4
+    printf("%c Charger la Partie:",0x08);//rang 3
     printf("\n");
-    printf("\n");            //rang 5
+    printf("\n");            
     Color(15, 0);
-    printf("%c Afficher les regles:",0x08);
+    printf("%c Afficher les regles:",0x08);//rang 4
     printf("\n");
-    printf("\n");            //rang 5
+    printf("\n");            
     Color(15, 0);
-    printf("%c Afficher les membres du projet:",0x08);
+    printf("%c Afficher les membres du projet:",0x08);//rang 5
 
 
     do
@@ -57,10 +53,9 @@ int positionCurseur()
         {
             curseur = 1;//Retourner en haut
         }
-        //pas top car si on fait ça il faudra remettre à chaque fois le curseur au bon endroit
+        
         if(curseur == 1)
         {
-            //Il faut clear la console !
             //system("cls");
             Color(15,0);
             gotoligcol(0,COLONNE);
@@ -77,15 +72,10 @@ int positionCurseur()
             Color(15, 0);
             gotoligcol(11, COLONNE);
             printf("%c Afficher les membres du projet:",0x08);
-
-            if(toucheUtilisateur == 0x0D)
+ 
+            if(toucheUtilisateur == 0x0D) // Si la touche entrée est préssée
             {
-                system("cls");
-                Color(15,0);
-                printf("Lancement d'une nouvelle partie.....");
-                printf("\n");
-                printf("\n");
-                printf("\n");
+                // Chargement de la Sauvegarde 
             }
 
         }
@@ -138,31 +128,24 @@ int positionCurseur()
             gotoligcol(11, COLONNE);
             printf("%c Afficher les membres du projet:",0x08);
 
-            if(toucheUtilisateur == 0x0D)
+            if(toucheUtilisateur == 0x0D) // Si la touche entrée est préssée 
             {
                 FILE * fp;
 
-                fp = fopen("regles.txt", "r");
+                fp = fopen("regles.txt", "r"); // On ouvre le fichier regles pour les afficher 
 
-                if(fp == NULL)
+                if(fp == NULL) // Test si le fichier s'est bien ouvert
                 {
                     printf("erreur fopen \n");
                     return 1;
                 }
 
-                char str[1000];
-                while(fgets(str, 1000, fp) != NULL)
+                char str[1000]; // Création d'un buffer / Mémoire tampon pour stocker des string
+                while(fgets(str, 1000, fp) != NULL) // tant que le buffer n'est pas null c'est a dire qu'il y a encore des caracteres dedans on continue d'afficher
                 {
                     printf("%s", str);
                 }
                 fclose(fp);
-//                char c = fgetc(fp);
-//                system("cls");
-//                while(c != EOF)
-//                {
-//                    printf("%c", c);
-//                    c = fgetc(fp);
-//                }
 
 
                 Color(9, 0);
@@ -207,8 +190,9 @@ int positionCurseur()
             Color(9, 0);
             gotoligcol(11, COLONNE);
             printf("%c Afficher les membres du projet:",0x08);
-
-            if(toucheUtilisateur == 0x0D)
+            
+            // Pour afficher les membres du projet
+            if(toucheUtilisateur == 0x0D) // Si la touche entrée est appuyée
             {
                 FILE * fp;
 
