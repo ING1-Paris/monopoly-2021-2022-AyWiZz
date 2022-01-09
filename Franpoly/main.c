@@ -138,10 +138,69 @@ int main()
     //////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////
     curseur = positionCurseur(); //NOUS STOCKONS DANS LA VARIABLE CURSEUR LA POSITION ACTUELLE DU CURSEUR
+    
+    if (curseur == 1)
+    {
+        nbJoueurs = remplissageJoueur(player); //LA VARIABLE NBJOUEURS CORRESPOND AU NOMBRE DE JOUEURS QUE NOUS AVONS RENTRÉ AU DÉBUT
 
+
+        //remplir(player);
+        //////////////// REMPLI TOUT LES JOUEURS //////////////
+        for (int i=1; i<=nbJoueurs; i++) //ON INITIALISE LA STRUCTURE JOUEUR DE CHAQUE JOUEUR
+        {
+            player[i].argent = 1500;
+            player[i].position = 0;
+            player[i].nbTerrain = 0;
+            player[i].prison = 0;
+            player[i].doubleDee = 0;
+            player[i].tempsPrison = 0;
+            player[i].cartePrison = 0;
+            player[i].t1Possede = 0;
+            player[i].t2Possede = 0;
+            player[i].t3Possede = 0;
+            player[i].t4Possede = 0;
+            player[i].t5Possede = 0;
+            player[i].t6Possede = 0;
+            player[i].t7Possede = 0;
+            player[i].t8Possede = 0;
+            player[i].t9Possede = 0;
+            player[i].t10Possede = 0;
+            strcpy(player[i].terrain1,"");
+            strcpy(player[i].terrain2,"");
+            strcpy(player[i].terrain3,"");
+            strcpy(player[i].terrain4,"");
+            strcpy(player[i].terrain5,"");
+            strcpy(player[i].terrain6,"");
+            strcpy(player[i].terrain7,"");
+            strcpy(player[i].terrain8,"");
+            strcpy(player[i].terrain9,"");
+            strcpy(player[i].terrain10,"");
+            player[i].nbSat = 0;
+        }
+        ///////////////REMPLI LES CARTES SATELLITES////////
+        for(int i = 0 ; i < 4; i++)
+        {
+            tabSatellites[i].possede = 0;
+            tabSatellites[i].nbPossession = 0;
+            tabSatellites[i].hypoValid = 0;
+        }
+        /////////////////////////////////////////////////
+        ///////////////REMPLI LES CARTES PLANETES////////
+        for(int i = 0 ; i < 15; i++)
+        {
+            tabCartesPlanetes[i].possede = 0;
+            tabCartesPlanetes[i].nbMaisons = 0;
+            tabCartesPlanetes[i].nbHotels = 0;
+            tabCartesPlanetes[i].hypoValid = 0;
+            tabCartesPlanetes[i].possede = 0;
+        }
+    }
     if(curseur == 2) //SI NOUS CHOISISSONS LE "CHARGER UNE PARTIE"
     {
-        sauvegarde = checkPartie(); //ON LANCE LA NOUVELLE SAUVEGARDE
+        appelSauvegarde(&nbJoueurs, player);
+        gotoligcol(30,100);
+        printf("...Chargement de la partie...");
+        sleep(3);
     }
     system("cls"); //EFFACE LA CONSOLE
 
