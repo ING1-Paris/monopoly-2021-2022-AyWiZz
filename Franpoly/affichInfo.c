@@ -3,20 +3,22 @@
 #include <windows.h>
 #define taille 20
 #include "header.h"
-
+///Fonction permettant d'afficher les informations d'un joueur lorsqu'on appelle cette fonction
+///Entrées : la structure du  joueur, le joueur en train de jouer et le nombre total de joueurs dans la partie.
+///Sortie : affichage de l'argent du joueur et des terrains qu'il possède.
 
 void affichInfo(Joueur j[], int joueurPlaying, int nbJoueurs)
 {
-    int c = 1;
+    int c = 1; ///variable permettant de positionner le texte
 
-    Color(joueurPlaying+1, 0);
+    Color(joueurPlaying+1, 0);///initialisation de la couleur d'affichage
     gotoligcol(19, 195);
-    printf("%s vous avez %d M $", j[joueurPlaying].nom,j[joueurPlaying].argent);
+    printf("%s vous avez %d M $", j[joueurPlaying].nom,j[joueurPlaying].argent);///affichage de l'argent du joueur.
     gotoligcol(20,195);
 
-    if(j[joueurPlaying].t1Possede ==1)
+    if(j[joueurPlaying].t1Possede ==1)///on teste si le joueur possède le terrain, si oui on affiche le nom du terrain.
     {
-        printf("Vous posseder %s.", j[joueurPlaying].terrain1);
+        printf("Vous posseder %s.", j[joueurPlaying].terrain1);///affichage du nom du terrain
         gotoligcol(20+c,195);
         c++;
     }
