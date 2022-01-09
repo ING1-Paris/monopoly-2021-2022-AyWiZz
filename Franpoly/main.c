@@ -7,18 +7,18 @@
 
 int generationAleatoireChance()
 {
-    srand(time(NULL));
+    srand(time(NULL)); //PERMET D'EVITER D'AVOIR DES CHIFFRES ALEATOIRES TOUJOURS LES MÊMES
     int aleatoire = 0;
-    aleatoire = (rand() % (15-0)) + 0;
+    aleatoire = (rand() % (15-0)) + 0; //GENERE UN NOMBRE ALEATOIRE QUI SERA STOCKÉ DANS ALEATOIRE
     return aleatoire;
 }
 
 int cartesChance()
 {
-    int aleatoire = generationAleatoireChance();
+    int aleatoire = generationAleatoireChance(); //GENERE UN NOMBRE ALEATOIRE QUI SERA STOCKÉ DANS ALEATOIRE
     gotoligcol(100, 50);
 
-    CarteChance tabCartes[32];
+    CarteChance tabCartes[32]; 
     creationCartesChance(tabCartes);
     creationContourCarteChanceCommunaute();
     affichageCarteChance(aleatoire, tabCartes);
