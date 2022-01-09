@@ -197,21 +197,21 @@ int main()
         tabCartesPlanetes[i].possede = 0;
     }
     //////////////////////////////////////////////////////
-    joueurPlaying = choixDepart(nbJoueurs);
+    joueurPlaying = choixDepart(nbJoueurs); //JOUEURPLAYING PREND LA VALEUR DU NUMÉRO DU JOUEUR QUI EST EN TRAIN DE JOUER
 
     // system("cls");
-    couleursPlateau();
-    creationPlateau();
+    couleursPlateau(); //VA AFFICHER LES COULEURS DU PLATEAU
+    creationPlateau(); //VA CRÉER LES CASES DU PLATEAU
 
     gotoligcol(1, 195);
-    printf("C'est %s qui commence la partie", player[joueurPlaying].nom);
+    printf("C'est %s qui commence la partie", player[joueurPlaying].nom); //AFFICHE LE NOM DU JOUEUR QUI COMMENCE LA PARTIE
 
 
     ////////////////////////////////////////////////////////////////////
     ///Boucle Principale///
     ///////////////////////////////////////////////////////////////////
 
-    do
+    do //FAIRE CELA TANT QUE LE JOUEUR PLAYING N'A PAS D'ARGENT
     {
 
         gotoligcol(2, 195);
