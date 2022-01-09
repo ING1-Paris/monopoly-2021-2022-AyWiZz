@@ -136,6 +136,12 @@ int main()
         player[i].tempsPrison = 0;
         //j[i].haveToPlay = 0;
     }
+    for(int i = 0 ; i < 4; i++)
+    {
+        tabSatellites[i].possede = 0;
+        tabSatellites[i].nbPossession = 0;
+        tabSatellites[i].hypoValid = 0;
+    }
     for(int i = 0 ; i < 15; i++)
     {
         tabCartesPlanetes[i].possede = 0;
