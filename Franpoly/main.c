@@ -5,6 +5,10 @@
 #include <unistd.h>
 #include <time.h>
 
+/*  ENTREE : AUCUNE
+    SORTIE : INT ALEATOIRE
+    BUT DE LA FONCTION : GENERE UN NOMBRE ALEATOIRE
+*/
 int generationAleatoireChance()
 {
     srand(time(NULL)); //PERMET D'EVITER D'AVOIR DES CHIFFRES ALEATOIRES TOUJOURS LES MÊMES
@@ -12,20 +16,33 @@ int generationAleatoireChance()
     aleatoire = (rand() % (15-0)) + 0; //GENERE UN NOMBRE ALEATOIRE QUI SERA STOCKÉ DANS ALEATOIRE
     return aleatoire;
 }
-
+/*  ENTREE : AUCUNE
+    SORTIE : INT ALEATOIRE
+    BUT DE LA FONCTION : CREER ET AFFICHE LES CARTES CHANCES 
+*/
 int cartesChance()
 {
     int aleatoire = generationAleatoireChance(); //GENERE UN NOMBRE ALEATOIRE QUI SERA STOCKÉ DANS ALEATOIRE
     gotoligcol(100, 50);
 
+<<<<<<< HEAD
     CarteChance tabCartes[32];
     creationCartesChance(tabCartes);
     creationContourCarteChanceCommunaute();
     affichageCarteChance(aleatoire, tabCartes);
+=======
+    CarteChance tabCartes[32]; //CREER UN TABLEAU DE 32 STRUCTURES CARTESCHANCES
+    creationCartesChance(tabCartes); //NOUS CREEONS LES CARTES CHANCES
+    creationContourCarteChanceCommunaute(); //NOUS CREEONS LE CONTOUR DES CARTES CHANCES ET DES CARTES COMMUNAUTES
+    affichageCarteChance(aleatoire, tabCartes); //AFFICHE LE CONTENU DE LA CARTE CHANCE DANS LA CONSOLE
+>>>>>>> ebb9e002b061442a51ebdf3f3a161ab3a10e1e12
 
     return aleatoire;
 }
-
+/*  ENTREE : AUCUNE
+    SORTIE : AUCUNE
+    BUT DE LA FONCTION : CREER ET AFFICHE LES CARTES VILLES
+*/
 void carteVille(int numero)
 {
 
@@ -37,62 +54,71 @@ void carteVille(int numero)
     affichageCartesVilles(numero, tabCartesPlanetes);// PERMET D'AFFICHER LA CARTE QUE L'ON SOUHAITE
 
 }
-
+/*  ENTREE : AUCUNE
+    SORTIE : INT ALEATOIRE
+    BUT DE LA FONCTION : GENERE UN NOMBRE ALEATOIRE POUR LES CARTES COMMUNAUTÉS
+*/
 int generationAleatoireCommu()
 {
-    srand(time(NULL));
+    srand(time(NULL)); //PERMET D'EVITER D'AVOIR DES CHIFFRES ALEATOIRES TOUJOURS LES MÊMES
     int aleatoire = 0;
-    aleatoire = (rand() % (31 - 16)) +16;
+    aleatoire = (rand() % (31 - 16)) +16; //GENERE UN NOMBRE ALEATOIRE QUI SERA STOCKÉ DANS ALEATOIRE
     return (aleatoire);
 }
-
+/*  ENTREE : AUCUNE
+    SORTIE : INT ALEATOIRE
+    BUT DE LA FONCTION : CREER ET AFFICHE LES CARTES COMMUNAUTÉS
+*/
 int carteCommunaute()
 {
     int aleatoire = generationAleatoireCommu();
     gotoligcol(100, 50);
 
-    CarteChance tabCartes[32];
-    creationCartesCommunautes(tabCartes);
-    creationContourCarteChanceCommunaute();
-    affichageCarteCommunautes(aleatoire, tabCartes);
+    CarteChance tabCartes[32]; //CREER UN TABLEAU DE 32 STRUCTURES CARTE CHANCE
+    creationCartesCommunautes(tabCartes); //NOUS CREONS LES CARTES COMMUNAUTES
+    creationContourCarteChanceCommunaute(); //NOUS CREEONS LE CONTOUR DES CARTES COMMUNAUTES
+    affichageCarteCommunautes(aleatoire, tabCartes); //NOUS AFFICHONS LE CONTENU DES CARTES COMMUNAUTES
 
     return aleatoire;
 
 }
-
+/*  ENTREE : INT NUM
+    SORTIE : AUCUNE
+    BUT DE LA FONCTION : CREER ET AFFICHE LES SATELLITES
+*/
 void carteSatellite(int num)
 {
 
 
-    creationContourCarteSatellite();
+    creationContourCarteSatellite(); //CREER LE CONTOUR DES CARTES SATELLITES
 
-    bandeauCartes();
+    bandeauCartes(); //CREER LE BANDEAU DE COULEUR DE LA CARTE
 
-    Satellite tabSatellites[4];
+    Satellite tabSatellites[4]; //CREER UN TABLEAU DE 4 STRUCTURES 
 
-    creationSatellites(tabSatellites);
+    creationSatellites(tabSatellites); //CREER LES CARTES SATELLITES
 
-    ecritureSatellite(tabSatellites, num);
+    ecritureSatellite(tabSatellites, num); //AFFICHE LES SATELLITES
 
 }
 
 int main()
 {
-    CartePlanete tabCartesPlanetes[15];
+    CartePlanete tabCartesPlanetes[15]; //CREER UN TABLEAU DE 15 STRUCTURES CARTESPLANETES
     creationCartesPlanetes(tabCartesPlanetes); //CREER LES 15 CARTES
 
-    Satellite tabSatellites[4];
-    creationSatellites(tabSatellites);
+    Satellite tabSatellites[4]; //CREER UN TABLEAU DE 4 STRUCTURES SATELLITE
+    creationSatellites(tabSatellites); //ON CREER ET AFFICHE LES SATELLITES
 
 
-    Joueur player[6];
+    Joueur player[6]; //ON CREER UN TABLEAU DE 6 STRUCTURES JOUEURS CAR IL Y A 6 JOUEURS MAX
 
-    setConsoleFullscreen();
+    setConsoleFullscreen(); //ON AGRANDIT LA CONSOLE. CETTE FONCTION A ÉTÉ TROUVER SUR LE DISCORD DU TUTORAT
 
     //int game = 1;
     //int numero = 0;
     //int joueurJ = 0;
-
+////////////////////////////// INITIALISATION DES VARIABLES /////////////////////////////////////////////////
     int joueurPlaying = 0;
     //int ligne = 0;
     int curseur = 1;
@@ -115,11 +141,14 @@ int main()
     int *pnbMaisonTotal = &nbMaisonTotal;
 
     int *pnbHotelTotal = &nbHotelTotal;
-
-    curseur = positionCurseur();
-    if(curseur == 2)
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    curseur = positionCurseur(); //NOUS STOCKONS DANS LA VARIABLE CURSEUR LA POSITION ACTUELLE DU CURSEUR
+    
+    if(curseur == 2) //SI NOUS CHOISISSONS LE "CHARGER UNE PARTIE"
     {
-        sauvegarde = checkPartie();
+        sauvegarde = checkPartie(); //ON LANCE LA NOUVELLE SAUVEGARDE
     }
     system("cls");
 
