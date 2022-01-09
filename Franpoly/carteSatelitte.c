@@ -157,14 +157,11 @@ void creationSatellites(Satellite tabSatellites[4])
     for(i = 0; i < 4; i++)
     {
         tabSatellites[i].loyer = 50;
-
         tabSatellites[i].loyer2 = 100;
-
         tabSatellites[i].loyer3 = 150;
-
         tabSatellites[i].loyer4 = 200;
-
         tabSatellites[i].possede = 0;
+        tabSatellites[i].hypo = 30;
     }
 
 }

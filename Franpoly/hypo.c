@@ -70,7 +70,7 @@ void rachatHypo(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int pla
     else if(repAchatHypo == 0)
     {
         gotoligcol(47,90);
-        printf("D'accord vous n'allez pas racheter votre hypothèque.");
+        printf("D'accord vous n'allez pas racheter votre hypotheque.");
     }
 }
 

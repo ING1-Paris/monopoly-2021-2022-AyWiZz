@@ -61,28 +61,28 @@ void passMaison(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int pla
 void passSat(Joueur j[], Satellite sat[], int joueurPlaying, int satellite){
 
 printf("j[joueurPLaying].nbSat = %d dans la boucle de payment ",j[joueurPlaying].nbSat);
-if(j[joueurPlaying].nbSat == 1)///le loyer change en fonction du nombre de satellite possedé par le joueur
+if(j[sat[satellite].possession].nbSat == 1)///le loyer change en fonction du nombre de satellite possedé par le joueur
     {
         gotoligcol(48,90);
         j[joueurPlaying].argent -= sat[satellite].loyer; // LE JOUEUR PAYE LE LOYER
         j[sat[satellite].possession].argent += sat[satellite].loyer;///on ajoute l'argent au joueur à qui appartient le satellite.
         printf("Vous venez de payer un loyer de %d au joueur : %s",sat[satellite].loyer, j[sat[satellite].possession].nom);
     }
-else if(j[joueurPlaying].nbSat == 2)///le loyer change en fonction du nombre de satellite possedé par le joueur
+else if(j[sat[satellite].possession].nbSat == 2)///le loyer change en fonction du nombre de satellite possedé par le joueur
     {
         gotoligcol(48,90);
         j[joueurPlaying].argent -= sat[satellite].loyer2; // LE JOUEUR PAYE LE LOYER
         j[sat[satellite].possession].argent += sat[satellite].loyer2;///on ajoute l'argent au joueur à qui appartient le satellite.
         printf("Vous venez de payer un loyer de %d au joueur : %s",sat[satellite].loyer2, j[sat[satellite].possession].nom);
     }
-else if(j[joueurPlaying].nbSat == 3)///le loyer change en fonction du nombre de satellite possedé par le joueur
+else if(j[sat[satellite].possession].nbSat == 3)///le loyer change en fonction du nombre de satellite possedé par le joueur
     {
         gotoligcol(48,90);
         j[joueurPlaying].argent -= sat[satellite].loyer3; // LE JOUEUR PAYE LE LOYER
         j[sat[satellite].possession].argent += sat[satellite].loyer3;///on ajoute l'argent au joueur à qui appartient le satellite.
         printf("Vous venez de payer un loyer de %d au joueur : %s",sat[satellite].loyer3, j[sat[satellite].possession].nom);
     }
-else if(j[joueurPlaying].nbSat == 4)///le loyer change en fonction du nombre de satellite possedé par le joueur
+else if(j[sat[satellite].possession].nbSat == 4)///le loyer change en fonction du nombre de satellite possedé par le joueur
     {
         gotoligcol(48,90);
         j[joueurPlaying].argent -= sat[satellite].loyer4; // LE JOUEUR PAYE LE LOYER

@@ -749,7 +749,7 @@ int main()
                 }
                 else
                 {
-                    printf("nbsat vaut après etre tomber sur la case: %d", player[joueurPlaying].nbSat);
+                    gotoligcol(48, 80);
                     passSat(player,tabSatellites,joueurPlaying,0);
                 }
             }
