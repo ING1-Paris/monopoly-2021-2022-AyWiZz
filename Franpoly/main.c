@@ -244,7 +244,7 @@ int main()
                 ////////////////////////////////////////////////////////
 
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position = 27;//player[joueurPlaying].lastposition + nbDe;
+                player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
 
             }
 
