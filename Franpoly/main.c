@@ -213,7 +213,10 @@ int main()
 
     do //FAIRE CELA TANT QUE LE JOUEUR PLAYING N'A PAS D'ARGENT
     {
-        
+        if(player[joueurPlaying].argent<0){
+            break;
+
+        }
         gotoligcol(2, 195);
 
 
@@ -3231,11 +3234,7 @@ int main()
         {
             joueurPlaying = 1;
         }
-        else if(player[joueurPlaying].argent<0)
-        {
-            break;
-            joueurPlaying++;
-        }
+
         else
         {
             joueurPlaying++;
@@ -3277,7 +3276,7 @@ int main()
 
     while(player[joueurPlaying].argent > 0);
 int w=0;
-    for (int i = 0;i<nbJoueurs;i++){
+    for (int i = 1;i<=nbJoueurs;i++){
         if(player[i].argent>max){
             max = player[i].argent;
             w=i;
