@@ -262,197 +262,43 @@ int positionCurseur()
     return curseur;
 }
 
-int checkPartie()
+void appelSauvegarde(int * pnbJoueurs, Joueur player[6])
 {
-    system("cls");
-    printf("SPACE FRANPOLY SAUVEGARDES:\n");
-    printf("\n");
-    printf("\n");
-    printf("\n");
-    printf("\n");
-    Color(9,0);
-    //gotoligcol(5, COLONNE);
-    printf("%c Sauvegarde 1",0x08);//rang 2
-    printf("\n");//rang 3
-    printf("\n");
-    Color(15,0);
-    //gotoligcol(7,COLONNE);
-    printf("%c Sauvegarde 2",0x08);//rang 4
-    printf("\n");//rang 5
-    printf("\n");
-    printf("%c Sauvegarde 3",0x08);//rang 4
-    printf("\n");//rang 5
-    printf("\n");
-    printf("%c Sauvegarde 4",0x08);//rang 4
-    printf("\n");//rang 5
-    printf("\n");
-
     int curseur = 1;
-    int sauvegarde = 0;
-    int toucheUtilisateur = _getch();
+    int nombreJoueurs=0;
+
     gotoligcol(0, COLONNE);
 
-    do
+
+    FILE * sauvegarde;
+
+    sauvegarde = fopen("Sauvegarde.txt", "r");
+
+    if(sauvegarde == NULL)
     {
-        toucheUtilisateur = _getch();//récupère la touche tapé par l'utilisateur
-        if(toucheUtilisateur == 0x48) //Si c'est la fleche du haut
-        {
-            curseur -= 1;//Va à la proposition au dessus
-        }
-        if(toucheUtilisateur == 0x50) //Si la touche est la fleche du bas
-        {
-            curseur += 1;//Va à la proposition en dessous
-        }
-        if(curseur == 0) //Si le curseur est trop en haut
-        {
-            curseur = 4;//Retourner en bas
-            system("cls");
-        }
-        system("cls");
-        gotoligcol(0, COLONNE);
-        printf("SPACE FRANPOLY SAUVEGARDES:\n");
-        printf("\n");
-        printf("\n");
-        printf("\n");
-        printf("\n");
-        Color(9,0);
-        //gotoligcol(5, COLONNE);
-        printf("%c Sauvegarde 1",0x08);//rang 2
-        printf("\n");//rang 3
-        printf("\n");
-        Color(15,0);
-        //gotoligcol(7,COLONNE);
-        printf("%c Sauvegarde 2",0x08);//rang 4
-        printf("\n");//rang 5
-        printf("\n");
-        printf("%c Sauvegarde 3",0x08);//rang 4
-        printf("\n");//rang 5
-        printf("\n");
-        printf("%c Sauvegarde 4",0x08);//rang 4
-        printf("\n");//rang 5
-        printf("\n");
-        if(curseur == 1)
-        {
-            system("cls");
-            gotoligcol(0, COLONNE);
-            printf("SPACE FRANPOLY SAUVEGARDES:\n");
-            printf("\n");
-            printf("\n");
-            printf("\n");
-            printf("\n");
-            Color(9,0);
-            //gotoligcol(5, COLONNE);
-            printf("%c Sauvegarde 1",0x08);//rang 2
-            printf("\n");//rang 3
-            printf("\n");
-            Color(15,0);
-            //gotoligcol(7,COLONNE);
-            printf("%c Sauvegarde 2",0x08);//rang 4
-            printf("\n");//rang 5
-            printf("\n");
-            printf("%c Sauvegarde 3",0x08);//rang 4
-            printf("\n");//rang 5
-            printf("\n");
-            printf("%c Sauvegarde 4",0x08);//rang 4
-            printf("\n");//rang 5
-            printf("\n");
-        }
-        if(curseur == 2)
-        {
-            system("cls");
-            gotoligcol(0, COLONNE);
-            printf("SPACE FRANPOLY SAUVEGARDES:\n");
-            printf("\n");
-            printf("\n");
-            printf("\n");
-            printf("\n");
-            Color(15,0);
-            //gotoligcol(5, COLONNE);
-            printf("%c Sauvegarde 1",0x08);//rang 2
-            printf("\n");//rang 3
-            printf("\n");
-            Color(9,0);
-            //gotoligcol(7,COLONNE);
-            printf("%c Sauvegarde 2",0x08);//rang 4
-            printf("\n");//rang 5
-            printf("\n");
-            Color(15, 0);
-            printf("%c Sauvegarde 3",0x08);//rang 4
-            printf("\n");//rang 5
-            printf("\n");
-            Color(15, 0);
-            printf("%c Sauvegarde 4",0x08);//rang 4
-            printf("\n");//rang 5
-            printf("\n");
-            Color(15, 0);
-        }
-        if(curseur == 3)
-        {
-            system("cls");
-            gotoligcol(0, COLONNE);
-            printf("SPACE FRANPOLY SAUVEGARDES:\n");
-            printf("\n");
-            printf("\n");
-            printf("\n");
-            printf("\n");
-            Color(15,0);
-            //gotoligcol(5, COLONNE);
-            printf("%c Sauvegarde 1",0x08);//rang 2
-            printf("\n");//rang 3
-            printf("\n");
-            Color(15,0);
-            //gotoligcol(7,COLONNE);
-            printf("%c Sauvegarde 2",0x08);//rang 4
-            printf("\n");//rang 5
-            printf("\n");
-            Color(9, 0);
-            printf("%c Sauvegarde 3",0x08);//rang 4
-            printf("\n");//rang 5
-            printf("\n");
-            Color(15, 0);
-            printf("%c Sauvegarde 4",0x08);//rang 4
-            printf("\n");//rang 5
-            printf("\n");
-            Color(15, 0);
-        }
-        if(curseur == 4)
-        {
-            system("cls");
-            gotoligcol(0, COLONNE);
-            printf("SPACE FRANPOLY SAUVEGARDES:\n");
-            printf("\n");
-            printf("\n");
-            printf("\n");
-            printf("\n");
-            Color(15,0);
-            //gotoligcol(5, COLONNE);
-            printf("%c Sauvegarde 1",0x08);//rang 2
-            printf("\n");//rang 3
-            printf("\n");
-            Color(15,0);
-            //gotoligcol(7,COLONNE);
-            printf("%c Sauvegarde 2",0x08);//rang 4
-            printf("\n");//rang 5
-            printf("\n");
-            Color(15, 0);
-            printf("%c Sauvegarde 3",0x08);//rang 4
-            printf("\n");//rang 5
-            printf("\n");
-            Color(9, 0);
-            printf("%c Sauvegarde 4",0x08);//rang 4
-            printf("\n");//rang 5
-            printf("\n");
-            Color(15, 0);
-        }
-        if(curseur == 5)
-        {
-            curseur = 1;
-        }
+        printf("erreur fopen \n");
+        return 1;
     }
-    while(toucheUtilisateur != 0x0D);
 
-    gotoligcol(5,17);//Car il y a 16 lettres dans "Nouvelle Partie :"
+    fscanf(sauvegarde, "%d", &nombreJoueurs);
 
-    gotoligcol(57,0);
-    return sauvegarde;
+
+    for (int j=1; j< nombreJoueurs+1; j++)
+    {
+        fgets(player[j].nom, taillemax, sauvegarde);
+        fscanf(sauvegarde, "%d", &player[j].argent);
+        fscanf(sauvegarde, "%d", &player[j].position);
+        fgets(player[j].terrain1, taillemax, sauvegarde);
+        fgets(player[j].terrain2, taillemax, sauvegarde);
+        fgets(player[j].terrain3, taillemax, sauvegarde);
+        fgets(player[j].terrain4, taillemax, sauvegarde);
+        fgets(player[j].terrain5, taillemax, sauvegarde);
+        fgets(player[j].terrain6, taillemax, sauvegarde);
+        fgets(player[j].terrain7, taillemax, sauvegarde);
+        fgets(player[j].terrain8, taillemax, sauvegarde);
+        fgets(player[j].terrain9, taillemax, sauvegarde);
+        fgets(player[j].terrain10, taillemax, sauvegarde);
+    }
+    fclose(sauvegarde);
+    *pnbJoueurs=nombreJoueurs;
 }
