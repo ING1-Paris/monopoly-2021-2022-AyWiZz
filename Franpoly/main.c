@@ -117,7 +117,7 @@ int main()
     int sauvegarde = 0;
     int nbJoueurs = 0;
     int aleaChance = 0, aleaCommu = 0;
-
+    int w=0;
     int nbDe1 = 0, nbDe2 = 0, nbDe = 0;
     int *pnbDe1 = &nbDe1;
     int *pnbDe2 = &nbDe2;
@@ -211,11 +211,14 @@ int main()
     ///Boucle Principale///
     ///////////////////////////////////////////////////////////////////
 
-    do //FAIRE CELA TANT QUE LE JOUEUR PLAYING N'A PAS D'ARGENT
+    ///boucle permettant de faire jouer les joueurs jusqu'à ce que un d'entre eux n'est plus d'argent.
+    while(player[joueurPlaying].argent > 0)
     {
-        if(player[joueurPlaying].argent<0){ //SI LE JOUEUR QUI EST EN TRAIN DE JOUER N'A PLUS D'ARGENT 
-            break; //SORT DE LA BOUCLE
-
+        ///boucles permettant de tester si l'argent des joueurs est supérieur à 0. Si non, on sort de la boucle pour afficher le perdant et le gagnant.
+        for (int i = 1;i<=nbJoueurs;i++){
+        if(player[i].argent<0){
+            break;
+        }
         }
         gotoligcol(2, 195);
 
@@ -3284,8 +3287,7 @@ int main()
         fclose(sauvegarde); //ON FERME SAUVEGARDE.TXT
     }
 
-    while(player[joueurPlaying].argent > 0);
-int w=0;
+///boucle permettant de déterminer quel joueur à le plus d'argent à la fin de la partie.
     for (int i = 1;i<=nbJoueurs;i++){
         if(player[i].argent>max){
             max = player[i].argent;
