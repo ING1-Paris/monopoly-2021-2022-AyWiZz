@@ -66,6 +66,9 @@ typedef struct
     int loyer4;
     int possede;
     int possession;
+    int hypoValid;
+    int hypo;
+    int nbPossession;
 } Satellite;
 
 
@@ -129,5 +132,9 @@ int prison(Joueur player[],int joueurPlaying, int nbJoueurs);
 void hypotheque(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int planete,int nbMaisonTotal, int nbHotelTotal,int *pnbMaisonTotal, int *pnbHotelTotal);
 void rachatHypo(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int planete,int nbMaisonTotal, int nbHotelTotal,int *pnbMaisonTotal, int *pnbHotelTotal);
 void passMaison(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int planete);
+
+void hypoSat(Joueur j[], Satellite sat[],int joueurPlaying, int satellite);
+void rachatHypoSat(Joueur j[], Satellite sat[],int joueurPlaying, int satellite);
+void passSat(Joueur j[], Satellite sat[], int joueurPlaying, int satellite);
 
 #endif // HEADER_H_INCLUDED
