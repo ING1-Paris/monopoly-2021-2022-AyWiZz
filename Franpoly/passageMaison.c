@@ -5,7 +5,7 @@
 
 ///fonction permettant de faire payer un joueur quand il tombe sur une planète appartenant à un autre joueur
 ///entrées : structure du joueur et des planètes, le joueur jouant et le numéro de la planète
-///sorties : l'argent des joueurs est transféré, un message s'affiche afin de montrer la transaction qui vient de se faire
+///sorties : l'argent des joueurs est transféré, un message s'affiche afin de montrer la transaction qui vient de se faire 
 
 
 void passMaison(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int planete)
