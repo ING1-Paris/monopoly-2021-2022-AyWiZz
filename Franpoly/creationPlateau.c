@@ -13,6 +13,7 @@
 void gotoligcol( int lig, int col )
 {
 
+    
 // ressources
 
     COORD mycoord;
