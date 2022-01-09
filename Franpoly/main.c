@@ -2883,8 +2883,8 @@ int main()
         case 25:
 
             gotoligcol(47,90);
-            printf("Vous payez 100 M $ a la banque ! ");
-            player[joueurPlaying].argent -= 100;
+            printf("Vous payez 200 M $ a la banque ! ");
+            player[joueurPlaying].argent -= 200;
 
             break;
         case 26:
@@ -3229,11 +3229,37 @@ int main()
 
         fclose(sauvegarde);
     }
-    while(1==1);
+
+    while(player[joueurPlaying].argent > 0);
 
 
     gotoligcol(58,0);
+    system("cls");
+    FILE * fpFin;
 
+    fpFin = fopen("Finpartie.txt", "r");
+
+    if(fpFin == NULL)
+    {
+        printf("erreur fopen \n");
+        return 1;
+    }
+    char c = fgetc(fpFin);
+    system("cls");
+    Color(9, 0);
+    while(c != EOF)
+    {
+        printf("%c", c);
+        c = fgetc(fpFin);
+    }
+    gotoligcol(11,90);
+    //Color(player[joueurPlaying].couleur, 0);
+    printf("C'est %s qui a perdu la partie :( ", player[joueurPlaying].nom);
+
+
+
+
+    gotoligcol(58, 0);
     return 0;
 
 }
