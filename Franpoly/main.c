@@ -150,7 +150,7 @@ int main()
     //////////////// REMPLI TOUT LES JOUEURS //////////////
     for (int i=1; i<=nbJoueurs; i++) //ON INITIALISE LA STRUCTURE JOUEUR DE CHAQUE JOUEUR
     {
-        player[i].argent = 200;
+        player[i].argent = 1500;
         player[i].position = 0;
         player[i].nbTerrain = 0;
         player[i].prison = 0;
@@ -361,7 +361,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Mercure ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[0].loyer)
                 {
                     player[joueurPlaying].argent -= tabCartesPlanetes[0].loyer;
                     switch (player[joueurPlaying].nbTerrain)
@@ -522,7 +522,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Venus ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[1].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -671,7 +671,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter l'ISS ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabSatellites[0].loyer)
                 {
                     player[joueurPlaying].argent -= tabSatellites[0].loyer;
                     switch (player[joueurPlaying].nbTerrain)
@@ -821,7 +821,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter la Lune ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[2].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -966,7 +966,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter la Terre ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[3].loyer)
                 {
                     player[joueurPlaying].nbTerrain+=1;
 
@@ -1124,7 +1124,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Phobos ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[4].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -1270,7 +1270,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Mars ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[5].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -1492,9 +1492,9 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Spoutnik ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabSatellites[1].loyer)
                 {
-                    player[joueurPlaying].argent -= tabSatellites[0].loyer;
+                    player[joueurPlaying].argent -= tabSatellites[1].loyer;
                     switch (player[joueurPlaying].nbTerrain)
                     {
                     case 0:
@@ -1585,7 +1585,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Triton ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[6].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -1731,7 +1731,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Neptune ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[7].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -1879,7 +1879,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Titanium ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[8].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -2025,7 +2025,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Uranus ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[9].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -2228,9 +2228,9 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Vostok ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabSatellites[2].loyer)
                 {
-                    player[joueurPlaying].argent -= tabSatellites[0].loyer;
+                    player[joueurPlaying].argent -= tabSatellites[2].loyer;
                     switch (player[joueurPlaying].nbTerrain)
                     {
                     case 0:
@@ -2318,7 +2318,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Titan ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[10].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -2464,7 +2464,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Saturne ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[11].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -2613,7 +2613,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Europe ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[12].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -2837,9 +2837,9 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Apollo ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabSatellites[3].loyer)
                 {
-                    player[joueurPlaying].argent -= tabSatellites[0].loyer;
+                    player[joueurPlaying].argent -= tabSatellites[3].loyer;
                     switch (player[joueurPlaying].nbTerrain)
                     {
                     case 0:
@@ -2934,7 +2934,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Ganymede ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[13].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -3080,7 +3080,7 @@ int main()
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Jupiter ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[14].loyer)
                 {
                     switch (player[joueurPlaying].nbTerrain)
                     {
