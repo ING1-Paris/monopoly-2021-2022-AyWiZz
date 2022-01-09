@@ -213,7 +213,7 @@ int main()
 
     do //FAIRE CELA TANT QUE LE JOUEUR PLAYING N'A PAS D'ARGENT
     {
-
+        affichInfo(player,joueurPlaying, nbJoueurs);
         gotoligcol(2, 195);
 
 
@@ -349,7 +349,7 @@ int main()
         nbDe = 0;
 
 
-        affichInfo(player,joueurPlaying, nbJoueurs);
+        
 
 
         switch(player[joueurPlaying].position)
