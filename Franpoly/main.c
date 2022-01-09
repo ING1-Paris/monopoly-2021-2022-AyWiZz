@@ -213,8 +213,8 @@ int main()
 
     do //FAIRE CELA TANT QUE LE JOUEUR PLAYING N'A PAS D'ARGENT
     {
-        if(player[joueurPlaying].argent<0){
-            break;
+        if(player[joueurPlaying].argent<0){ //SI LE JOUEUR QUI EST EN TRAIN DE JOUER N'A PLUS D'ARGENT 
+            break; //SORT DE LA BOUCLE
 
         }
         gotoligcol(2, 195);
@@ -230,112 +230,112 @@ int main()
 
         scanf("%d", &player[joueurPlaying].choix);
 
-        system("cls");
-        couleursPlateau();
-        creationPlateau();
+        system("cls"); //EFFACE LA CONSOLE
+        couleursPlateau(); //AFFICHE LES COULEURS DU PLATEAU
+        creationPlateau(); //AFFICHE LES CASES DU PLATEAU
 
-        affichInfo(player,joueurPlaying, nbJoueurs);
+        affichInfo(player,joueurPlaying, nbJoueurs); //AFFICHE LES INFORMATIONS DU JOUEURS
 
 
 
-        if(player[joueurPlaying].choix == 1)
+        if(player[joueurPlaying].choix == 1) //SI LE JOUEUR CHOISIS DE LANCER LES DÉS 
         {
             gotoligcol(5, 195);
-            player[joueurPlaying].choix = 0;
+            player[joueurPlaying].choix = 0; //LE CHOIX DU JOUEUR PASSE À 0
 
-            if(player[joueurPlaying].prison != 1)
+            if(player[joueurPlaying].prison != 1) //SI LE JOUEUR QUI EST EN TRAIN DE JOUER N'EST PAS EN PRISON
             {
 
 
-                des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe);
+                des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe); //TIRE LE DÉ
                 ////////////////////Pour les doubles //////////////////////
-                if(nbDe1 == nbDe2)
+                if(nbDe1 == nbDe2) //SI LE DÉ 1 EST ÉGAL AU DÉ 2
                 {
-                    player[joueurPlaying].doubleDee+=1;
+                    player[joueurPlaying].doubleDee+=1; //ON A UN DOUBLE
                 }
-                if(nbDe1 != nbDe2)
+                if(nbDe1 != nbDe2) //SI LE DÉ 1 N'EST PAS ÉGAL AU DÉ 2
                 {
-                    player[joueurPlaying].doubleDee = 0;
+                    player[joueurPlaying].doubleDee = 0; //ON A PAS DE DOUBLE
                 }
-                if(player[joueurPlaying].doubleDee == 3)
+                if(player[joueurPlaying].doubleDee == 3) //SI LE JOUEUR FAIT TROIS DOUBLES D'AFFILER 
                 {
-                    player[joueurPlaying].position = 21;
+                    player[joueurPlaying].position = 21; //IL VA EN PRISON
                     player[joueurPlaying].doubleDee = 0;
                 }
 
                 ////////////////////////////////////////////////////////
 
-                player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
+                player[joueurPlaying].lastposition = player[joueurPlaying].position; //LA DERNIÈRE POSITION VA PRENDRE LA VALEUR DE LA POSITION ACTUELLE
+                player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe; //LA POSITION ACTUELLE VA PRENDRE LA VALEUR DE LA DERNIÈRE POSITION PLUS LA VALEUR DES DÉS
 
             }
 
 
-            for(int i = 0; i <= nbJoueurs; i++)
+            for(int i = 0; i <= nbJoueurs; i++) //FAIT LA BOUCLE NBJOUEUR FOIS
             {
-                affichPion(player, i);
+                affichPion(player, i); //ON AFFICHE LE PION SUR LA PREMIÈRE CASE
             }
 
 
             ///////////////////////////// Pour prison///////////////////////
 
             if(player[joueurPlaying].position == 21) // Pour l'affichage si il est dans la prison alors on raffiche tout
-            {
+            { //SI LE JOUEUR EST SUR LA CASE ALLÉ EN PRISON
 
                 gotoligcol(16, 195);
                 printf("Vous allez en prison !!!!!!!!");
-                sleep(2);
+                sleep(2); //LE PROGRAMME FAITS UNE PAUSE DE DEUX SECONDES
 
-                player[joueurPlaying].position = 7;
-                player[joueurPlaying].prison = 1;
+                player[joueurPlaying].position = 7; //ON DÉPLACE LE JOUEUR EN PRISON
+                player[joueurPlaying].prison = 1; //LE JOUEUR EST EN PRISON
 
-                system("cls");
-                couleursPlateau();
-                creationPlateau();
+                system("cls"); 
+                couleursPlateau(); //ON AFFICHE LES COULEURS DU PLATEAU
+                creationPlateau(); //ON AFFICHE LES CASES DU PLATEAU
 
                 for(int i = 0; i <= nbJoueurs; i++)
                 {
                     affichPion(player, i);
 
                 }
-                affichInfo(player,joueurPlaying, nbJoueurs);
+                affichInfo(player,joueurPlaying, nbJoueurs); //ON AFFICHE LES INFOS DU JOUEUR
                 gotoligcol(16, 195);
                 printf("Vous avez atteri en prison !");
             }
 
-            if(player[joueurPlaying].prison == 1)
+            if(player[joueurPlaying].prison == 1) //SI LE JOUEUR EST EN PRISON
             {
-                des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe);
-                if(nbDe1 == nbDe2)
+                des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe); //IL LANCE LES DÉS
+                if(nbDe1 == nbDe2) //SI IL FAIT UN DOUBLE
                 {
-                    player[joueurPlaying].prison = 0;
-                    player[joueurPlaying].tempsPrison = 0;
+                    player[joueurPlaying].prison = 0; //IL SORT DE PRISON
+                    player[joueurPlaying].tempsPrison = 0; //LE TEMPS EN PRISON EST INITIALISÉ
                 }
-                else if (player[joueurPlaying].cartePrison == 1)
+                else if (player[joueurPlaying].cartePrison == 1) //SI LE JOUEUR A UNE CARTE PRISON
                 {
                     gotoligcol(46, 90);
                     printf("Voulez vous utiliser votre carte prison (1 pour oui 0 pour non?");
                     gotoligcol(47, 90);
                     scanf("%d", &repCarteprison);
-                    if(repCarteprison == 1)
+                    if(repCarteprison == 1) //SI IL VEUT UTILISER SA CARTE PRISON
                     {
-                        player[joueurPlaying].prison = 0;
-                        player[joueurPlaying].tempsPrison = 0;
-                        player[joueurPlaying].cartePrison = 0;
+                        player[joueurPlaying].prison = 0; //LE JOUEUR SORT DE PRSION
+                        player[joueurPlaying].tempsPrison = 0; //LE TEMPS EN PRISON EST REINITIALISÉ
+                        player[joueurPlaying].cartePrison = 0; //LE JOUEUR N'A PLUS DE CARTES PRISON
                     }
 
                 }
-                else
+                else //SINON
                 {
-                    if(player[joueurPlaying].tempsPrison == 3)
+                    if(player[joueurPlaying].tempsPrison == 3) //SI LE JOUEUR EST RESTÉ 3 TOURS EN PRISON
                     {
-                        player[joueurPlaying].argent -= 50;
-                        player[joueurPlaying].prison = 0;
-                        player[joueurPlaying].tempsPrison = 0;
+                        player[joueurPlaying].argent -= 50; //IL PAYE 50
+                        player[joueurPlaying].prison = 0; //IL SORT DE PRISON
+                        player[joueurPlaying].tempsPrison = 0; //LE TEMPS EN PRISON EST RÉINITIALISÉ
                     }
-                    else if(player[joueurPlaying].tempsPrison < 3)
+                    else if(player[joueurPlaying].tempsPrison < 3) //SI LE JOUEUR EST RESTÉ MOINS DE 3 TOURS EN PRISON
                     {
-                        player[joueurPlaying].tempsPrison +=1;
+                        player[joueurPlaying].tempsPrison +=1; //IL RESTE EN PRISON 1 TOUR DE PLUS
                         //joueurPlaying+=1;
                     }
                 }
@@ -351,71 +351,81 @@ int main()
         printf("Tu vas vers l'avant de %d cases", nbDe);
         nbDe = 0;
 
-        affichInfo(player,joueurPlaying, nbJoueurs);
+        affichInfo(player,joueurPlaying, nbJoueurs); //ON AFFICHE LES DONNÉES DU JOUEUR
         
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /*                           ATTENTION                          */
+        /*               COMME TOUT LES CASES SE RESSEMBLENT            */
+        /*               NOUS ALLONS COMMENTER UNE CARTE DE CHAQUE TYPE */
+        /*               UNE CARTE VILLE (LA CASE 0)                    */
+        /*               UNE CARTE CHANCE (LA CASE 4)                   */
+        /*               UNE CARTE SATELLITE (LA CASE 3)                */
+        
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-        switch(player[joueurPlaying].position)
+        switch(player[joueurPlaying].position) //NOUS FAISONS UN SWITCH CASE SELON LA POSITION DU JOUEUR
         {
-        case 1:
-            carteVille(0);
-            if(tabCartesPlanetes[0].possede == 0)
+        case 1: //SI NOUS SOMMES SUR LA CASE 1
+            carteVille(0); //ON AFFICHE LA CARTE PLANÈTE 0 (LA PREMIÈRE PLANÈTE)
+            if(tabCartesPlanetes[0].possede == 0) //SI CETTE CARTE N'EST PAS POSSÉDÉ
             {
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter Mercure ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[0].loyer)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[0].loyer) //SI LE JOUEUR VEUT ACHETER LE TERRAIN ET QU'IL A ASSEZ D'ARGENT
                 {
-                    player[joueurPlaying].argent -= tabCartesPlanetes[0].loyer;
-                    switch (player[joueurPlaying].nbTerrain)
+                    player[joueurPlaying].argent -= tabCartesPlanetes[0].loyer; //LE JOUEUR PAYE LE LOYER
+                    switch (player[joueurPlaying].nbTerrain) //NOUS FAISONS UN SWITCH CASE POUR SAVOIR COMBIEN DE TERRAIS POSSÈDE LE JOUEUR
                     {
                     case 0:
-                        strcpy(player[joueurPlaying].terrain1,"MERCURE");
-                        player[joueurPlaying].t1Possede = 1;
+                        strcpy(player[joueurPlaying].terrain1,"MERCURE"); //ON DIT QUE LE JOUEUR QUI EST EN TRAIN DE JOUER POSSÈDE DÉSORMAIS MERCURE
+                        player[joueurPlaying].t1Possede = 1; //CETTE PLANÈTE SERA LA PREMIÈRE POSSÉDÉ
                         break;
                     case 1:
-                        strcpy(player[joueurPlaying].terrain2,"MERCURE");
-                        player[joueurPlaying].t2Possede = 1;
+                        strcpy(player[joueurPlaying].terrain2,"MERCURE"); //ON DIT QUE LE JOUEUR QUI EST EN TRAIN DE JOUER POSSÈDE DÉSORMAIS MERCURE
+                        player[joueurPlaying].t2Possede = 1; //CETTE PLANÈTE SERA LA DEUXIÈME POSSÉDÉ
                         break;
                     case 2:
-                        strcpy(player[joueurPlaying].terrain3,"MERCURE");
-                        player[joueurPlaying].t3Possede = 1;
+                        strcpy(player[joueurPlaying].terrain3,"MERCURE"); //ON DIT QUE LE JOUEUR QUI EST EN TRAIN DE JOUER POSSÈDE DÉSORMAIS MERCURE
+                        player[joueurPlaying].t3Possede = 1; //CETTE PLANÈTE SERA LA TROISIÈME POSSÉDÉ
                         break;
                     case 3:
-                        strcpy(player[joueurPlaying].terrain4,"MERCURE");
-                        player[joueurPlaying].t4Possede = 1;
+                        strcpy(player[joueurPlaying].terrain4,"MERCURE"); //ON DIT QUE LE JOUEUR QUI EST EN TRAIN DE JOUER POSSÈDE DÉSORMAIS MERCURE
+                        player[joueurPlaying].t4Possede = 1; //CETTE PLANÈTE SERA LA QUATRIÈME POSSÉDÉ
                         break;
                     case 4:
-                        strcpy(player[joueurPlaying].terrain5,"MERCURE");
-                        player[joueurPlaying].t5Possede = 1;
+                        strcpy(player[joueurPlaying].terrain5,"MERCURE"); //ON DIT QUE LE JOUEUR QUI EST EN TRAIN DE JOUER POSSÈDE DÉSORMAIS MERCURE
+                        player[joueurPlaying].t5Possede = 1; //CETTE PLANÈTE SERA LA CINQUIÈME POSSÉDÉ
                         break;
                     case 5:
-                        strcpy(player[joueurPlaying].terrain6,"MERCURE");
-                        player[joueurPlaying].t6Possede = 1;
+                        strcpy(player[joueurPlaying].terrain6,"MERCURE"); //ON DIT QUE LE JOUEUR QUI EST EN TRAIN DE JOUER POSSÈDE DÉSORMAIS MERCURE
+                        player[joueurPlaying].t6Possede = 1; //CETTE PLANÈTE SERA LA SIXIÈME POSSÉDÉ
                         break;
                     case 6:
-                        strcpy(player[joueurPlaying].terrain7,"MERCURE");
-                        player[joueurPlaying].t7Possede = 1;
+                        strcpy(player[joueurPlaying].terrain7,"MERCURE"); //ON DIT QUE LE JOUEUR QUI EST EN TRAIN DE JOUER POSSÈDE DÉSORMAIS MERCURE
+                        player[joueurPlaying].t7Possede = 1; //CETTE PLANÈTE SERA LA SEPTIÈME POSSÉDÉ
                         break;
                     case 7:
-                        strcpy(player[joueurPlaying].terrain8,"MERCURE");
-                        player[joueurPlaying].t8Possede = 1;
+                        strcpy(player[joueurPlaying].terrain8,"MERCURE"); //ON DIT QUE LE JOUEUR QUI EST EN TRAIN DE JOUER POSSÈDE DÉSORMAIS MERCURE
+                        player[joueurPlaying].t8Possede = 1; //CETTE PLANÈTE SERA LA HUITIÈME POSSÉDÉ
                         break;
                     case 8:
-                        strcpy(player[joueurPlaying].terrain9,"MERCURE");
-                        player[joueurPlaying].t9Possede = 1;
+                        strcpy(player[joueurPlaying].terrain9,"MERCURE"); //ON DIT QUE LE JOUEUR QUI EST EN TRAIN DE JOUER POSSÈDE DÉSORMAIS MERCURE
+                        player[joueurPlaying].t9Possede = 1; //CETTE PLANÈTE SERA LA NEUVIÈME POSSÉDÉ
                         break;
                     case 9:
-                        strcpy(player[joueurPlaying].terrain10,"MERCURE");
-                        player[joueurPlaying].t10Possede = 1;
+                        strcpy(player[joueurPlaying].terrain10,"MERCURE"); //ON DIT QUE LE JOUEUR QUI EST EN TRAIN DE JOUER POSSÈDE DÉSORMAIS MERCURE
+                        player[joueurPlaying].t10Possede = 1; //CETTE PLANÈTE SERA LA DIXIÈME POSSÉDÉ
                         break;
                     }
 
-                    player[joueurPlaying].nbTerrain+=1;
+                    player[joueurPlaying].nbTerrain+=1; //LE NOMBRE DE TERRAIN DU JOUEUR EST +1
                     //////////////// NOUVELES MODIF ACHAT /////////////////////////////
                     //strcpy(tabCartesPlanetes[0].possession, player[joueurPlaying].nom);
 
-                    tabCartesPlanetes[0].possession = joueurPlaying;
+                    tabCartesPlanetes[0].possession = joueurPlaying; //LA PLANÈTE EST DONC POSSÉDÉ PAR JOUEURPLAYING
 
 
                     //gotoligcol(48,90);
@@ -427,7 +437,7 @@ int main()
                     printf("Vous venez d'acheter Mercure");
 
                     gotoligcol(47, 90);
-                    tabCartesPlanetes[0].possede = 1;
+                    tabCartesPlanetes[0].possede = 1; //LA PLANÈTE EST DÉSORMAIS POSSÉDÉ
 
 
 
@@ -447,7 +457,7 @@ int main()
                     fflush(stdin);
                     scanf("%d", &repMaison);
 
-                    if(repMaison == 1)
+                    if(repMaison == 1) //SI LE JOUEUR VEUT ACHETER DES MAISONS
                     {
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[0].nbMaisons += 1;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE +1
@@ -459,20 +469,20 @@ int main()
                         printf("Vous avez %d maison(s)", tabCartesPlanetes[0].nbMaisons);
 
                     }
-                    else if(repMaison == 0)
+                    else if(repMaison == 0) //SI LE JOUEUR NE VEUT PAS ACHETER DE MAISON
                     {
-                        hypotheque(player, tabCartesPlanetes,joueurPlaying,0,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
+                        hypotheque(player, tabCartesPlanetes,joueurPlaying,0,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal); //ON DEMANDE SIL LE JOUEUR VEUT HYPOTHÉQUER
 
                     }
                 }
-                else if(tabCartesPlanetes[0].nbMaisons == 4)
+                else if(tabCartesPlanetes[0].nbMaisons == 4) //SI LE NOMBRE DE MAISONS DÉJÀ POSSÉDÉ SUR CETTE PLANÈTE EST DE 4 ALORS
                 {
                     gotoligcol(45, 90);
                     printf("Le prix d'un hotel est de 70 M$");
                     gotoligcol(46, 90);
                     printf("Voulez vous acheter un hotel ? 1/oui 0/non");
                     scanf("%d", &repHotel);
-                    if(repHotel == 1)
+                    if(repHotel == 1) //SI IL VEUT ACHETER UN HOTEL
                     {
                         player[joueurPlaying].argent -= 70;//LE JOUEUR PAYE 40
                         tabCartesPlanetes[0].nbMaisons = 5;// LE NOMBRE DE MAISONS SUR CETTE PROPRIETE EST DE 5 CAR 1 HOTEL
@@ -482,37 +492,37 @@ int main()
                         gotoligcol(47,90);
                         printf("Felicitations vous avez achete un hotel !");
                     }
-                    else if(repHotel == 0)
+                    else if(repHotel == 0) //SI LE JOUEUR NE VEUT PAS ACHETER D'HÔTEL
                     {
-                        hypotheque(player, tabCartesPlanetes,joueurPlaying,0,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
+                        hypotheque(player, tabCartesPlanetes,joueurPlaying,0,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal); //ON DEMANDE AU JOUEUR SI IL VEUT L'HYPOTHÉQUER
                     }
                 }
-                else
+                else //SINON C'EST QUE LE JOUEUR A DÉJÀ UN HÔTEL IL NE PEUT DONC RIEN ACHETER D'AUTRE
                 {
                     gotoligcol(46, 90);
                     printf("STOP ! Vous avez deja un hotel !");
-                    hypotheque(player, tabCartesPlanetes,joueurPlaying,0,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
+                    hypotheque(player, tabCartesPlanetes,joueurPlaying,0,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal); //ON DEMANDE SI IL VEUT HYPOTHÉQUER
                 }
 
             }
-            else if(tabCartesPlanetes[0].hypoValid == 1 && tabCartesPlanetes[0].possession == joueurPlaying)
+            else if(tabCartesPlanetes[0].hypoValid == 1 && tabCartesPlanetes[0].possession == joueurPlaying) //SI LA PLANÈTE EST HYPOTHÉQUÉ ET QUE LE JOUEUR PLAYING POSSÈDE CETTE HYPOTHÈQUE
             {
-                rachatHypo(player, tabCartesPlanetes,joueurPlaying,0,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal);
+                rachatHypo(player, tabCartesPlanetes,joueurPlaying,0,nbMaisonTotal,nbHotelTotal,pnbMaisonTotal,pnbHotelTotal); //ON LUI PROPOSE DE RACHETER SON HYPOTHÈQUE
 
             }
             else if(tabCartesPlanetes[0].possede == 1 && tabCartesPlanetes[0].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
                 /////////////////////////////////////////////////////////////////////////////
-                if(tabCartesPlanetes[0].hypoValid == 1)
+                if(tabCartesPlanetes[0].hypoValid == 1) //SI LA PLANÈTE EST HYPOTHÉQUÉ
                 {
                     gotoligcol(47, 90);
                     printf("Vous ne payez rien car cette planete est hypothequee.");
                 }
                 ///////////////////////////////////////////////////////////////////////////
-                else
+                else //SINON
                 {
 
-                    passMaison(player,tabCartesPlanetes,joueurPlaying,0);
+                    passMaison(player,tabCartesPlanetes,joueurPlaying,0); //IL PAYE LE LOYER ADÉQUAT
                 }
             }
 
@@ -668,148 +678,148 @@ int main()
             break;
         case 3:
 
-            carteSatellite(0);
-            if (tabSatellites[0].possede == 0)
+            carteSatellite(0); //ON AFFICHE LA CARTE SATELLITE
+            if (tabSatellites[0].possede == 0) //SI LE SATELLITE N'EST PAS DÉJA POSSÉDÉ PAR UN JOUEUR
             {
                 gotoligcol(45, 90);
                 printf("Voulez vous acheter l'ISS ? 1 pour Oui; 0 pour Non.");
                 scanf("%d", &repAchat);
-                if(repAchat == 1 && player[joueurPlaying].argent>=tabSatellites[0].loyer)
+                if(repAchat == 1 && player[joueurPlaying].argent>=tabSatellites[0].loyer) //SI IL VEUT ACHETER LA PLANÈTE ET QU'IL A ASSEZ D'ARGENT POUR LE FAIRE
                 {
-                    player[joueurPlaying].argent -= tabSatellites[0].loyer;
-                    switch (player[joueurPlaying].nbTerrain)
+                    player[joueurPlaying].argent -= tabSatellites[0].loyer; //LE JOUEUR ACHÈTE LA PLANÈTE
+                    switch (player[joueurPlaying].nbTerrain) //ON FAIT UN SWITCH CASE SELON LE NOMBRE DE TERRAIS QU'A LE JOUEUR PLAYING
                     {
                     case 0:
                         strcpy(player[joueurPlaying].terrain1,"ISS");
-                        player[joueurPlaying].t1Possede = 1;
+                        player[joueurPlaying].t1Possede = 1; //L'ISS SERA SON PREMIER TERRAIN
                         break;
                     case 1:
                         strcpy(player[joueurPlaying].terrain2,"ISS");
-                        player[joueurPlaying].t2Possede = 1;
+                        player[joueurPlaying].t2Possede = 1; //L'ISS SERA SON DEUXIÈME TERRAIN
                         break;
                     case 2:
                         strcpy(player[joueurPlaying].terrain3,"ISS");
-                        player[joueurPlaying].t3Possede = 1;
+                        player[joueurPlaying].t3Possede = 1; //L'ISS SERA SON TROISIÈME TERRAIN
                         break;
                     case 3:
                         strcpy(player[joueurPlaying].terrain4,"ISS");
-                        player[joueurPlaying].t4Possede = 1;
+                        player[joueurPlaying].t4Possede = 1; //L'ISS SERA SON QUATRIÈME TERRAIN
                         break;
                     case 4:
                         strcpy(player[joueurPlaying].terrain5,"ISS");
-                        player[joueurPlaying].t5Possede = 1;
+                        player[joueurPlaying].t5Possede = 1; //L'ISS SERA SON CINQUIÈME TERRAIN
                         break;
                     case 5:
                         strcpy(player[joueurPlaying].terrain6,"ISS");
-                        player[joueurPlaying].t6Possede = 1;
+                        player[joueurPlaying].t6Possede = 1; //L'ISS SERA SON SIXIÈME TERRAIN
                         break;
                     case 6:
                         strcpy(player[joueurPlaying].terrain7,"ISS");
-                        player[joueurPlaying].t7Possede = 1;
+                        player[joueurPlaying].t7Possede = 1; //L'ISS SERA SON SEPTIÈME TERRAIN
                         break;
                     case 7:
                         strcpy(player[joueurPlaying].terrain8,"ISS");
-                        player[joueurPlaying].t8Possede = 1;
+                        player[joueurPlaying].t8Possede = 1; //L'ISS SERA SON HUITIÈME TERRAIN
                         break;
                     case 8:
                         strcpy(player[joueurPlaying].terrain9,"ISS");
-                        player[joueurPlaying].t9Possede = 1;
+                        player[joueurPlaying].t9Possede = 1; //L'ISS SERA SON NEUVIÈME TERRAIN
                         break;
                     case 9:
                         strcpy(player[joueurPlaying].terrain10,"ISS");
-                        player[joueurPlaying].t10Possede = 1;
+                        player[joueurPlaying].t10Possede = 1; //L'ISS SERA SON DIXIÈME TERRAIN
                         break;
                     }
 
-                    player[joueurPlaying].nbTerrain+=1;
+                    player[joueurPlaying].nbTerrain+=1; //LE JOUEUR POSSÈDE 1 TERRAIN DE PLUS
                     //////////////// NOUVELES MODIF ACHAT /////////////////////////////
                     //strcpy(tabCartesPlanetes[0].possession, player[joueurPlaying].nom);
 
-                    tabSatellites[0].possession = joueurPlaying;
-                    player[joueurPlaying].nbSat = player[joueurPlaying].nbSat +1;
+                    tabSatellites[0].possession = joueurPlaying; //LE SATELLITE EST POSSÉDÉ PAR LE JOUEUR PLAYING
+                    player[joueurPlaying].nbSat = player[joueurPlaying].nbSat +1; //LE NOMBRE DE SATELLITE POSSÉDÉ PAR LE JOUEUR PLAYING AUGMENTE DE 1
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter l'ISS.");
                     gotoligcol(47, 90);
 
-                    tabSatellites[0].possede = 1;
+                    tabSatellites[0].possede = 1; //LE SATELLITE EST DÉSORMAIS POSSÉDÉ
                 }
 
             }
-            else if(tabSatellites[0].possede == 1 && tabSatellites[0].possession == joueurPlaying && tabSatellites[0].hypoValid == 0)//LE JOUEUR PEUT ACHETER DES MAISONS OU HOTELS
+            else if(tabSatellites[0].possede == 1 && tabSatellites[0].possession == joueurPlaying && tabSatellites[0].hypoValid == 0) //SI LE JOUEUR PLAYING POSSÈDE LE SATELLITE
             {
-                hypoSat(player,tabSatellites,joueurPlaying,0);
+                hypoSat(player,tabSatellites,joueurPlaying,0); //ON PROPOSE AU JOUEUR D'HYPOTHÉQUER
             }
-            else if(tabSatellites[0].hypoValid == 1 && tabSatellites[0].possession == joueurPlaying)
+            else if(tabSatellites[0].hypoValid == 1 && tabSatellites[0].possession == joueurPlaying) //SI LE SATELLITE EST DÉJÀ HYPOTHÉQUÉ
             {
-                rachatHypoSat(player, tabSatellites,joueurPlaying,0);
+                rachatHypoSat(player, tabSatellites,joueurPlaying,0); //ON PROPOSE AU JOUEUR DE RACHETER SON HYPOTHÈQUE
             }
-            else if(tabSatellites[0].possede == 1 && tabSatellites[0].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
+            else if(tabSatellites[0].possede == 1 && tabSatellites[0].possession != joueurPlaying)//SI LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
                 /////////////////////////////////////////////////////////////////////////////
-                if(tabSatellites[0].hypoValid == 1)
+                if(tabSatellites[0].hypoValid == 1) //SI LE SATELLITE EST HYPOTHÉQUÉ
                 {
                     gotoligcol(47, 90);
                     printf("Vous ne payez rien car ce satellite est hypothequee.");
                 }
-                else
+                else //SINON
                 {
                     gotoligcol(48, 80);
-                    passSat(player,tabSatellites,joueurPlaying,0);
+                    passSat(player,tabSatellites,joueurPlaying,0); //IL PAYE LE LOYER DU SATELLITE
                 }
             }
 
             break;
 
         case 4:
-            cartesChance();
-            aleaChance=generationAleatoireChance();
+            cartesChance(); //ON AFFICHE UNE CARTE CHANCE
+            aleaChance=generationAleatoireChance(); //ON GÉNÈRE UNE CARTE CHANCE ALÉATOIRE
 
-            if (aleaChance==0 || aleaChance==1)
+            if (aleaChance==0 || aleaChance==1) //SI CE SONT LES DEUX PREMIÈRES CARTES
             {
-                player[joueurPlaying].argent += (nbJoueurs)*100;
+                player[joueurPlaying].argent += (nbJoueurs)*100; //LE JOUEUR REÇOIT 100 DE LA PART DE TOUT LE MONDE
                 for (int j=0; j<(nbJoueurs); j++)
                 {
-                    player[j].argent -= 100;
+                    player[j].argent -= 100; //CHAQUE JOUEUR PERD 100
                 }
             }
-            else if (aleaChance==2 || aleaChance==3)
+            else if (aleaChance==2 || aleaChance==3) //SI CE SONT LES CARTES 3 OU 4
             {
-                player[joueurPlaying].argent -= (nbJoueurs)*100;
+                player[joueurPlaying].argent -= (nbJoueurs)*100; //LE JOUEUR DONNE 100 À TOUT LE MONDE
                 for (int j=0; j<(nbJoueurs); j++)
                 {
-                    player[j].argent += 100;
+                    player[j].argent += 100; //TOUT LES JOUEURS REÇOIVENT 100
                 }
             }
-            else if (aleaChance==4 || aleaChance==5)
+            else if (aleaChance==4 || aleaChance==5) //SI CE SONT LES CARTES 5 OU 6
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position = 21;
+                player[joueurPlaying].position = 21; //LE JOUEUR VA EN PRISON
 
             }
-            else if (aleaChance==6 || aleaChance==7)
+            else if (aleaChance==6 || aleaChance==7) //SI CE SONT LES CARTES 6 OU 7
             {
-                player[joueurPlaying].argent -= 300;
+                player[joueurPlaying].argent -= 300; //LE JOUEUR PAYE 300 À LA BANQUE
             }
-            else if (aleaChance==8 || aleaChance==9)
+            else if (aleaChance==8 || aleaChance==9) //SI CE SONT LES CARTES 8 OU 9
             {
-                player[joueurPlaying].argent += 300;
+                player[joueurPlaying].argent += 300; //LE JOUEUR REÇOIT 300 DE LA BANQUE
             }
-            else if (aleaChance==10 || aleaChance==11)
+            else if (aleaChance==10 || aleaChance==11) //SI CE SONT LES CARTES 10 OU 11
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position = 2;
+                player[joueurPlaying].position = 2; //LE JOUEUR SE DIRIGE VERS VÉNUS
 
             }
-            else if (aleaChance==12 || aleaChance==13)
+            else if (aleaChance==12 || aleaChance==13) //SI CE SONT LES CARTES 12 OU
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position = 0;
+                player[joueurPlaying].position = 0; //LE JOUEUR SE DIRIGE VERS LA CASE DÉPART
 
             }
-            else if (aleaChance==14 || aleaChance==15)
+            else if (aleaChance==14 || aleaChance==15) //SI CE SONT LES CARTES 14 OU 15
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position += 5;
+                player[joueurPlaying].position += 5; //LE JOUEUR AVANCE DE 5 CASES
 
             }
 
@@ -971,7 +981,7 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[3].loyer)
                 {
-                    player[joueurPlaying].nbTerrain+=1;
+                    
 
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -3240,17 +3250,17 @@ int main()
             joueurPlaying++;
         }
 
-///SAUVEGARDE///
+//////////////////////////////////////SAUVEGARDE/////////////////////////////////////
 
 
         int i = 0;
-        FILE* sauvegarde = fopen("Sauvegarde.txt", "w+");
-        if (sauvegarde == NULL)
+        FILE* sauvegarde = fopen("Sauvegarde.txt", "w+"); //ON OUVRE LE FICHIER SAUVEGARDE.TXT EN W+ (PERMET DE LE RÉINITIALISÉ À CHAQUE FOIS)
+        if (sauvegarde == NULL) //SI LE FICHIER NE S'EST PAS OUVERT CORRECTEMENT
         {
             printf("Erreur d'ouverture de fichier.");
             return 1;
         }
-
+////////////////////////////// ON ÉCRIT DANS LE FICHIER TOUTES LES INFORMATIONS NÉCESSAIRES ////////////////////////////////
         for (int j=1; j<=nbJoueurs; j++)
         {
             fprintf(sauvegarde, "%s\n", player[j].nom);
@@ -3268,10 +3278,10 @@ int main()
             fprintf(sauvegarde, "%s\n\n", player[j].terrain10);
             //fprintf(sauvegarde, "%d\n", color ? ); --> La couleur est toujours la même dans l'ordre (A=vert, B=bleu...)
         }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-        fclose(sauvegarde);
+        fclose(sauvegarde); //ON FERME SAUVEGARDE.TXT
     }
 
     while(player[joueurPlaying].argent > 0);
@@ -3282,7 +3292,7 @@ int w=0;
             w=i;
         }
     }
-
+///////////////////////////////// AFFICHE ASCII ART ////////////////////////////////////
     gotoligcol(58,0);
     system("cls");
     FILE * fpFin;
@@ -3308,7 +3318,7 @@ int w=0;
     gotoligcol(12,90);
     printf("C'est %s qui a gagner la partie avec %d M $ ", player[w].nom, player[w].argent);
 
-
+///////////////////////////////////////////////////////////////////////////////////////
 
 
     gotoligcol(58, 0);
