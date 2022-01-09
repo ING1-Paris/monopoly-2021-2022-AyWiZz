@@ -18,7 +18,7 @@ int cartesChance()
     int aleatoire = generationAleatoireChance(); //GENERE UN NOMBRE ALEATOIRE QUI SERA STOCKÉ DANS ALEATOIRE
     gotoligcol(100, 50);
 
-    CarteChance tabCartes[32]; 
+    CarteChance tabCartes[32];
     creationCartesChance(tabCartes);
     creationContourCarteChanceCommunaute();
     affichageCarteChance(aleatoire, tabCartes);
@@ -126,7 +126,7 @@ int main()
     nbJoueurs = remplissageJoueur(player);
     //remplir(player);
     //////////////// REMPLI TOUT LES JOUEURS //////////////
-    for (int i=0; i<nbJoueurs; i++)
+    for (int i=1; i<=nbJoueurs; i++)
     {
         player[i].argent = 1500;
         player[i].position = 0;
@@ -135,27 +135,6 @@ int main()
         player[i].doubleDee = 0;
         player[i].tempsPrison = 0;
         player[i].cartePrison = 0;
-        //player[i].nbSat = 0;
-    }
-    for(int i = 0 ; i < 4; i++)
-    {
-        tabSatellites[i].possede = 0;
-        tabSatellites[i].nbPossession = 0;
-        tabSatellites[i].hypoValid = 0;
-    }
-    for(int i = 0 ; i < 15; i++)
-    {
-        tabCartesPlanetes[i].possede = 0;
-    }
-    for(int i = 0 ; i < 15; i++)
-    {
-        tabCartesPlanetes[i].possede = 0;
-        tabCartesPlanetes[i].nbMaisons = 0;
-        tabCartesPlanetes[i].nbHotels = 0;
-        tabCartesPlanetes[i].hypoValid = 0;
-    }
-    for(int i = 0 ; i < nbJoueurs; i++)
-    {
         player[i].t1Possede = 0;
         player[i].t2Possede = 0;
         player[i].t3Possede = 0;
@@ -176,6 +155,23 @@ int main()
         strcpy(player[i].terrain8,"");
         strcpy(player[i].terrain9,"");
         strcpy(player[i].terrain10,"");
+        //player[i].nbSat = 0;
+    }
+    ///////////////REMPLI LES CARTES SATELLITES////////
+    for(int i = 0 ; i < 4; i++)
+    {
+        tabSatellites[i].possede = 0;
+        tabSatellites[i].nbPossession = 0;
+        tabSatellites[i].hypoValid = 0;
+    }
+    ///////////////REMPLI LES CARTES PLANETES////////
+    for(int i = 0 ; i < 15; i++)
+    {
+        tabCartesPlanetes[i].possede = 0;
+        tabCartesPlanetes[i].nbMaisons = 0;
+        tabCartesPlanetes[i].nbHotels = 0;
+        tabCartesPlanetes[i].hypoValid = 0;
+        tabCartesPlanetes[i].possede = 0;
     }
     //////////////////////////////////////////////////////
     joueurPlaying = choixDepart(nbJoueurs);
@@ -199,8 +195,7 @@ int main()
 
 
         Color(joueurPlaying+1, 0);
-        printf("C'est %s qui joue ", player[joueurPlaying].nom);
-        player[joueurPlaying].haveToPlay = 1;
+        printf("C'est %s qui joue ", player[joueurPlaying].nom); // Affiche le nom du joueur qui joue dans sa couleur
 
         gotoligcol(3, 195);
 
@@ -245,7 +240,7 @@ int main()
                 ////////////////////////////////////////////////////////
 
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position = 21;//player[joueurPlaying].lastposition + nbDe;
+                player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
 
             }
 

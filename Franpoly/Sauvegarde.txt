@@ -1,11 +1,11 @@
-tat
-1500
+tata
+1050
 7
-
-
-
-
-
+MARS
+TRITON
+VOSTOK
+JUPITER
+LUNE
 
 
 
@@ -13,16 +13,16 @@ tat
 
 
 zeze
-50463490
-7
+1020
+11
 
-àúf
+TERRE
+ISS
+APOLLO
+VENUS
+SPOUTNIK
 
 
-ø
-
 
-{¢ôø
 
-„þ
 
