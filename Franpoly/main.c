@@ -150,11 +150,11 @@ int main()
     //////////////// REMPLI TOUT LES JOUEURS //////////////
     for (int i=1; i<=nbJoueurs; i++) //ON INITIALISE LA STRUCTURE JOUEUR DE CHAQUE JOUEUR
     {
-        player[i].argent = 1500; 
-        player[i].position = 0; 
-        player[i].nbTerrain = 0; 
-        player[i].prison = 0; 
-        player[i].doubleDee = 0; 
+        player[i].argent = 200;
+        player[i].position = 0;
+        player[i].nbTerrain = 0;
+        player[i].prison = 0;
+        player[i].doubleDee = 0;
         player[i].tempsPrison = 0;
         player[i].cartePrison = 0;
         player[i].t1Possede = 0;
@@ -263,7 +263,7 @@ int main()
                 ////////////////////////////////////////////////////////
 
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position = 3;//player[joueurPlaying].lastposition + nbDe;
+                player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
 
             }
 

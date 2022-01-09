@@ -111,7 +111,7 @@ void rachatHypoSat(Joueur j[], Satellite sat[],int joueurPlaying, int satellite)
 
     int repAchatHypo = 0;
     gotoligcol(47,90);
-    printf("Voulez-vous racheter votre hypothèque ?");
+    printf("Voulez-vous racheter votre hypotheque ?");
     scanf("%d", &repAchatHypo);
 
     if(repAchatHypo == 1 && j[joueurPlaying].argent >=(sat[satellite].loyer+(sat[satellite].loyer*0.1)))
