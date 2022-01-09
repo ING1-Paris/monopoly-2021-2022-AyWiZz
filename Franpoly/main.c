@@ -143,18 +143,18 @@ int main()
     {
         sauvegarde = checkPartie(); //ON LANCE LA NOUVELLE SAUVEGARDE
     }
-    system("cls");
+    system("cls"); //EFFACE LA CONSOLE
 
-    nbJoueurs = remplissageJoueur(player);
+    nbJoueurs = remplissageJoueur(player); //LA VARIABLE NBJOUEURS CORRESPOND AU NOMBRE DE JOUEURS QUE NOUS AVONS RENTRÉ AU DÉBUT
     //remplir(player);
     //////////////// REMPLI TOUT LES JOUEURS //////////////
-    for (int i=1; i<=nbJoueurs; i++)
+    for (int i=1; i<=nbJoueurs; i++) //ON INITIALISE LA STRUCTURE JOUEUR DE CHAQUE JOUEUR
     {
-        player[i].argent = 1500;
-        player[i].position = 0;
-        player[i].nbTerrain = 0;
-        player[i].prison = 0;
-        player[i].doubleDee = 0;
+        player[i].argent = 1500; 
+        player[i].position = 0; 
+        player[i].nbTerrain = 0; 
+        player[i].prison = 0; 
+        player[i].doubleDee = 0; 
         player[i].tempsPrison = 0;
         player[i].cartePrison = 0;
         player[i].t1Possede = 0;
@@ -186,6 +186,7 @@ int main()
         tabSatellites[i].nbPossession = 0;
         tabSatellites[i].hypoValid = 0;
     }
+    /////////////////////////////////////////////////
     ///////////////REMPLI LES CARTES PLANETES////////
     for(int i = 0 ; i < 15; i++)
     {
