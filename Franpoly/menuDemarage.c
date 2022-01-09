@@ -6,6 +6,7 @@
 #include <windows.h>
 #include "header.h"
 #include <conio.h>
+#define taillemax 30
 
 int positionCurseur()
 {

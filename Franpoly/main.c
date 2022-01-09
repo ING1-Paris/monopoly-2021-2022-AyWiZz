@@ -114,7 +114,6 @@ int main()
     int joueurPlaying = 0;
     //int ligne = 0;
     int curseur = 1;
-    int sauvegarde = 0;
     int nbJoueurs = 0;
     int aleaChance = 0, aleaCommu = 0;
     int w=0;
@@ -122,6 +121,7 @@ int main()
     int *pnbDe1 = &nbDe1;
     int *pnbDe2 = &nbDe2;
     int *pnbDe = & nbDe;
+    int max = 0;
 
     int repAchat = 0;
 
@@ -138,7 +138,7 @@ int main()
     //////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////
     curseur = positionCurseur(); //NOUS STOCKONS DANS LA VARIABLE CURSEUR LA POSITION ACTUELLE DU CURSEUR
-    
+
     if (curseur == 1)
     {
         nbJoueurs = remplissageJoueur(player); //LA VARIABLE NBJOUEURS CORRESPOND AU NOMBRE DE JOUEURS QUE NOUS AVONS RENTRÉ AU DÉBUT
@@ -204,58 +204,6 @@ int main()
     }
     system("cls"); //EFFACE LA CONSOLE
 
-    nbJoueurs = remplissageJoueur(player); //LA VARIABLE NBJOUEURS CORRESPOND AU NOMBRE DE JOUEURS QUE NOUS AVONS RENTRÉ AU DÉBUT
-    //remplir(player);
-    //////////////// REMPLI TOUT LES JOUEURS //////////////
-    for (int i=1; i<=nbJoueurs; i++) //ON INITIALISE LA STRUCTURE JOUEUR DE CHAQUE JOUEUR
-    {
-        player[i].argent = 1500;
-        player[i].position = 0;
-        player[i].nbTerrain = 0;
-        player[i].prison = 0;
-        player[i].doubleDee = 0;
-        player[i].tempsPrison = 0;
-        player[i].cartePrison = 0;
-        player[i].t1Possede = 0;
-        player[i].t2Possede = 0;
-        player[i].t3Possede = 0;
-        player[i].t4Possede = 0;
-        player[i].t5Possede = 0;
-        player[i].t6Possede = 0;
-        player[i].t7Possede = 0;
-        player[i].t8Possede = 0;
-        player[i].t9Possede = 0;
-        player[i].t10Possede = 0;
-        strcpy(player[i].terrain1,"");
-        strcpy(player[i].terrain2,"");
-        strcpy(player[i].terrain3,"");
-        strcpy(player[i].terrain4,"");
-        strcpy(player[i].terrain5,"");
-        strcpy(player[i].terrain6,"");
-        strcpy(player[i].terrain7,"");
-        strcpy(player[i].terrain8,"");
-        strcpy(player[i].terrain9,"");
-        strcpy(player[i].terrain10,"");
-        player[i].nbSat = 0;
-    }
-    ///////////////REMPLI LES CARTES SATELLITES////////
-    for(int i = 0 ; i < 4; i++)
-    {
-        tabSatellites[i].possede = 0;
-        tabSatellites[i].nbPossession = 0;
-        tabSatellites[i].hypoValid = 0;
-    }
-    /////////////////////////////////////////////////
-    ///////////////REMPLI LES CARTES PLANETES////////
-    for(int i = 0 ; i < 15; i++)
-    {
-        tabCartesPlanetes[i].possede = 0;
-        tabCartesPlanetes[i].nbMaisons = 0;
-        tabCartesPlanetes[i].nbHotels = 0;
-        tabCartesPlanetes[i].hypoValid = 0;
-        tabCartesPlanetes[i].possede = 0;
-    }
-    //////////////////////////////////////////////////////
     joueurPlaying = choixDepart(nbJoueurs); //JOUEURPLAYING PREND LA VALEUR DU NUMÉRO DU JOUEUR QUI EST EN TRAIN DE JOUER
 
     // system("cls");
@@ -273,12 +221,15 @@ int main()
     ///boucle permettant de faire jouer les joueurs jusqu'à ce que un d'entre eux n'est plus d'argent.
     while(player[joueurPlaying].argent > 0)
     {
+
+        for (int i = 1; i<=nbJoueurs; i++)
+        {
+            if(player[i].argent<0)
+            {
+                break;
+            }
+        }
         ///boucles permettant de tester si l'argent des joueurs est supérieur à 0. Si non, on sort de la boucle pour afficher le perdant et le gagnant.
-        for (int i = 1;i<=nbJoueurs;i++){
-        if(player[i].argent<0){
-            break;
-        }
-        }
         gotoligcol(2, 195);
 
 
@@ -300,7 +251,7 @@ int main()
 
 
 
-        if(player[joueurPlaying].choix == 1) //SI LE JOUEUR CHOISIS DE LANCER LES DÉS 
+        if(player[joueurPlaying].choix == 1) //SI LE JOUEUR CHOISIS DE LANCER LES DÉS
         {
             gotoligcol(5, 195);
             player[joueurPlaying].choix = 0; //LE CHOIX DU JOUEUR PASSE À 0
@@ -319,7 +270,7 @@ int main()
                 {
                     player[joueurPlaying].doubleDee = 0; //ON A PAS DE DOUBLE
                 }
-                if(player[joueurPlaying].doubleDee == 3) //SI LE JOUEUR FAIT TROIS DOUBLES D'AFFILER 
+                if(player[joueurPlaying].doubleDee == 3) //SI LE JOUEUR FAIT TROIS DOUBLES D'AFFILER
                 {
                     player[joueurPlaying].position = 21; //IL VA EN PRISON
                     player[joueurPlaying].doubleDee = 0;
@@ -342,7 +293,8 @@ int main()
             ///////////////////////////// Pour prison///////////////////////
 
             if(player[joueurPlaying].position == 21) // Pour l'affichage si il est dans la prison alors on raffiche tout
-            { //SI LE JOUEUR EST SUR LA CASE ALLÉ EN PRISON
+            {
+                //SI LE JOUEUR EST SUR LA CASE ALLÉ EN PRISON
 
                 gotoligcol(16, 195);
                 printf("Vous allez en prison !!!!!!!!");
@@ -351,7 +303,7 @@ int main()
                 player[joueurPlaying].position = 7; //ON DÉPLACE LE JOUEUR EN PRISON
                 player[joueurPlaying].prison = 1; //LE JOUEUR EST EN PRISON
 
-                system("cls"); 
+                system("cls");
                 couleursPlateau(); //ON AFFICHE LES COULEURS DU PLATEAU
                 creationPlateau(); //ON AFFICHE LES CASES DU PLATEAU
 
@@ -414,7 +366,7 @@ int main()
         nbDe = 0;
 
         affichInfo(player,joueurPlaying, nbJoueurs); //ON AFFICHE LES DONNÉES DU JOUEUR
-        
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /*                           ATTENTION                          */
@@ -423,7 +375,7 @@ int main()
         /*               UNE CARTE VILLE (LA CASE 0)                    */
         /*               UNE CARTE CHANCE (LA CASE 4)                   */
         /*               UNE CARTE SATELLITE (LA CASE 3)                */
-        
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1043,7 +995,7 @@ int main()
                 scanf("%d", &repAchat);
                 if(repAchat == 1 && player[joueurPlaying].argent>=tabCartesPlanetes[3].loyer)
                 {
-                    
+
 
                     switch (player[joueurPlaying].nbTerrain)
                     {
@@ -3315,13 +3267,13 @@ int main()
 //////////////////////////////////////SAUVEGARDE/////////////////////////////////////
 
 
-        int i = 0;
         FILE* sauvegarde = fopen("Sauvegarde.txt", "w+"); //ON OUVRE LE FICHIER SAUVEGARDE.TXT EN W+ (PERMET DE LE RÉINITIALISÉ À CHAQUE FOIS)
         if (sauvegarde == NULL) //SI LE FICHIER NE S'EST PAS OUVERT CORRECTEMENT
         {
             printf("Erreur d'ouverture de fichier.");
             return 1;
         }
+        fprintf(sauvegarde, "%d\n", nbJoueurs);
 ////////////////////////////// ON ÉCRIT DANS LE FICHIER TOUTES LES INFORMATIONS NÉCESSAIRES ////////////////////////////////
         for (int j=1; j<=nbJoueurs; j++)
         {
@@ -3347,8 +3299,10 @@ int main()
     }
 
 ///boucle permettant de déterminer quel joueur à le plus d'argent à la fin de la partie.
-    for (int i = 1;i<=nbJoueurs;i++){
-        if(player[i].argent>max){
+    for (int i = 1; i<=nbJoueurs; i++)
+    {
+        if(player[i].argent>max)
+        {
             max = player[i].argent;
             w=i;
         }
