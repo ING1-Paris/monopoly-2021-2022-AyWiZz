@@ -18,24 +18,16 @@ int generationAleatoireChance()
 }
 /*  ENTREE : AUCUNE
     SORTIE : INT ALEATOIRE
-    BUT DE LA FONCTION : CREER ET AFFICHE LES CARTES CHANCES 
+    BUT DE LA FONCTION : CREER ET AFFICHE LES CARTES CHANCES
 */
 int cartesChance()
 {
     int aleatoire = generationAleatoireChance(); //GENERE UN NOMBRE ALEATOIRE QUI SERA STOCKÉ DANS ALEATOIRE
     gotoligcol(100, 50);
-
-<<<<<<< HEAD
-    CarteChance tabCartes[32];
-    creationCartesChance(tabCartes);
-    creationContourCarteChanceCommunaute();
-    affichageCarteChance(aleatoire, tabCartes);
-=======
     CarteChance tabCartes[32]; //CREER UN TABLEAU DE 32 STRUCTURES CARTESCHANCES
     creationCartesChance(tabCartes); //NOUS CREEONS LES CARTES CHANCES
     creationContourCarteChanceCommunaute(); //NOUS CREEONS LE CONTOUR DES CARTES CHANCES ET DES CARTES COMMUNAUTES
     affichageCarteChance(aleatoire, tabCartes); //AFFICHE LE CONTENU DE LA CARTE CHANCE DANS LA CONSOLE
->>>>>>> ebb9e002b061442a51ebdf3f3a161ab3a10e1e12
 
     return aleatoire;
 }
@@ -94,7 +86,7 @@ void carteSatellite(int num)
 
     bandeauCartes(); //CREER LE BANDEAU DE COULEUR DE LA CARTE
 
-    Satellite tabSatellites[4]; //CREER UN TABLEAU DE 4 STRUCTURES 
+    Satellite tabSatellites[4]; //CREER UN TABLEAU DE 4 STRUCTURES
 
     creationSatellites(tabSatellites); //CREER LES CARTES SATELLITES
 
@@ -145,7 +137,7 @@ int main()
     //////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////
     curseur = positionCurseur(); //NOUS STOCKONS DANS LA VARIABLE CURSEUR LA POSITION ACTUELLE DU CURSEUR
-    
+
     if(curseur == 2) //SI NOUS CHOISISSONS LE "CHARGER UNE PARTIE"
     {
         sauvegarde = checkPartie(); //ON LANCE LA NOUVELLE SAUVEGARDE
@@ -184,7 +176,7 @@ int main()
         strcpy(player[i].terrain8,"");
         strcpy(player[i].terrain9,"");
         strcpy(player[i].terrain10,"");
-        //player[i].nbSat = 0;
+        player[i].nbSat = 0;
     }
     ///////////////REMPLI LES CARTES SATELLITES////////
     for(int i = 0 ; i < 4; i++)
@@ -269,7 +261,7 @@ int main()
                 ////////////////////////////////////////////////////////
 
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
+                player[joueurPlaying].position = 3;//player[joueurPlaying].lastposition + nbDe;
 
             }
 
