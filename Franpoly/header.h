@@ -3,6 +3,7 @@
 #define tailleCarre 6
 #define taille 20
 
+
 typedef struct Joueur //CETTE STRUCTURE CORRESPOND À UN JOUEUR
 {
     char nom[taille]; //CELA CORRESPOND AU NOM DU JOUEUR
