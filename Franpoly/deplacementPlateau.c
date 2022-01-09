@@ -4,16 +4,21 @@
 #include <time.h>
 #include "header.h"
 
+///fonction permettant de tirer les dées et de renvoyer le résultat des deux dées ainsi que la valeur de chaque dé.
+///entrées : variables auxquelles ont assigne le résultat de chaque dé et la somme des dées et les pointeurs qui pointent sur ces variables.
+///sortie : les pointeurs des variables pointant sur les valeurs des dées
+
 void des(int x1, int x2, int x, int *px1, int * px2, int *px)
 {
 
     int nbr = 0, a = 23;
     const int max = 6, min = 1; //initialisation des variables maximale et minimale des dés
-    srand(time(NULL));
+    srand(time(NULL));///on inclue le temps afin d'avoir une génération réellement aléatoire
         nbr = (rand() % (max - min)) + min; //nombre aléatoire pour le premier dé
         x1=nbr; //affectation du premier dé
         gotoligcol(a,47);
-        printf("%c", 0xDA); //affichage du premier dé
+        printf("%c", 0xDA); 
+        //affichage du premier dé
         for (int j=0; j<7; j++)
         {
             printf("%c", 0xC4);
@@ -80,10 +85,13 @@ void des(int x1, int x2, int x, int *px1, int * px2, int *px)
 
 }
 
-
+///fonction permettant d'afficher les pions des joueurs à tout moment.
+///entrées : la structure du joueur et le joueur jouant
+///sorties : aucune mais affiche le pion de la bonne couleur correspondant au joueur dans la case demandée.
 void affichPion(Joueur j[], int joueurJ)
 {
-    gotoligcol(4,195); //création d'un tableau qui regroupe le centre de chaque case
+    gotoligcol(4,195); 
+    //création d'un tableau qui regroupe le centre de chaque case
     int caze[29][2]= {{0,0},{4,26},{4,48},{4,70},{4,92},{4,114},{4,136},{4,158},{4,180},
         {11,180},{18,180},{25,180},{32,180},{39,180},{46,180},{53,180},
         {53,158},{53,136},{53,114},{53,92},{53,70},{53,48},{53,26},
@@ -91,7 +99,7 @@ void affichPion(Joueur j[], int joueurJ)
     };
 
     int nbDe = 0;
-    int *pnbDe = &nbDe;
+    int *pnbDe = &nbDe;///on récupère le nombre des dés
     int pos = 0;
 
     pos = j[joueurJ].position;
