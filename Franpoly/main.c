@@ -3361,12 +3361,41 @@ int main()
         {
             joueurPlaying++;
         }
+
+///SAUVEGARDE///
+
+
+    int i = 0;
+    FILE* sauvegarde = fopen("Sauvegarde.txt", "w+");
+    if (sauvegarde == NULL)
+    {
+        printf("Erreur d'ouverture de fichier.");
+        return 1;
+    }
+
+    for (int j=1; j<nbJoueurs+1; j++)
+    {
+        fprintf(sauvegarde, "%s\n", player[j].nom);
+        fprintf(sauvegarde, "%d\n", player[j].argent);
+        fprintf(sauvegarde, "%d\n", player[j].position);
+        fprintf(sauvegarde, "%s\n", player[j].terrain1);
+        fprintf(sauvegarde, "%s\n", player[j].terrain2);
+        fprintf(sauvegarde, "%s\n", player[j].terrain3);
+        fprintf(sauvegarde, "%s\n", player[j].terrain4);
+        fprintf(sauvegarde, "%s\n", player[j].terrain5);
+        fprintf(sauvegarde, "%s\n", player[j].terrain6);
+        fprintf(sauvegarde, "%s\n", player[j].terrain7);
+        fprintf(sauvegarde, "%s\n", player[j].terrain8);
+        fprintf(sauvegarde, "%s\n", player[j].terrain9);
+        fprintf(sauvegarde, "%s\n\n", player[j].terrain10);
+        //fprintf(sauvegarde, "%d\n", color ? ); --> La couleur est toujours la même dans l'ordre (A=vert, B=bleu...)
+    }
+
+
+
+    fclose(sauvegarde);
     }
     while(1==1);
-
-// des(nbDe,pnbDe);
-
-// affichPion(player, joueurJ);
 
 
     gotoligcol(58,0);
