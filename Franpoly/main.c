@@ -127,13 +127,14 @@ int main()
 
     int repMaison = 0;
     int repHotel = 0;
+    int repCarteprison = 0;
     int nbMaisonTotal = 0;
     int nbHotelTotal = 0;
 
     int *pnbMaisonTotal = &nbMaisonTotal;
 
     int *pnbHotelTotal = &nbHotelTotal;
-///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////
     curseur = positionCurseur(); //NOUS STOCKONS DANS LA VARIABLE CURSEUR LA POSITION ACTUELLE DU CURSEUR
@@ -305,6 +306,20 @@ int main()
                 {
                     player[joueurPlaying].prison = 0;
                     player[joueurPlaying].tempsPrison = 0;
+                }
+                else if (player[joueurPlaying].cartePrison == 1)
+                {
+                    gotoligcol(46, 90);
+                    printf("Voulez vous utiliser votre carte prison (1 pour oui 0 pour non?");
+                    gotoligcol(47, 90);
+                    scanf("%d", &repCarteprison);
+                    if(repCarteprison == 1)
+                    {
+                        player[joueurPlaying].prison = 0;
+                        player[joueurPlaying].tempsPrison = 0;
+                        player[joueurPlaying].cartePrison = 0;
+                    }
+
                 }
                 else
                 {
@@ -1399,6 +1414,10 @@ int main()
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
                 player[joueurPlaying].position = 21;
+            }
+            else if (aleaCommu == 15)
+            {
+                player[joueurPlaying].cartePrison =+1;
             }
             else if (aleaCommu==19)
             {
@@ -2740,6 +2759,10 @@ int main()
             {
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
                 player[joueurPlaying].position = 21;
+            }
+            else if (aleaCommu == 15)
+            {
+                player[joueurPlaying].cartePrison =+1;
             }
             else if (aleaCommu==19)
             {
