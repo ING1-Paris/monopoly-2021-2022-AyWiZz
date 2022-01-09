@@ -5,22 +5,6 @@
 #include"header.h"
 
 
-void remplir(Joueur j[])
-{
-    int couleurPion = 10;
-    for (int i=1; i<7; i++)
-    {
-        j[i].argent = 1500;
-        j[i].position = 0;
-        //j[i].haveToPlay = 0;
-    }
-    for (int i=1; i<7; i++)
-    {
-        j[i].couleur = couleurPion;
-        couleurPion += 1;
-    }
-
-}
 int remplissageJoueur(Joueur j[])
 {
     int nbJoueurs = 0;
