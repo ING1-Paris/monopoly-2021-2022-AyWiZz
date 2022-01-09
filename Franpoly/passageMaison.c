@@ -48,3 +48,36 @@ void passMaison(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int pla
         printf("Vous venez de payer un loyer de %d au joueur : %s",tabCartes[planete].loyer5, j[tabCartes[planete].possession].nom);
     }
 }
+void passSat(Joueur j[], Satellite sat[], int joueurPlaying, int satellite){
+
+if(sat[satellite].nbPossession == 1)
+    {
+        gotoligcol(48,90);
+        j[joueurPlaying].argent -= sat[satellite].loyer; // LE JOUEUR PAYE LE LOYER
+        j[sat[satellite].possession].argent += sat[satellite].loyer;
+        printf("Vous venez de payer un loyer de %d au joueur : %s",sat[satellite].loyer, j[sat[satellite].possession].nom);
+    }
+else if(sat[satellite].nbPossession == 2)
+    {
+        gotoligcol(48,90);
+        j[joueurPlaying].argent -= sat[satellite].loyer2; // LE JOUEUR PAYE LE LOYER
+        j[sat[satellite].possession].argent += sat[satellite].loyer2;
+        printf("Vous venez de payer un loyer de %d au joueur : %s",sat[satellite].loyer2, j[sat[satellite].possession].nom);
+    }
+else if(sat[satellite].nbPossession == 3)
+    {
+        gotoligcol(48,90);
+        j[joueurPlaying].argent -= sat[satellite].loyer3; // LE JOUEUR PAYE LE LOYER
+        j[sat[satellite].possession].argent += sat[satellite].loyer3;
+        printf("Vous venez de payer un loyer de %d au joueur : %s",sat[satellite].loyer3, j[sat[satellite].possession].nom);
+    }
+else if(sat[satellite].nbPossession == 4)
+    {
+        gotoligcol(48,90);
+        j[joueurPlaying].argent -= sat[satellite].loyer4; // LE JOUEUR PAYE LE LOYER
+        j[sat[satellite].possession].argent += sat[satellite].loyer4;
+        printf("Vous venez de payer un loyer de %d au joueur : %s",sat[satellite].loyer4, j[sat[satellite].possession].nom);
+    }
+
+
+}
