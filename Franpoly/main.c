@@ -3231,6 +3231,11 @@ int main()
         {
             joueurPlaying = 1;
         }
+        else if(player[joueurPlaying].argent<0)
+        {
+            break;
+            joueurPlaying++;
+        }
         else
         {
             joueurPlaying++;
@@ -3271,7 +3276,13 @@ int main()
     }
 
     while(player[joueurPlaying].argent > 0);
-
+int w=0;
+    for (int i = 0;i<nbJoueurs;i++){
+        if(player[i].argent>max){
+            max = player[i].argent;
+            w=i;
+        }
+    }
 
     gotoligcol(58,0);
     system("cls");
@@ -3295,6 +3306,8 @@ int main()
     gotoligcol(11,90);
     //Color(player[joueurPlaying].couleur, 0);
     printf("C'est %s qui a perdu la partie :( ", player[joueurPlaying].nom);
+    gotoligcol(12,90);
+    printf("C'est %s qui a gagner la partie avec %d M $ ", player[w].nom, player[w].argent);
 
 
 
