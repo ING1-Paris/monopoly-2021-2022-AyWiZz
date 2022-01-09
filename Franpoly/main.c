@@ -134,7 +134,7 @@ int main()
         player[i].prison = 0;
         player[i].doubleDee = 0;
         player[i].tempsPrison = 0;
-        player[i].cartePrison = 0
+        player[i].cartePrison = 0;
         //player[i].nbSat = 0;
     }
     for(int i = 0 ; i < 4; i++)
