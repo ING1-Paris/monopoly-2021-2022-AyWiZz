@@ -60,7 +60,6 @@ void passMaison(Joueur j[], CartePlanete tabCartes[], int joueurPlaying, int pla
 
 void passSat(Joueur j[], Satellite sat[], int joueurPlaying, int satellite){
 
-printf("j[joueurPLaying].nbSat = %d dans la boucle de payment ",j[joueurPlaying].nbSat);
 if(j[sat[satellite].possession].nbSat == 1)///le loyer change en fonction du nombre de satellite possedé par le joueur
     {
         gotoligcol(48,90);
