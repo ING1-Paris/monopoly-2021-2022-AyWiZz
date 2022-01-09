@@ -126,7 +126,7 @@ int main()
     nbJoueurs = remplissageJoueur(player);
     //remplir(player);
     //////////////// REMPLI TOUT LES JOUEURS //////////////
-    for (int i=1; i<7; i++)
+    for (int i=0; i<nbJoueurs; i++)
     {
         player[i].argent = 1500;
         player[i].position = 0;
@@ -134,7 +134,8 @@ int main()
         player[i].prison = 0;
         player[i].doubleDee = 0;
         player[i].tempsPrison = 0;
-        //j[i].haveToPlay = 0;
+        player[i].cartePrison = 0
+        //player[i].nbSat = 0;
     }
     for(int i = 0 ; i < 4; i++)
     {
@@ -244,7 +245,7 @@ int main()
                 ////////////////////////////////////////////////////////
 
                 player[joueurPlaying].lastposition = player[joueurPlaying].position;
-                player[joueurPlaying].position = player[joueurPlaying].lastposition + nbDe;
+                player[joueurPlaying].position = 21;//player[joueurPlaying].lastposition + nbDe;
 
             }
 
@@ -262,7 +263,7 @@ int main()
 
                 gotoligcol(16, 195);
                 printf("Vous allez en prison !!!!!!!!");
-                sleep(3);
+                sleep(2);
 
                 player[joueurPlaying].position = 7;
                 player[joueurPlaying].prison = 1;
@@ -286,29 +287,22 @@ int main()
                 des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe);
                 if(nbDe1 == nbDe2)
                 {
-                    des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe);
-                    if(nbDe1 == nbDe2)
-                    {
-                        player[joueurPlaying].prison = 0;
-                        player[joueurPlaying].tempsPrison = 0;
-                    }
-                    else
-                    {
-                        if(player[joueurPlaying].tempsPrison == 3)
-                        {
-                            player[joueurPlaying].argent -= 50;
-                            player[joueurPlaying].prison = 0;
-                            player[joueurPlaying].tempsPrison = 0;
-                        }
-                        player[joueurPlaying].tempsPrison +=1;
-                        joueurPlaying++;
-                    }
+                    player[joueurPlaying].prison = 0;
+                    player[joueurPlaying].tempsPrison = 0;
                 }
                 else
                 {
-                    des(nbDe1,nbDe2,nbDe,pnbDe1,pnbDe2,pnbDe);
-                    player[joueurPlaying].tempsPrison +=1;
-                    joueurPlaying++;
+                    if(player[joueurPlaying].tempsPrison == 3)
+                    {
+                        player[joueurPlaying].argent -= 50;
+                        player[joueurPlaying].prison = 0;
+                        player[joueurPlaying].tempsPrison = 0;
+                    }
+                    else if(player[joueurPlaying].tempsPrison < 3)
+                    {
+                        player[joueurPlaying].tempsPrison +=1;
+                        //joueurPlaying+=1;
+                    }
                 }
 
             }
@@ -697,10 +691,11 @@ int main()
                     //strcpy(tabCartesPlanetes[0].possession, player[joueurPlaying].nom);
 
                     tabSatellites[0].possession = joueurPlaying;
-                    tabSatellites[0].nbPossession += 1;
+                    player[joueurPlaying].nbSat = player[joueurPlaying].nbSat +1;
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter l'ISS.");
                     gotoligcol(47, 90);
+
                     tabSatellites[0].possede = 1;
                 }
 
@@ -709,19 +704,22 @@ int main()
             {
                 hypoSat(player,tabSatellites,joueurPlaying,0);
             }
-            else if(tabSatellites[0].hypoValid == 1 && tabSatellites[0].possession == joueurPlaying){
+            else if(tabSatellites[0].hypoValid == 1 && tabSatellites[0].possession == joueurPlaying)
+            {
                 rachatHypoSat(player, tabSatellites,joueurPlaying,0);
             }
             else if(tabSatellites[0].possede == 1 && tabSatellites[0].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
                 /////////////////////////////////////////////////////////////////////////////
-                if(tabSatellites[0].hypoValid == 1){
+                if(tabSatellites[0].hypoValid == 1)
+                {
                     gotoligcol(47, 90);
                     printf("Vous ne payez rien car ce satellite est hypothequee.");
                 }
-                else {
-
-                passSat(player,tabSatellites,joueurPlaying,0);
+                else
+                {
+                    printf("nbsat vaut après etre tomber sur la case: %d", player[joueurPlaying].nbSat);
+                    passSat(player,tabSatellites,joueurPlaying,0);
                 }
             }
 
@@ -1509,7 +1507,7 @@ int main()
                     //strcpy(tabCartesPlanetes[0].possession, player[joueurPlaying].nom);
 
                     tabSatellites[1].possession = joueurPlaying;
-                    tabSatellites[1].nbPossession += 1;
+                    player[joueurPlaying].nbSat += 1;
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter SPOUTNIK.");
                     gotoligcol(47, 90);
@@ -1521,23 +1519,26 @@ int main()
             {
                 hypoSat(player,tabSatellites,joueurPlaying,1);
             }
-            else if(tabSatellites[1].hypoValid == 1 && tabSatellites[1].possession == joueurPlaying){
+            else if(tabSatellites[1].hypoValid == 1 && tabSatellites[1].possession == joueurPlaying)
+            {
                 rachatHypoSat(player, tabSatellites,joueurPlaying,0);
             }
             else if(tabSatellites[1].possede == 1 && tabSatellites[1].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
                 /////////////////////////////////////////////////////////////////////////////
-                if(tabSatellites[1].hypoValid == 1){
+                if(tabSatellites[1].hypoValid == 1)
+                {
                     gotoligcol(47, 90);
                     printf("Vous ne payez rien car ce satellite est hypothequee.");
                 }
-                else {
+                else
+                {
 
-                passSat(player,tabSatellites,joueurPlaying,1);
+                    passSat(player,tabSatellites,joueurPlaying,1);
                 }
             }
 
-                    
+
 
 
             break;
@@ -2243,7 +2244,7 @@ int main()
                     //strcpy(tabCartesPlanetes[0].possession, player[joueurPlaying].nom);
 
                     tabSatellites[2].possession = joueurPlaying;
-                    tabSatellites[2].nbPossession += 1;
+                    player[joueurPlaying].nbSat += 1;
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter VOSTOK.");
                     gotoligcol(47, 90);
@@ -2255,19 +2256,22 @@ int main()
             {
                 hypoSat(player,tabSatellites,joueurPlaying,2);
             }
-            else if(tabSatellites[2].hypoValid == 1 && tabSatellites[2].possession == joueurPlaying){
+            else if(tabSatellites[2].hypoValid == 1 && tabSatellites[2].possession == joueurPlaying)
+            {
                 rachatHypoSat(player, tabSatellites,joueurPlaying,0);
             }
             else if(tabSatellites[2].possede == 1 && tabSatellites[2].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
                 /////////////////////////////////////////////////////////////////////////////
-                if(tabSatellites[2].hypoValid == 1){
+                if(tabSatellites[2].hypoValid == 1)
+                {
                     gotoligcol(47, 90);
                     printf("Vous ne payez rien car ce satellite est hypothequee.");
                 }
-                else {
+                else
+                {
 
-                passSat(player,tabSatellites,joueurPlaying,2);
+                    passSat(player,tabSatellites,joueurPlaying,2);
                 }
             }
             break;
@@ -2845,7 +2849,7 @@ int main()
                     //strcpy(tabCartesPlanetes[0].possession, player[joueurPlaying].nom);
 
                     tabSatellites[3].possession = joueurPlaying;
-                    tabSatellites[3].nbPossession += 1;
+                    player[joueurPlaying].nbSat += 1;
                     gotoligcol(46, 90);
                     printf("Vous venez d'acheter APOLLO.");
                     gotoligcol(47, 90);
@@ -2857,19 +2861,22 @@ int main()
             {
                 hypoSat(player,tabSatellites,joueurPlaying,3);
             }
-            else if(tabSatellites[3].hypoValid == 1 && tabSatellites[3].possession == joueurPlaying){
+            else if(tabSatellites[3].hypoValid == 1 && tabSatellites[3].possession == joueurPlaying)
+            {
                 rachatHypoSat(player, tabSatellites,joueurPlaying,3);
             }
             else if(tabSatellites[3].possede == 1 && tabSatellites[3].possession != joueurPlaying)// LE TERRAIN N'EST PAS AU JOUEUR PLAYING
             {
                 /////////////////////////////////////////////////////////////////////////////
-                if(tabSatellites[3].hypoValid == 1){
+                if(tabSatellites[3].hypoValid == 1)
+                {
                     gotoligcol(47, 90);
                     printf("Vous ne payez rien car ce satellite est hypothequee.");
                 }
-                else {
+                else
+                {
 
-                passSat(player,tabSatellites,joueurPlaying,3);
+                    passSat(player,tabSatellites,joueurPlaying,3);
                 }
             }
             break;
@@ -3192,35 +3199,35 @@ int main()
 ///SAUVEGARDE///
 
 
-    int i = 0;
-    FILE* sauvegarde = fopen("Sauvegarde.txt", "w+");
-    if (sauvegarde == NULL)
-    {
-        printf("Erreur d'ouverture de fichier.");
-        return 1;
-    }
+        int i = 0;
+        FILE* sauvegarde = fopen("Sauvegarde.txt", "w+");
+        if (sauvegarde == NULL)
+        {
+            printf("Erreur d'ouverture de fichier.");
+            return 1;
+        }
 
-    for (int j=1; j<nbJoueurs+1; j++)
-    {
-        fprintf(sauvegarde, "%s\n", player[j].nom);
-        fprintf(sauvegarde, "%d\n", player[j].argent);
-        fprintf(sauvegarde, "%d\n", player[j].position);
-        fprintf(sauvegarde, "%s\n", player[j].terrain1);
-        fprintf(sauvegarde, "%s\n", player[j].terrain2);
-        fprintf(sauvegarde, "%s\n", player[j].terrain3);
-        fprintf(sauvegarde, "%s\n", player[j].terrain4);
-        fprintf(sauvegarde, "%s\n", player[j].terrain5);
-        fprintf(sauvegarde, "%s\n", player[j].terrain6);
-        fprintf(sauvegarde, "%s\n", player[j].terrain7);
-        fprintf(sauvegarde, "%s\n", player[j].terrain8);
-        fprintf(sauvegarde, "%s\n", player[j].terrain9);
-        fprintf(sauvegarde, "%s\n\n", player[j].terrain10);
-        //fprintf(sauvegarde, "%d\n", color ? ); --> La couleur est toujours la même dans l'ordre (A=vert, B=bleu...)
-    }
+        for (int j=1; j<=nbJoueurs; j++)
+        {
+            fprintf(sauvegarde, "%s\n", player[j].nom);
+            fprintf(sauvegarde, "%d\n", player[j].argent);
+            fprintf(sauvegarde, "%d\n", player[j].position);
+            fprintf(sauvegarde, "%s\n", player[j].terrain1);
+            fprintf(sauvegarde, "%s\n", player[j].terrain2);
+            fprintf(sauvegarde, "%s\n", player[j].terrain3);
+            fprintf(sauvegarde, "%s\n", player[j].terrain4);
+            fprintf(sauvegarde, "%s\n", player[j].terrain5);
+            fprintf(sauvegarde, "%s\n", player[j].terrain6);
+            fprintf(sauvegarde, "%s\n", player[j].terrain7);
+            fprintf(sauvegarde, "%s\n", player[j].terrain8);
+            fprintf(sauvegarde, "%s\n", player[j].terrain9);
+            fprintf(sauvegarde, "%s\n\n", player[j].terrain10);
+            //fprintf(sauvegarde, "%d\n", color ? ); --> La couleur est toujours la même dans l'ordre (A=vert, B=bleu...)
+        }
 
 
 
-    fclose(sauvegarde);
+        fclose(sauvegarde);
     }
     while(1==1);
 

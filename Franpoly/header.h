@@ -36,6 +36,8 @@ typedef struct Joueur
     char terrain8[taille];
     char terrain9[taille];
     char terrain10[taille];
+    int nbSat;
+    unsigned int cartePrison;
 } Joueur;
 
 typedef struct

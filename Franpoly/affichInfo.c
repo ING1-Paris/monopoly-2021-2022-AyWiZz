@@ -28,7 +28,7 @@ void affichInfo(Joueur j[], int joueurPlaying, int nbJoueurs)
     }
     if(j[joueurPlaying].t3Possede ==1)
     {
-        printf("Vous posseder %s. elle bug", j[joueurPlaying].terrain3);
+        printf("Vous posseder %s.", j[joueurPlaying].terrain3);
         gotoligcol(20+c,195);
         c++;
     }
@@ -64,7 +64,7 @@ void affichInfo(Joueur j[], int joueurPlaying, int nbJoueurs)
     }
     if(j[joueurPlaying].t9Possede ==1)
     {
-        printf("Vous posseder %s. elle bug", j[joueurPlaying].terrain9);
+        printf("Vous posseder %s.", j[joueurPlaying].terrain9);
         gotoligcol(20+c,195);
         c++;
     }
